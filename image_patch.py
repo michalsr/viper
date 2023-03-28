@@ -74,7 +74,7 @@ class ImagePatch:
             An int describing the position of the top border of the crop's bounding box in the original image.
 
         """
-
+        #console.print('I imported')
         if isinstance(image, Image.Image):
             image = transforms.ToTensor()(image)
         elif isinstance(image, np.ndarray):
@@ -134,14 +134,16 @@ class ImagePatch:
         List[ImagePatch]
             a list of ImagePatch objects matching object_name contained in the crop
         """
+        #console.print('Running GLIP')
         if object_name in ["object", "objects"]:
             all_object_coordinates = self.forward('maskrcnn', self.cropped_image)[0]
         else:
 
             if object_name == 'person':
                 object_name = 'people'  # GLIP does better at people than person
-
-            all_object_coordinates = self.forward('glip', self.cropped_image, object_name)
+            
+            all_object_coordinates = self.forward('owlvit', self.cropped_image, object_name)
+            #console.print('GLIP finished running')
         if len(all_object_coordinates) == 0:
             return []
 
@@ -213,6 +215,8 @@ class ImagePatch:
         name = f"{attribute} {object_name}"
         model = config.verify_property.model
         negative_categories = [f"{att} {object_name}" for att in self.possible_options['attributes']]
+        return self._detect(name, negative_categories=negative_categories,
+                                thresh=config.verify_property.thresh_clip, model='clip')
         if model == 'clip':
             return self._detect(name, negative_categories=negative_categories,
                                 thresh=config.verify_property.thresh_clip, model='clip')
@@ -238,15 +242,17 @@ class ImagePatch:
         model_name = config.best_match_model
         image = self.cropped_image
         text = option_list_to_use
-        if model_name in ('clip', 'tcl'):
-            selected = self.forward(model_name, image, text, task='classify')
-        elif model_name == 'xvlm':
-            res = self.forward(model_name, image, text, task='score')
-            res = res.argmax().item()
-            selected = res
-        else:
-            raise NotImplementedError
-
+        # if model_name in ('clip', 'tcl'):
+        #     selected = self.forward(model_name, image, text, task='classify')
+        # elif model_name == 'xvlm':
+        #     res = self.forward(model_name, image, text, task='score')
+        #     res = res.argmax().item()
+        #     selected = res
+        # else:
+        #     raise NotImplementedError
+        selected = self.forward(model_name, image, text, task='classify')
+        # res = res.argmax().item()
+        # selected = res
         return option_list[selected]
 
     def simple_query(self, question: str):
@@ -258,6 +264,7 @@ class ImagePatch:
         question : str
             A string describing the question to be asked.
         """
+        #console.print('Running BLIP')
         return self.forward('blip', self.cropped_image, question, task='qa')
 
     def compute_depth(self):
@@ -270,6 +277,7 @@ class ImagePatch:
             the median depth of the image crop
         """
         original_image = self.original_image
+        #console.print('Running depth')
         depth_map = self.forward('depth', original_image)
         depth_map = depth_map[original_image.shape[1]-self.upper:original_image.shape[1]-self.lower,
                               self.left:self.right]
@@ -304,7 +312,7 @@ class ImagePatch:
             lower = max(0, lower - 10)
             right = min(self.width, right + 10)
             upper = min(self.height, upper + 10)
-
+        #.print('Cropping')
         return ImagePatch(self.cropped_image, left, lower, right, upper, self.left, self.lower, queues=self.queues,
                           parent_img_patch=self)
 
@@ -330,6 +338,7 @@ class ImagePatch:
         return self.left <= right and self.right >= left and self.lower <= upper and self.upper >= lower
 
     def llm_query(self, question: str, long_answer: bool = True) -> str:
+        #console.print('Querying')
         return llm_query(question, None, long_answer)
 
     def print_image(self, size: tuple[int, int] = None):

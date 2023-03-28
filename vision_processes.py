@@ -11,17 +11,22 @@ import torch.multiprocessing as mp
 from rich.console import Console
 from time import time
 from typing import Callable, Union
-
+import pdb 
 from configs import config
 
 console = Console(highlight=False)
+import sys
 
 if mp.current_process().name == 'MainProcess':
     # No need to initialize the models inside each process
+    #sys.stdout.write('hello again')
     import vision_models
+    # sys.stdout.write(print(m[1]) for m in inspect.getmembers(vision_models, inspect.isclass)
+    #                if vision_models.BaseModel in m[1].__bases__)
     # Create a list of all the defined models
     list_models = [m[1] for m in inspect.getmembers(vision_models, inspect.isclass)
                    if vision_models.BaseModel in m[1].__bases__]
+    #sys.stdout.write(str(list_models))
     if config.multiprocessing:
         manager = mp.Manager()
     else:
@@ -29,6 +34,7 @@ if mp.current_process().name == 'MainProcess':
 else:
     list_models = None
     manager = None
+#sys.stdout.write('hello end of vision process beginning')
 
 
 def make_fn(model_class, process_name, counter):
@@ -73,11 +79,12 @@ def make_fn(model_class, process_name, counter):
 
     return _function
 
-
+#sys.stdout.write(str(config.multiprocessing)+'multiprocessing')
 if config.multiprocessing:
+    #pdb.set_trace()
 
     def make_fn_process(model_class, process_name, counter):
-
+        #console.print(f'Making function for model class {model_class} ')
         if model_class.to_batch:
             seconds_collect_data = model_class.seconds_collect_data  # Window of seconds to group inputs
             max_batch_size = model_class.max_batch_size
@@ -187,6 +194,8 @@ def forward(model_name, *args, queues=None, **kwargs):
     """
     Sends data to consumer (calls their "forward" method), and returns the result
     """
+    #pdb.set_trace()
+    #console.print(f'Forward on {model_name}')
     error_msg = f'No model named {model_name}. ' \
                 'The available models are: {}. Make sure to activate it in the configs files'
     if not config.multiprocessing:
@@ -202,8 +211,10 @@ def forward(model_name, *args, queues=None, **kwargs):
         try:
             if consumer_queues_in is not None:
                 consumer_queue_in = consumer_queues_in[model_name]
+                #console.print(consumer_queue_in,'consume queue in')
             else:
                 consumer_queue_in = queues_in[model_name]
+                #console.print(consumer_queue_in,'consume queue in second')
         except KeyError as e:
             options = list(consumer_queues_in.keys()) if consumer_queues_in is not None else list(queues_in.keys())
             raise KeyError(error_msg.format(options)) from e

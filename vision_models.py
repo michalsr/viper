@@ -31,13 +31,13 @@ from utils import HiddenPrints
 
 with open('api.key') as f:
     openai.api_key = f.read().strip()
-
+import sys 
 cache = Memory('cache/' if config.use_cache else None, verbose=0)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 console = Console(highlight=False)
 HiddenPrints = partial(HiddenPrints, console=console, use_newline=config.multiprocessing)
 
-
+#dsys.stdout.write('I made it to vision models')
 # --------------------------- Base abstract model --------------------------- #
 
 class BaseModel(abc.ABC):
@@ -48,6 +48,7 @@ class BaseModel(abc.ABC):
 
     def __init__(self, gpu_number):
         self.dev = f'cuda:{gpu_number}' if device == 'cuda' else device
+        #console.print(self.dev)
 
     @abc.abstractmethod
     def forward(self, *args, **kwargs):
@@ -114,7 +115,7 @@ class DepthEstimationModel(BaseModel):
             depth_estimation_model.eval()
 
             midas_transforms = torch.hub.load("intel-isl/MiDaS", "transforms")
-
+        model_type = 'DPT_Hybrid'
         if model_type == "DPT_Large" or model_type == "DPT_Hybrid":
             self.transform = midas_transforms.dpt_transform
         else:
@@ -416,13 +417,14 @@ class GLIPModel(BaseModel):
             from maskrcnn_benchmark.engine.predictor_glip import GLIPDemo, to_image_list, create_positive_map, \
                 create_positive_map_label_to_token_from_positive_map
 
-        working_dir = f'{config.path_pretrained_models}/GLIP/'
+        working_dir = f'/home/michal5/viper/GLIP/'
+        model_size = 'large'
         if model_size == 'tiny':
             config_file = working_dir + "configs/glip_Swin_T_O365_GoldG.yaml"
             weight_file = working_dir + "checkpoints/glip_tiny_model_o365_goldg_cc_sbu.pth"
         else:  # large
             config_file = working_dir + "configs/glip_Swin_L.yaml"
-            weight_file = working_dir + "checkpoints/glip_large_model.pth"
+            weight_file = '/home/michal5/viper/pretrained_models/GLIP/' + "checkpoints/glip_large_model.pth"
 
         class OurGLIPDemo(GLIPDemo):
 
@@ -553,7 +555,8 @@ class GLIPModel(BaseModel):
             @torch.no_grad()
             def forward(self, image: torch.Tensor, obj: Union[str, list], return_labels: bool = False,
                         confidence_threshold=None):
-
+                
+                
                 if confidence_threshold is not None:
                     original_confidence_threshold = self.confidence_threshold
                     self.confidence_threshold = confidence_threshold
@@ -561,6 +564,8 @@ class GLIPModel(BaseModel):
                 # if isinstance(object, list):
                 #     object = ' . '.join(object) + ' .' # add separation tokens
                 image = self.prepare_image(image)
+                console.print('Inside GLIP')
+                #console.print('Image preparation finsihed')
 
                 # Avoid the resizing creating a huge image in a pathological case
                 ratio = image.shape[1] / image.shape[2]
@@ -572,6 +577,7 @@ class GLIPModel(BaseModel):
 
                 with torch.cuda.device(self.dev):
                     inference_output = self.inference(image, obj)
+                    console.print('Inference of glip finished')
 
                 bboxes = inference_output.bbox.cpu().numpy().astype(int)
                 # bboxes = self.to_left_right_upper_lower(bboxes)
@@ -911,16 +917,18 @@ class GPT3Model(BaseModel):
         return ['gpt3_' + n for n in ['qa', 'general']]
 
 
-# @cache.cache
+@cache.cache
 @backoff.on_exception(backoff.expo, Exception, max_tries=10)
 def codex_helper(extended_prompt):
     assert 0 <= config.codex.temperature <= 1
     assert 1 <= config.codex.best_of <= 20
-
+    responses = []
+    #sys.stdout.write('Started codex')
     if config.codex.model in ("gpt-4", "gpt-3.5-turbo"):
         if not isinstance(extended_prompt, list):
             extended_prompt = [extended_prompt]
-        responses = [openai.ChatCompletion.create(
+        for prompt in extended_prompt:
+            response = openai.ChatCompletion.create(
                 model=config.codex.model,
                 messages=[
                     # {"role": "system", "content": "You are a helpful assistant."},
@@ -932,11 +940,26 @@ def codex_helper(extended_prompt):
                 top_p = 1.,
                 frequency_penalty=0,
                 presence_penalty=0,
-                best_of=config.codex.best_of,
                 stop=["\n\n"],
                 )
-                    for prompt in extended_prompt]
+            responses.append(response)
+        # responses = [openai.ChatCompletion.create(
+        #         model=config.codex.model,
+        #         messages=[
+        #             # {"role": "system", "content": "You are a helpful assistant."},
+        #             {"role": "system", "content": "Only answer with a function starting def execute_command."},
+        #             {"role": "user", "content": prompt}
+        #         ],
+        #         temperature=config.codex.temperature,
+        #         max_tokens=config.codex.max_tokens,
+        #         top_p = 1.,
+        #         frequency_penalty=0,
+        #         presence_penalty=0,
+        #         stop=["\n\n"],
+        #         )
+        #             for prompt in extended_prompt]
         resp = [r['choices'][0]['message']['content'] for r in responses]
+        # print(resp,'resp')
         if len(resp) == 1:
             resp = resp[0]
     else:
@@ -956,7 +979,7 @@ def codex_helper(extended_prompt):
             resp = [r['text'] for r in response['choices']]
         else:
             resp = response['choices'][0]['text']
-
+    #console.print(resp,'resp')
     return resp
 
 
@@ -977,10 +1000,12 @@ class CodexModel(BaseModel):
                 self.fixed_code = f.read()
 
     def forward(self, prompt, input_type='image', prompt_file=None, base_prompt=None):
+        # sys.stdout.write('hi i made it to forward')
         if config.use_fixed_code:  # Use the same program for every sample, like in socratic models
             return [self.fixed_code] * len(prompt) if isinstance(prompt, list) else self.fixed_code
 
         if prompt_file is not None and base_prompt is None:  # base_prompt takes priority
+            #console.print(prompt_file,'prompt file')
             with open(prompt_file) as f:
                 base_prompt = f.read().strip()
         elif base_prompt is None:
@@ -996,8 +1021,8 @@ class CodexModel(BaseModel):
             raise TypeError("prompt must be a string or a list of strings")
 
         result = self.forward_(extended_prompt)
-        if not isinstance(prompt, list):
-            result = result[0]
+        # if not isinstance(prompt, list):
+        #     result = result[0]
 
         return result
 
@@ -1030,6 +1055,7 @@ class CodexModel(BaseModel):
             print("Retrying Codex")
             print(e)
             response = self.forward_(extended_prompt)
+        #console.print(response,'response')
         return response
 
 
@@ -1039,8 +1065,8 @@ class BLIPModel(BaseModel):
     max_batch_size = 32
     seconds_collect_data = 0.2  # The queue has additionally the time it is executing the previous forward pass
 
-    def __init__(self, gpu_number=0, half_precision=config.blip_half_precision,
-                 blip_v2_model_type=config.blip_v2_model_type):
+    def __init__(self, gpu_number=0, half_precision=True,
+                 blip_v2_model_type= 'blip2-flan-t5-xl'):
         super().__init__(gpu_number)
 
         # from lavis.models import load_model_and_preprocess

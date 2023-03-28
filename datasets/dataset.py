@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image
 import pandas as pd
 from torch.utils.data import Dataset
-
+import sys 
 
 class MyDataset(Dataset):
     def __init__(self, split, data_path="", input_type='image', image_transforms=None, fps=30, max_num_frames=30,
@@ -32,7 +32,8 @@ class MyDataset(Dataset):
         self.max_num_frames = max_num_frames
 
         # Load questions, answers, and image ids
-        with open(self.data_path / self.split / 'queries.csv', 'r') as f:
+        #with open(self.data_path / self.split / 'queries.csv', 'r') as f:
+        with open('/home/michal5/viper/data/winoground.csv','r') as f:
             # The csv has the rows [query, answer, image_name or video_name]
             self.df = pd.read_csv(f, index_col=None, keep_default_na=False)
 
@@ -42,13 +43,26 @@ class MyDataset(Dataset):
         self.n_samples = len(self.df)
 
     def get_sample_path(self, index):
-        sample_name = self.df.iloc[index][f"{self.input_type}_name"]
-        sample_path = self.data_path / f"{self.input_type}s" / sample_name
+        sample_name = self.df.iloc[index][f"{self.input_type}_name"]+'.png'
+        #sys.stdout.write(sample_name)
+        #sample_path = self.data_path / f"{self.input_type}s" / sample_name
+        sample_path = f"{self.data_path}/images/{sample_name}"
         return sample_path
 
-    def get_image(self, image_path):
-        with open(image_path, "rb") as f:
-            pil_image = Image.open(f).convert("RGB")
+    def get_img_path(self, image_path):
+      
+        # with open(image_path, "r+") as f:
+        pil_image = Image.open(image_path).convert("RGB")
+        if self.image_transforms:
+            image = self.image_transforms(pil_image)[:3]
+        else:
+            image = pil_image
+        return image
+
+    def get_image_path(self, image_path):
+      
+        # with open(image_path, "r+") as f:
+        pil_image = Image.open(image_path).convert("RGB")
         if self.image_transforms:
             image = self.image_transforms(pil_image)[:3]
         else:
@@ -67,16 +81,26 @@ class MyDataset(Dataset):
         video = video_reader.get_batch(frame_idxs).byte()
         video = video.permute(0, 3, 1, 2)
         return video
+    
+    def get_image_path(self,image_id):
+        path = f'/home/michal5/winoground/data/images/{image_id}.png'
+        return path 
+    
+
 
     def __getitem__(self, index):
         query = self.df.iloc[index]["query"]
         answer = self.df.iloc[index]["answer"]
+        image_id = self.df.iloc[index]['image_name']
+        sample_id = self.df.iloc[index]['example_id']
+        
         sample_path = self.get_sample_path(index)
-
+     
+       
         # Load and transform image
-        image = self.get_image(sample_path) if self.input_type == "image" else self.get_video(sample_path)
+        image = self.get_image_path(sample_path) if self.input_type == "image" else self.get_video(sample_path)
 
-        out_dict = {"query": query, "answer": answer, "image": image, 'index': index}
+        out_dict = {"id":sample_id,"sample_path":sample_path,"query": query, "answer": answer, "image": image, 'index': index,'sample_id':sample_id,'possible_answers':['hi'],'query_type':'question'}
         return out_dict
 
     def __len__(self):

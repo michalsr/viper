@@ -34,7 +34,7 @@ from image_patch import *
 from video_segment import *
 from datasets.dataset import MyDataset
 
-console = Console(highlight=False, force_terminal=False)
+#console = Console(highlight=False, force_terminal=False)
 
 time_wait_between_lines = 0.5
 
@@ -254,9 +254,9 @@ def load_image(path):
 
 def get_code(query):
     code = forward('codex', prompt=query, input_type="image")
-    code = f'def execute_command(image, my_fig, time_wait_between_lines, syntax):' + code
-    code_for_syntax = code.replace("(image, my_fig, time_wait_between_lines, syntax)", "(image)")
-    syntax_1 = Syntax(code_for_syntax, "python", theme="monokai", line_numbers=True, start_line=0)
+    # code = f'def execute_command(image, my_fig, time_wait_between_lines, syntax):' + code
+    # code_for_syntax = code.replace("(image, my_fig, time_wait_between_lines, syntax)", "(image)")
+    syntax_1 = Syntax(code, "python", theme="monokai", line_numbers=True, start_line=0)
     console.print(syntax_1)
     code = ast.unparse(ast.parse(code))
     code_for_syntax_2 = code.replace("(image, my_fig, time_wait_between_lines, syntax)", "(image)")
