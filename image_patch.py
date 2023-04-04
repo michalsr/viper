@@ -239,7 +239,7 @@ class ImagePatch:
         if prefix is not None:
             option_list_to_use = [prefix + " " + option for option in option_list]
 
-        model_name = config.best_match_model
+        model_name = 'clip'
         image = self.cropped_image
         text = option_list_to_use
         # if model_name in ('clip', 'tcl'):
@@ -367,7 +367,7 @@ def best_image_match(list_patches: list[ImagePatch], content: List[str], return_
     if len(list_patches) == 0:
         return None
 
-    model = config.best_match_model
+    model = 'clip'
 
     scores = []
     for cont in content:

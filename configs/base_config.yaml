@@ -11,16 +11,16 @@ dataset:                                            # Dataset configuration
 
 load_models:                                        # Which pretrained models to load
     maskrcnn: False
-    clip: False
-    glip: True
-    owlvit: False
+    clip: True
+    glip: False
+    owlvit: True
     tcl: False
     gpt3_qa: True
     gpt3_general: True
     depth: True
     blip: True
     saliency: False
-    xvlm: True
+    xvlm: False
     codex: True
 
 detect_thresholds:                                  # Thresholds for the models that perform detection

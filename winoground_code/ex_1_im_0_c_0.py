@@ -1,0 +1,16 @@
+from image_patch import ImagePatch
+from PIL import Image
+image = Image.open('/home/michal5/winoground/data/images/ex_1_img_0.png').convert('RGB')
+def execute_command(image) -> str:
+    image_patch = ImagePatch(image)
+    person_patches = image_patch.find("person")
+    if len(person_patches) < 2:
+        return "no"
+    person_patches.sort(key=lambda x: x.height, reverse=True)
+    taller_person = person_patches[0]
+    shorter_person = person_patches[1]
+    if taller_person.vertical_center > shorter_person.vertical_center:
+        return "yes"
+    else:
+        return "no"
+answer = execute_command(image)
