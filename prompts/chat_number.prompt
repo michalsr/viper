@@ -97,7 +97,7 @@ class ImagePatch:
 
         Examples
         -------
-        >>> # Are there both foos and garply bars in the photo?
+        >>> # How likely are there both foos and garply bars in the photo?
         >>> def execute_command(image)->str:
         >>>     image_patch = ImagePatch(image)
         >>>     is_foo = image_patch.exists("foo")
@@ -118,7 +118,7 @@ class ImagePatch:
 
         Examples
         -------
-        >>> # Do the letters have blue color?
+        >>> # How likely is the letters have blue color?
         >>> def execute_command(image) -> str:
         >>>     image_patch = ImagePatch(image)
         >>>     letters_patches = image_patch.find("letters")
@@ -141,9 +141,11 @@ class ImagePatch:
         >>> # Is the foo gold or white?
         >>> def execute_command(image)->str:
         >>>     image_patch = ImagePatch(image)
+        >>>     confidences = []
         >>>     foo_patches = image_patch.find("foo")
         >>>     # Question assumes one foo patch
-        >>>     return foo_patches[0].best_text_match(["gold", "white"])
+        >>>     confidences.append(foo_patches[0].confidence)
+        >>>     return foo_patches[0].best_text_match(["gold", "white"]), avg(confidences)
         """
         return best_text_match(self.cropped_image, option_list)
 
@@ -162,25 +164,33 @@ class ImagePatch:
         >>> # Which kind of baz is not fredding?
         >>> def execute_command(image) -> str:
         >>>     image_patch = ImagePatch(image)
+        >>>     confidences = []
+        >>>     answer = None
         >>>     baz_patches = image_patch.find("baz")
         >>>     for baz_patch in baz_patches:
-        >>>         if not baz_patch.verify_property("baz", "fredding"):
-        >>>             return baz_patch.simple_query("What is this baz?")
+        >>>         confidences.append(baz_patch.verify_property("baz", "fredding"))
+        >>>         if baz_patch.verify_property("baz", "fredding")<0.5:
+        >>>            answer = baz_patch.simple_query("What is this baz?")
+        >>>      return answer, avg(confidences)
 
         >>> # What color is the foo?
         >>> def execute_command(image) -> str:
         >>>     image_patch = ImagePatch(image)
+        >>>     confidences = []
         >>>     foo_patches = image_patch.find("foo")
         >>>     foo_patch = foo_patches[0]
-        >>>     return foo_patch.simple_query("What is the color?")
+        >>>     confidences.append(foo_patch.confidence)
+        >>>     return foo_patch.simple_query("What is the color?"), confidences
 
         >>> # Is the second bar from the left quuxy?
         >>> def execute_command(image) -> str:
         >>>     image_patch = ImagePatch(image)
+        >>>     confidences = []
         >>>     bar_patches = image_patch.find("bar")
         >>>     bar_patches.sort(key=lambda x: x.horizontal_center)
         >>>     bar_patch = bar_patches[1]
-        >>>     return bar_patch.simple_query("Is the bar quuxy?")
+        >>>     confidences.append(bar_patch.confidence)
+        >>>     return bar_patch.simple_query("Is the bar quuxy?"), avg(confidences)
         """
         return simple_query(self.cropped_image, question)
 
@@ -198,9 +208,11 @@ class ImagePatch:
         >>> # the bar furthest away
         >>> def execute_command(image)->ImagePatch:
         >>>     image_patch = ImagePatch(image)
+        >>>     confidences = []
         >>>     bar_patches = image_patch.find("bar")
         >>>     bar_patches.sort(key=lambda bar: bar.compute_depth())
-        >>>     return bar_patches[-1]
+        >>>     confidences.append(bar_patches[-1].confidence)
+        >>>     return bar_patches[-1], confidences
         """
         depth_map = compute_depth(self.cropped_image)
         return depth_map.median()
@@ -230,17 +242,18 @@ class ImagePatch:
 
         Examples
         --------
-        >>> # black foo on top of the qux
+        >>> # How likely is black foo on top of the qux?
         >>> def execute_command(image) -> ImagePatch:
         >>>     image_patch = ImagePatch(image)
-
         >>>     qux_patches = image_patch.find("qux")
         >>>     qux_patch = qux_patches[0]
-       >>>       patches = []   
+        >>>     answer = None
+        >>>     confidences = []   
         >>>     foo_patches = image_patch.find("black foo")
         >>>     for foo in foo_patches:
         >>>         if foo.vertical_center > qux_patch.vertical_center
-        >>>             patches.append(foo.confidence)
+        >>>             confidences.append(foo.confidence)
+        >>>     return answer, avg(confidences)
         """
         return avg(patches)
 
@@ -260,26 +273,32 @@ class ImagePatch:
         >>> # What is the city this building is in?
         >>> def execute_command(image) -> str:
         >>>     image_patch = ImagePatch(image)
+        >>>     confidences = []
         >>>     building_patches = image_patch.find("building")
         >>>     building_patch = building_patches[0]
+        >>>     confidences.append(building_patch.confidence)
         >>>     building_name = building_patch.simple_query("What is the name of the building?")
-        >>>     return building_patch.llm_query(f"What city is {building_name} in?", long_answer=False)
+        >>>     return building_patch.llm_query(f"What city is {building_name} in?", long_answer=False), avg(confidences)
 
         >>> # Who invented this object?
         >>> def execute_command(image) -> str:
         >>>     image_patch = ImagePatch(image)
+        >>>     confidences = []
         >>>     object_patches = image_patch.find("object")
         >>>     object_patch = object_patches[0]
+        >>>     confidences.append(object_patch.confidence)
         >>>     object_name = object_patch.simple_query("What is the name of the object?")
-        >>>     return object_patch.llm_query(f"Who invented {object_name}?", long_answer=False)
+        >>>     return object_patch.llm_query(f"Who invented {object_name}?", long_answer=False), avg(confidences)
 
         >>> # Explain the history behind this object.
         >>> def execute_command(image) -> str:
+        >>>     confidences = []
         >>>     image_patch = ImagePatch(image)
         >>>     object_patches = image_patch.find("object")
         >>>     object_patch = object_patches[0]
+        >>>     confidences.append(object_patch.confidence)
         >>>     object_name = object_patch.simple_query("What is the name of the object?")
-        >>>     return object_patch.llm_query(f"What is the history behind {object_name}?", long_answer=True)
+        >>>     return object_patch.llm_query(f"What is the history behind {object_name}?", long_answer=True), avg(confidences)
         '''
         return llm_query(question, long_answer)
 
@@ -327,9 +346,11 @@ def distance(patch_a: ImagePatch, patch_b: ImagePatch) -> float:
 
 def avg(values: list):
     return mean(values)
+Write a function using Python and the ImagePatch class (above) that could be executed to provide an answer to the query. 
 
 Consider the following guidelines:
 - Use base Python (comparison, sorting) for basic logical operations, left/right/up/down, math, etc.
 - Use the llm_query function to access external information and answer informational questions not concerning the image.
+- Return average of confidences as part of answer 
 
-Query: INSERT QUERY HERE
+Query: INSERT_QUERY_HERE

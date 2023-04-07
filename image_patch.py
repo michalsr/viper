@@ -1,5 +1,5 @@
 from __future__ import annotations
-
+from statistics import mean
 import numpy as np
 import re
 import torch
@@ -146,16 +146,16 @@ class ImagePatch:
             #console.print('GLIP finished running')
         if len(all_object_coordinates) == 0:
             return []
-
-        threshold = config.ratio_box_area_to_image_area
-        if threshold > 0:
-            area_im = self.width * self.height
-            all_areas = torch.tensor([(coord[2]-coord[0]) * (coord[3]-coord[1]) / area_im
-                                      for coord in all_object_coordinates])
-            mask = all_areas > threshold
-            # if not mask.any():
-            #     mask = all_areas == all_areas.max()  # At least return one element
-            all_object_coordinates = all_object_coordinates[mask]
+        all_object_coordinates = all_object_coordinates[:5]
+        # threshold = config.ratio_box_area_to_image_area
+        # if threshold > 0:
+        #     area_im = self.width * self.height
+        #     all_areas = torch.tensor([(coord[2]-coord[0]) * (coord[3]-coord[1]) / area_im
+        #                               for coord in all_object_coordinates])
+        #     mask = all_areas > threshold
+        #     # if not mask.any():
+        #     #     mask = all_areas == all_areas.max()  # At least return one element
+        #     all_object_coordinates = all_object_coordinates[mask]
 
         return [self.crop(*coordinates) for coordinates in all_object_coordinates]
 
@@ -174,12 +174,13 @@ class ImagePatch:
             return w2n.word_to_num(answer) == object_name
 
         patches = self.find(object_name)
-
+        patch_confidence = []
         filtered_patches = []
         for patch in patches:
             if "yes" in patch.simple_query(f"Is this a {object_name}?"):
                 filtered_patches.append(patch)
-        return len(filtered_patches) > 0
+                patch_confidence.append(patch.confidence)
+        return avg(patch_confidence)
 
     def _score(self, category: str, negative_categories=None, model='clip') -> float:
         """
@@ -198,8 +199,8 @@ class ImagePatch:
 
         return res
 
-    def _detect(self, category: str, thresh, negative_categories=None, model='clip') -> bool:
-        return self._score(category, negative_categories, model) > thresh
+    def _detect(self, category: str, thresh, negative_categories=None, model='clip') -> float:
+        return self._score(category, negative_categories, model) 
 
     def verify_property(self, object_name: str, attribute: str) -> bool:
         """Returns True if the object possesses the property, and False otherwise.
@@ -441,7 +442,8 @@ def llm_query(query, context=None, long_answer=True, queues=None):
     else:
         return forward(model_name='gpt3_qa', prompt=[query, context], queues=queues)
 
-
+def avg(values: list):
+    return mean(values)
 def coerce_to_numeric(string, no_string=False):
     """
     This function takes a string as input and returns a numeric value after removing any non-numeric characters.

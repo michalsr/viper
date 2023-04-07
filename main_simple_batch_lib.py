@@ -46,25 +46,24 @@ def run_program(parameters, queues_in_, input_type_, retrying=False):
 
     c,image_path,example_id,query = parameters
 
-    file_path = f'/home/michal5/viper/winoground_code/{example_id}.py'
+    file_path = f'/shared/rsaas/michal5/viper/winoground_code_number/{example_id}.py'
 
     console.print(example_id,'example id')
 
-    code_header = f"from image_patch import ImagePatch\nfrom image_patch import distance\nfrom PIL import Image\nimage = Image.open('{image_path}').convert('RGB')\n"
+    code_header = f"from image_patch import ImagePatch\nfrom image_patch import distance\nfrom image_patch import avg\nfrom PIL import Image\nimage = Image.open('{image_path}').convert('RGB')\n"
     code_end = f"answer = execute_command(image)"
     all_code = code_header+c+'\n'+code_end
     with open(file_path,'w+') as f:
         f.write(all_code)
-    bad_examples = ['ex_37_im_1_c_1','ex_38','ex_150','ex_39','ex_40','ex_41','ex_47','ex_55','ex_66','ex_77']
+    # bad_examples = ['ex_37_im_1_c_1','ex_38','ex_150','ex_39','ex_40','ex_41','ex_47','ex_55','ex_66','ex_77']
+    # return_dict = {}
+    # for b in bad_examples:
+    #     if b in example_id:
+    #         return_dict['answer'] = 'Broken'
+    #         return return_dict
     return_dict = {}
-    for b in bad_examples:
-        if b in example_id:
-            return_dict['answer'] = 'Broken'
-            return return_dict
-         
     
 
-      
     exec(all_code,globals(),return_dict)
     return return_dict['answer']
 def main():
@@ -98,10 +97,15 @@ def main():
         for c, index, image_path,image, query,example_id in zip(codes,batch['index'],batch["sample_path"],batch['image'],batch['query'],batch["id"]):
             code_dict[index] = c
             #console.print(image_path,'image path')
-            result = run_program([c,image_path,example_id,query],'',input_type)
-            results.append(result)
-            results_dict[example_id] = result 
-     with open('/home/michal5/viper/winoground_results_390_400.json','w+') as f:
+            try:
+                result = run_program([c,image_path,example_id,query],'',input_type)
+                results.append(result)
+                results_dict[example_id] = result
+            except:
+                #sprint(run_program([c,image_path,example_id,query],'',input_type))
+                results_dict[example_id] = 'error'
+                continue  
+     with open('/shared/rsaas/michal5/viper/winoground_number_0_10.json','w+') as f:
          json.dump(results_dict,f)
          
      finish_all_consumers()
