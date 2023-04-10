@@ -2,13 +2,13 @@ multiprocessing: True                          # Run the models and samples in p
 path_pretrained_models: '/home/michal5/pretrained_models'       # Path to the pretrained models
 execute_code: True                                 # Execute the code after generating it. Only applies to main_batch
 wandb: False 
-prompt: ./prompts/chatapi.prompt 
+prompt: ./prompts/chat_number.prompt 
 dataset:                                            # Dataset configuration
     data_path: '/home/michal5/winoground/data'                               # Dataset path
     split: ''                                       # Dataset split. If '', it assumes there is only one split
-    max_samples: 10                             # Maximum number of samples to load
+    max_samples: 200                            # Maximum number of samples to load
     batch_size: 1                                  # Batch size
-    start_sample: 390                                 # Start sample index. Only used if max_samples is not None
+    start_sample: 600                                 # Start sample index. Only used if max_samples is not None
 
 load_models:                                        # Which pretrained models to load
     maskrcnn: False
@@ -41,7 +41,7 @@ best_match_model: clip                              # Which model to use for bes
 
 gpt3:                                               # GPT-3 configuration
     n_votes: 1                                      # Number of tries to use for GPT-3. Use with temperature > 0
-    qa_prompt: /home/michal5/viper/prompts/gpt3/gpt3_qa.txt
+    qa_prompt: /shared/rsaas/michal5/viper/prompts/gpt3/gpt3_qa.txt
     temperature: 0.                                 # Temperature for GPT-3. Almost deterministic if 0
     model: text-davinci-003                         # Can replace with code-davinci-002 (which is free for now) but will have worse performance as it's meant for code
 
@@ -49,13 +49,13 @@ codex:
     temperature: 0.                                 # Temperature for Codex. (Almost) deterministic if 0
     best_of: 1                                      # Number of tries to choose from. Use when temperature > 0
     max_tokens: 512                                 # Maximum number of tokens to generate for Codex
-    prompt: ./prompts/chatapi.prompt                    # Codex prompt file, which defines the API. If you use a Chat-based model (3.5/4) try ./prompts/chatapi.prompt (doesn't support video for now due to token limits)
+    prompt: ./prompts/chat_number.prompt                    # Codex prompt file, which defines the API. If you use a Chat-based model (3.5/4) try ./prompts/chatapi.prompt (doesn't support video for now due to token limits)
     model: gpt-3.5-turbo                         # Codex model to use. [code-davinci-002, gpt4]
 
 # Saving and loading parameters
 save: True                                          # Save the results to a file
 save_new_results: True                              # If False, overwrite the results file
-results_dir: /home/michal5/viper/results/                             # Directory to save the results
+results_dir: /shared/rsaas/michal5/viper/results/                             # Directory to save the results
 use_cache: True                                     # Use cache for the models that support it (now, GPT-3)
 clear_cache: False                                  # Clear stored cache
 use_cached_codex: False                             # Use previously-computed Codex results
@@ -66,4 +66,4 @@ blip_half_precision: True                           # Use 8bit (Faster but sligh
 blip_v2_model_type: blip2-flan-t5-xl               # Which model to use for BLIP-2
 
 use_fixed_code: False                               # Use a fixed code for all samples (do not generate with Codex)
-fixed_code_file: /home/michal5/viper/prompts/fixed_code/blip2.prompt  # Path to the fixed code file
+fixed_code_file: /shared/rsaas/michal5/viper/prompts/fixed_code/blip2.prompt  # Path to the fixed code file

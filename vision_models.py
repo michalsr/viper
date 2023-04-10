@@ -391,8 +391,9 @@ class OwlViTModel(BaseModel):
 
         boxes, scores, labels = results[0]["boxes"], results[0]["scores"], results[0]["labels"]
 
-        indices_good = scores > self.threshold
-        boxes = boxes[indices_good]
+        # indices_good = scores > self.threshold
+        # boxes = boxes[indices_good]
+        # scores = scores[indices_good]
 
         # Change to format where large "upper"/"lower" means more up
         left, upper, right, lower = boxes[:, 0], boxes[:, 1], boxes[:, 2], boxes[:, 3]
@@ -404,7 +405,7 @@ class OwlViTModel(BaseModel):
             labels = [text_original[lab].re('a photo of a ') for lab in labels]
             return boxes, labels
 
-        return boxes.cpu()  # [x_min, y_min, x_max, y_max]
+        return boxes.cpu(), scores.cpu() # [x_min, y_min, x_max, y_max]
 
 
 class GLIPModel(BaseModel):

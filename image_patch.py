@@ -54,7 +54,7 @@ class ImagePatch:
     """
 
     def __init__(self, image: Union[Image.Image, torch.Tensor, np.ndarray], left: int = None, lower: int = None,
-                 right: int = None, upper: int = None, parent_left=0, parent_lower=0, queues=None,
+                 right: int = None, upper: int = None,parent_left=0, parent_lower=0, confidence: float = 1.0,queues=None,
                  parent_img_patch=None):
         """Initializes an ImagePatch object by cropping the image at the given coordinates and stores the coordinates as
         attributes. If no coordinates are provided, the image is left unmodified, and the coordinates are set to the
@@ -88,12 +88,14 @@ class ImagePatch:
             self.lower = 0
             self.right = image.shape[2]  # width
             self.upper = image.shape[1]  # height
+            self.confidence = 1.0
         else:
             self.cropped_image = image[:, image.shape[1]-upper:image.shape[1]-lower, left:right]
             self.left = left + parent_left
             self.upper = upper + parent_lower
             self.right = right + parent_left
             self.lower = lower + parent_lower
+            self.confidence = confidence 
 
         self.height = self.cropped_image.shape[1]
         self.width = self.cropped_image.shape[2]
@@ -135,6 +137,7 @@ class ImagePatch:
             a list of ImagePatch objects matching object_name contained in the crop
         """
         #console.print('Running GLIP')
+        results = []
         if object_name in ["object", "objects"]:
             all_object_coordinates = self.forward('maskrcnn', self.cropped_image)[0]
         else:
@@ -142,11 +145,26 @@ class ImagePatch:
             if object_name == 'person':
                 object_name = 'people'  # GLIP does better at people than person
             
-            all_object_coordinates = self.forward('owlvit', self.cropped_image, object_name)
+            all_object_coordinates, scores = self.forward('owlvit', self.cropped_image, object_name)
             #console.print('GLIP finished running')
         if len(all_object_coordinates) == 0:
             return []
-        all_object_coordinates = all_object_coordinates[:5]
+       
+        #scores = torch.unsqueeze(scores,1)
+        #print(scores[:5],scores.size())
+        
+
+        _,top_idx= torch.topk(scores,5)
+        #print(top_idx)
+        all_object_coordinates = all_object_coordinates[top_idx.long()]
+        scores = scores[top_idx.long()]
+        #print(len(scores),'scores')
+  
+        #all_object_coordinates, scores = all_object_coordinates[top_idx.long()], scores[top_idx.long()]
+        #print(len(all_object_coordinates),'all object coordinates')
+        #print(len(scores),'scores')
+        for coords, score in zip(all_object_coordinates,scores):
+            results.append(self.crop(left=coords[0],lower=coords[1],right=coords[2],upper=coords[3],confidence=score))
         # threshold = config.ratio_box_area_to_image_area
         # if threshold > 0:
         #     area_im = self.width * self.height
@@ -157,7 +175,7 @@ class ImagePatch:
         #     #     mask = all_areas == all_areas.max()  # At least return one element
         #     all_object_coordinates = all_object_coordinates[mask]
 
-        return [self.crop(*coordinates) for coordinates in all_object_coordinates]
+        return results
 
     def exists(self, object_name) -> bool:
         """Returns True if the object specified by object_name is found in the image, and False otherwise.
@@ -179,7 +197,7 @@ class ImagePatch:
         for patch in patches:
             if "yes" in patch.simple_query(f"Is this a {object_name}?"):
                 filtered_patches.append(patch)
-                patch_confidence.append(patch.confidence)
+                patch_confidence.append(patch.confidence.item())
         return avg(patch_confidence)
 
     def _score(self, category: str, negative_categories=None, model='clip') -> float:
@@ -284,7 +302,7 @@ class ImagePatch:
                               self.left:self.right]
         return depth_map.median()  # Ideally some kind of mode, but median is good enough for now
 
-    def crop(self, left: int, lower: int, right: int, upper: int) -> ImagePatch:
+    def crop(self, left: int, lower: int, right: int, upper: int, confidence: float) -> ImagePatch:
         """Returns a new ImagePatch containing a crop of the original image at the given coordinates.
         Parameters
         ----------
@@ -296,7 +314,8 @@ class ImagePatch:
             the position of the right border of the crop's bounding box in the original image
         upper : int
             the position of the top border of the crop's bounding box in the original image
-
+        confidence : float
+            the score returned from model 
         Returns
         -------
         ImagePatch
@@ -315,7 +334,7 @@ class ImagePatch:
             upper = min(self.height, upper + 10)
         #.print('Cropping')
         return ImagePatch(self.cropped_image, left, lower, right, upper, self.left, self.lower, queues=self.queues,
-                          parent_img_patch=self)
+                          parent_img_patch=self,confidence=confidence)
 
     def overlaps_with(self, left, lower, right, upper):
         """Returns True if a crop with the given coordinates overlaps with this one,
@@ -443,7 +462,13 @@ def llm_query(query, context=None, long_answer=True, queues=None):
         return forward(model_name='gpt3_qa', prompt=[query, context], queues=queues)
 
 def avg(values: list):
-    return mean(values)
+    new_values = []
+    for v in values:
+        if type(v) != float:
+            v = v.item()
+        new_values.append(v)
+
+    return mean(new_values)
 def coerce_to_numeric(string, no_string=False):
     """
     This function takes a string as input and returns a numeric value after removing any non-numeric characters.
