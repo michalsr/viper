@@ -82,9 +82,12 @@ class ImagePatch:
         --------
         >>> # return the foo
         >>> def execute_command(image) -> List[ImagePatch]:
+        >>>     confidences = []
         >>>     image_patch = ImagePatch(image)
         >>>     foo_patches = image_patch.find("foo")
-        >>>     return foo_patches
+        >>>     for f in foo_patches:
+        >>>         confidences.append(f.confidence)
+        >>>     return sum_tensor(confidences)
         """
         return find_in_image(self.cropped_image, object_name)
 
@@ -105,7 +108,7 @@ class ImagePatch:
         >>>     image_patch = ImagePatch(image)
         >>>     is_foo = image_patch.exists("foo")
         >>>     is_garply_bar = image_patch.exists("garply bar")
-        >>>     return avg([is_foo.confidence, is_garply_bar.confidence])
+        >>>     return sum_tensor([is_foo.confidence, is_garply_bar.confidence])
         """
         return self.find(object_name).confidence 
 
@@ -133,8 +136,8 @@ class ImagePatch:
         >>>     # Question assumes only one letter patch
         >>>     confidences.append(letters_patches[0].confidence)
         >>>     properties = letters_patches[0].verify_property("letters", "blue")
-        >>>     confidences.append(properties)
-        >>>     return properties, avg(confidences)
+        >>>     confidences.append(properties*letter_patches[0].confidence)
+        >>>     return  sum_tensor(confidences)
         """
         return verify_property(self.cropped_image, object_name, property)
 
@@ -156,55 +159,11 @@ class ImagePatch:
         >>>     foo_patches = image_patch.find("foo")
         >>>     # Question assumes one foo patch
         >>>     confidences.append(foo_patches[0].confidence)
-        >>>     return foo_patches[0].best_text_match(["gold", "white"]), avg(confidences)
+        >>>     return  sum(confidences)
         """
         return best_text_match(self.cropped_image, option_list)
 
-    def simple_query(self, question: str = None) -> str:
-        """Returns the answer to a basic question asked about the image. If no question is provided, returns the answer
-        to "What is this?". The questions are about basic perception, and are not meant to be used for complex reasoning
-        or external knowledge.
-        Parameters
-        -------
-        question : str
-            A string describing the question to be asked.
-
-        Examples
-        -------
-
-        >>> # Which kind of baz is not fredding?
-        >>> def execute_command(image) -> str:
-        >>>     image_patch = ImagePatch(image)
-        >>>     confidences = []
-        >>>     answer = None
-        >>>     baz_patches = image_patch.find("baz")
-        >>>     for baz_patch in baz_patches:
-        >>>         confidences.append(baz_patch.verify_property("baz", "fredding"))
-        >>>         if baz_patch.verify_property("baz", "fredding")<0.5:
-        >>>            answer = baz_patch.simple_query("What is this baz?")
-        >>>      return answer, avg(confidences)
-
-        >>> # What color is the foo?
-        >>> def execute_command(image) -> str:
-        >>>     image_patch = ImagePatch(image)
-        >>>     confidences = []
-        >>>     foo_patches = image_patch.find("foo")
-        >>>     foo_patch = foo_patches[0]
-        >>>     confidences.append(foo_patch.confidence)
-        >>>     return foo_patch.simple_query("What is the color?"), confidences
-
-        >>> # Is the second bar from the left quuxy?
-        >>> def execute_command(image) -> str:
-        >>>     image_patch = ImagePatch(image)
-        >>>     confidences = []
-        >>>     bar_patches = image_patch.find("bar")
-        >>>     bar_patches.sort(key=lambda x: x.horizontal_center)
-        >>>     bar_patch = bar_patches[1]
-        >>>     confidences.append(bar_patch.confidence)
-        >>>     return bar_patch.simple_query("Is the bar quuxy?"), avg(confidences)
-        """
-        return simple_query(self.cropped_image, question)
-
+    
     def compute_depth(self):
         """Returns the median depth of the image crop
         Parameters
@@ -266,55 +225,11 @@ class ImagePatch:
         >>>     for foo in foo_patches:
         >>>         if foo.vertical_center > qux_patch.vertical_center
         >>>             confidences.append(foo.confidence)
-        >>>     return answer, avg(confidences)
+        >>>     return sum_tensor(confidences)
         """
-        return avg(patches)
+        return sum_tensor(patches)
 
-    def llm_query(self, question: str, long_answer: bool = True) -> str:
-        '''Answers a text question using GPT-3. The input question is always a formatted string with a variable in it.
-
-        Parameters
-        ----------
-        question: str
-            the text question to ask. Must not contain any reference to 'the image' or 'the photo', etc.
-        long_answer: bool
-            whether to return a short answer or a long answer. Short answers are one or at most two words, very concise.
-            Long answers are longer, and may be paragraphs and explanations. Defalt is True (so long answer).
-
-        Examples
-        --------
-        >>> # What is the city this building is in?
-        >>> def execute_command(image) -> str:
-        >>>     image_patch = ImagePatch(image)
-        >>>     confidences = []
-        >>>     building_patches = image_patch.find("building")
-        >>>     building_patch = building_patches[0]
-        >>>     confidences.append(building_patch.confidence)
-        >>>     building_name = building_patch.simple_query("What is the name of the building?")
-        >>>     return building_patch.llm_query(f"What city is {building_name} in?", long_answer=False), avg(confidences)
-
-        >>> # Who invented this object?
-        >>> def execute_command(image) -> str:
-        >>>     image_patch = ImagePatch(image)
-        >>>     confidences = []
-        >>>     object_patches = image_patch.find("object")
-        >>>     object_patch = object_patches[0]
-        >>>     confidences.append(object_patch.confidence)
-        >>>     object_name = object_patch.simple_query("What is the name of the object?")
-        >>>     return object_patch.llm_query(f"Who invented {object_name}?", long_answer=False), avg(confidences)
-
-        >>> # Explain the history behind this object.
-        >>> def execute_command(image) -> str:
-        >>>     confidences = []
-        >>>     image_patch = ImagePatch(image)
-        >>>     object_patches = image_patch.find("object")
-        >>>     object_patch = object_patches[0]
-        >>>     confidences.append(object_patch.confidence)
-        >>>     object_name = object_patch.simple_query("What is the name of the object?")
-        >>>     return object_patch.llm_query(f"What is the history behind {object_name}?", long_answer=True), avg(confidences)
-        '''
-        return llm_query(question, long_answer)
-
+    
 
 def best_image_match(list_patches: List[ImagePatch], content: List[str], return_index=False) -> Union[ImagePatch, int]:
     """Returns the patch most likely to contain the content.
@@ -351,19 +266,73 @@ def distance(patch_a: ImagePatch, patch_b: ImagePatch) -> float:
     >>>     image_patch = ImagePatch(image)
     >>>     qux_patches = image_patch.find('qux')
     >>>     foo_patches = image_patch.find('foo')
+    >>>     confidences = []
     >>>     foo_patch = foo_patches[0]
-    >>>     qux_patches.sort(key=lambda x: distance(x, foo_patch))
-    >>>     return qux_patches[0]
+    >>>     confidences.append(foo_patch.confidence)
+    >>>     qux_patches.sort(key=lambda x: distance(x.vertical_center, foo_patch.vertical_center))
+    >>>     confidences.append(qux_patches[0].confidence)
+    >>>     return sum_tensor(confidences)
     """
     return distance(patch_a, patch_b)
 
 def avg(values: list):
     return mean(values)
+def sum_tensor(values:list):
+    return sum(values)
+Query: the person on the left is wearing red 
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    confidences = []
+    person_patches = image_patch.find('person')
+    person_patches.sort(key=lambda x:x.horizontal_center)
+    confidences.append(person_patches[0].confidence)
+    color_prediction = person_patches[0].verify_property("person","red")
+    confidences.append(color_prediction*person_patches[0].confidence)
+    return sum(confidences)
+Query: the animal is running behind the trees 
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    confidences = []
+    animal = image_patch.find('animal')
+    running_animals = []
+    for a in animal:
+        confidences.append(a.verify_property('animal','running')*a.confidence)
+    trees = image_patch.find('tree')
+    for r_a in running_animals:
+        for t in trees:
+            if r_a.vertical_center > t.vertial_center:
+                confidences.append(r_a.confidence)
+                confidences.append(t.confidence)
+    return sum(confidences)
+Query: the soft couch is closer to the window than the table 
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    confidences = []
+    couch_patches = image_patch.find('couch')
+    for c in couch_patches:
+        confidences.append(c.verify_property('couch','soft')*c.confidence)
+    table = image_patch.find('table')
+    window = image_patch.find('window')
+    min_window_table = 1000
+    min_window_couch = 1000 
+    for w in window:
+        for c in couch_patches:
+            if distance(w.vertical_center,c.vertical_center) < min_window_couch:
+                min_window_couch = distance(w.vertical_center,c.vertical_center) 
+        for t in table_patches:
+            if distance(w.vertical_center,t.vertical_center) < min_window_table:
+                min_window_table = distance(w.vertical_center,t.vertical_center)
+    if min_window_couch < min_window_table:
+        confidences.append(10)
+    return sum(confidences)
+
+    
+
 Write a function using Python and the ImagePatch class (above) that could be executed to provide an answer to the query. 
 
 Consider the following guidelines:
 - Use base Python (comparison, sorting) for basic logical operations, left/right/up/down, math, etc.
-- Use the llm_query function to access external information and answer informational questions not concerning the image.
-- Return average of confidences as part of answer 
+- All functions should return a float 
+- Return sum of confidences as part of answer 
 
 Query: INSERT_QUERY_HERE

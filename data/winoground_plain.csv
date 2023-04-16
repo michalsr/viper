@@ -1,0 +1,1601 @@
+,answer,query,image_name,example_id
+0,yes,an old person kisses a young person,ex_0_img_0,ex_0_im_0_c_0
+1,no,an old person kisses a young person,ex_0_img_1,ex_0_im_1_c_0
+2,no,a young person kisses an old person,ex_0_img_0,ex_0_im_0_c_1
+3,yes,a young person kisses an old person,ex_0_img_1,ex_0_im_1_c_1
+4,yes,the taller person hugs the shorter person,ex_1_img_0,ex_1_im_0_c_0
+5,no,the taller person hugs the shorter person,ex_1_img_1,ex_1_im_1_c_0
+6,no,the shorter person hugs the taller person,ex_1_img_0,ex_1_im_0_c_1
+7,yes,the shorter person hugs the taller person,ex_1_img_1,ex_1_im_1_c_1
+8,yes,the masked wrestler hits the unmasked wrestler,ex_2_img_0,ex_2_im_0_c_0
+9,no,the masked wrestler hits the unmasked wrestler,ex_2_img_1,ex_2_im_1_c_0
+10,no,the unmasked wrestler hits the masked wrestler,ex_2_img_0,ex_2_im_0_c_1
+11,yes,the unmasked wrestler hits the masked wrestler,ex_2_img_1,ex_2_im_1_c_1
+12,yes,a person watches an animal,ex_3_img_0,ex_3_im_0_c_0
+13,no,a person watches an animal,ex_3_img_1,ex_3_im_1_c_0
+14,no,an animal watches a person,ex_3_img_0,ex_3_im_0_c_1
+15,yes,an animal watches a person,ex_3_img_1,ex_3_im_1_c_1
+16,yes,the person without earrings pays the person with earrings,ex_4_img_0,ex_4_im_0_c_0
+17,no,the person without earrings pays the person with earrings,ex_4_img_1,ex_4_im_1_c_0
+18,no,the person with earrings pays the person without earrings,ex_4_img_0,ex_4_im_0_c_1
+19,yes,the person with earrings pays the person without earrings,ex_4_img_1,ex_4_im_1_c_1
+20,yes,a bird eats a snake,ex_5_img_0,ex_5_im_0_c_0
+21,no,a bird eats a snake,ex_5_img_1,ex_5_im_1_c_0
+22,no,a snake eats a bird,ex_5_img_0,ex_5_im_0_c_1
+23,yes,a snake eats a bird,ex_5_img_1,ex_5_im_1_c_1
+24,yes,"a plant was harmed by another organism, and that organism broke the plant into pieces",ex_6_img_0,ex_6_im_0_c_0
+25,no,"a plant was harmed by another organism, and that organism broke the plant into pieces",ex_6_img_1,ex_6_im_1_c_0
+26,no,"another organism was harmed by a plant, and that plant broke the organism into pieces",ex_6_img_0,ex_6_im_0_c_1
+27,yes,"another organism was harmed by a plant, and that plant broke the organism into pieces",ex_6_img_1,ex_6_im_1_c_1
+28,yes,a bottle is in water,ex_7_img_0,ex_7_im_0_c_0
+29,no,a bottle is in water,ex_7_img_1,ex_7_im_1_c_0
+30,no,water is in a bottle,ex_7_img_0,ex_7_im_0_c_1
+31,yes,water is in a bottle,ex_7_img_1,ex_7_im_1_c_1
+32,yes,a tree smashed into a car,ex_8_img_0,ex_8_im_0_c_0
+33,no,a tree smashed into a car,ex_8_img_1,ex_8_im_1_c_0
+34,no,a car smashed into a tree,ex_8_img_0,ex_8_im_0_c_1
+35,yes,a car smashed into a tree,ex_8_img_1,ex_8_im_1_c_1
+36,yes,people fall on the leaves,ex_9_img_0,ex_9_im_0_c_0
+37,no,people fall on the leaves,ex_9_img_1,ex_9_im_1_c_0
+38,no,the leaves fall on people,ex_9_img_0,ex_9_im_0_c_1
+39,yes,the leaves fall on people,ex_9_img_1,ex_9_im_1_c_1
+40,yes,the sail rests below the water,ex_10_img_0,ex_10_im_0_c_0
+41,no,the sail rests below the water,ex_10_img_1,ex_10_im_1_c_0
+42,no,the water rests below the sail,ex_10_img_0,ex_10_im_0_c_1
+43,yes,the water rests below the sail,ex_10_img_1,ex_10_im_1_c_1
+44,yes,there is a table below someone,ex_11_img_0,ex_11_im_0_c_0
+45,no,there is a table below someone,ex_11_img_1,ex_11_im_1_c_0
+46,no,there is someone below a table,ex_11_img_0,ex_11_im_0_c_1
+47,yes,there is someone below a table,ex_11_img_1,ex_11_im_1_c_1
+48,yes,the image shows a computer on top of books,ex_12_img_0,ex_12_im_0_c_0
+49,no,the image shows a computer on top of books,ex_12_img_1,ex_12_im_1_c_0
+50,no,the image shows books on top of a computer,ex_12_img_0,ex_12_im_0_c_1
+51,yes,the image shows books on top of a computer,ex_12_img_1,ex_12_im_1_c_1
+52,yes,a caterpillar with some plants,ex_13_img_0,ex_13_im_0_c_0
+53,no,a caterpillar with some plants,ex_13_img_1,ex_13_im_1_c_0
+54,no,a plant with some caterpillars,ex_13_img_0,ex_13_im_0_c_1
+55,yes,a plant with some caterpillars,ex_13_img_1,ex_13_im_1_c_1
+56,yes,there is a mug in some grass,ex_14_img_0,ex_14_im_0_c_0
+57,no,there is a mug in some grass,ex_14_img_1,ex_14_im_1_c_0
+58,no,there is some grass in a mug,ex_14_img_0,ex_14_im_0_c_1
+59,yes,there is some grass in a mug,ex_14_img_1,ex_14_im_1_c_1
+60,yes,there are more skiers than snowboarders,ex_15_img_0,ex_15_im_0_c_0
+61,no,there are more skiers than snowboarders,ex_15_img_1,ex_15_im_1_c_0
+62,no,there are more snowboarders than skiers,ex_15_img_0,ex_15_im_0_c_1
+63,yes,there are more snowboarders than skiers,ex_15_img_1,ex_15_im_1_c_1
+64,yes,there are fewer forks than spoons,ex_16_img_0,ex_16_im_0_c_0
+65,no,there are fewer forks than spoons,ex_16_img_1,ex_16_im_1_c_0
+66,no,there are fewer spoons than forks,ex_16_img_0,ex_16_im_0_c_1
+67,yes,there are fewer spoons than forks,ex_16_img_1,ex_16_im_1_c_1
+68,yes,there are more ladybugs than flowers,ex_17_img_0,ex_17_im_0_c_0
+69,no,there are more ladybugs than flowers,ex_17_img_1,ex_17_im_1_c_0
+70,no,there are more flowers than ladybugs,ex_17_img_0,ex_17_im_0_c_1
+71,yes,there are more flowers than ladybugs,ex_17_img_1,ex_17_im_1_c_1
+72,yes,there is less orange juice than milk,ex_18_img_0,ex_18_im_0_c_0
+73,no,there is less orange juice than milk,ex_18_img_1,ex_18_im_1_c_0
+74,no,there is less milk than orange juice,ex_18_img_0,ex_18_im_0_c_1
+75,yes,there is less milk than orange juice,ex_18_img_1,ex_18_im_1_c_1
+76,yes,there is more dirt than empty space in the jar,ex_19_img_0,ex_19_im_0_c_0
+77,no,there is more dirt than empty space in the jar,ex_19_img_1,ex_19_im_1_c_0
+78,no,there is more empty space than dirt in the jar,ex_19_img_0,ex_19_im_0_c_1
+79,yes,there is more empty space than dirt in the jar,ex_19_img_1,ex_19_im_1_c_1
+80,yes,there is a bit less milk chocolate than white chocolate,ex_20_img_0,ex_20_im_0_c_0
+81,no,there is a bit less milk chocolate than white chocolate,ex_20_img_1,ex_20_im_1_c_0
+82,no,there is a bit less white chocolate than milk chocolate,ex_20_img_0,ex_20_im_0_c_1
+83,yes,there is a bit less white chocolate than milk chocolate,ex_20_img_1,ex_20_im_1_c_1
+84,yes,a person sits and a dog stands,ex_21_img_0,ex_21_im_0_c_0
+85,no,a person sits and a dog stands,ex_21_img_1,ex_21_im_1_c_0
+86,no,a person stands and a dog sits,ex_21_img_0,ex_21_im_0_c_1
+87,yes,a person stands and a dog sits,ex_21_img_1,ex_21_im_1_c_1
+88,yes,The person with more facial hair lies awake while the other sleeps,ex_22_img_0,ex_22_im_0_c_0
+89,no,The person with more facial hair lies awake while the other sleeps,ex_22_img_1,ex_22_im_1_c_0
+90,no,The person with more facial hair sleeps while the other lies awake,ex_22_img_0,ex_22_im_0_c_1
+91,yes,The person with more facial hair sleeps while the other lies awake,ex_22_img_1,ex_22_im_1_c_1
+92,yes,the person in the middle is floating and some others are standing,ex_23_img_0,ex_23_im_0_c_0
+93,no,the person in the middle is floating and some others are standing,ex_23_img_1,ex_23_im_1_c_0
+94,no,the person in the middle is standing and some others are floating,ex_23_img_0,ex_23_im_0_c_1
+95,yes,the person in the middle is standing and some others are floating,ex_23_img_1,ex_23_im_1_c_1
+96,yes,the person closer to the camera weightlifts and the person farther from the camera runs,ex_24_img_0,ex_24_im_0_c_0
+97,no,the person closer to the camera weightlifts and the person farther from the camera runs,ex_24_img_1,ex_24_im_1_c_0
+98,no,the person closer to the camera runs and the person farther from the camera weightlifts,ex_24_img_0,ex_24_im_0_c_1
+99,yes,the person closer to the camera runs and the person farther from the camera weightlifts,ex_24_img_1,ex_24_im_1_c_1
+100,yes,the person with the white collared shirt waters the plant while the other holds it,ex_25_img_0,ex_25_im_0_c_0
+101,no,the person with the white collared shirt waters the plant while the other holds it,ex_25_img_1,ex_25_im_1_c_0
+102,no,the person with the white collared shirt holds the plant while the other waters it,ex_25_img_0,ex_25_im_0_c_1
+103,yes,the person with the white collared shirt holds the plant while the other waters it,ex_25_img_1,ex_25_im_1_c_1
+104,yes,the taller person chops food and the shorter person eats food,ex_26_img_0,ex_26_im_0_c_0
+105,no,the taller person chops food and the shorter person eats food,ex_26_img_1,ex_26_im_1_c_0
+106,no,the taller person eats food and the shorter person chops food,ex_26_img_0,ex_26_im_0_c_1
+107,yes,the taller person eats food and the shorter person chops food,ex_26_img_1,ex_26_im_1_c_1
+108,yes,the person with the ponytail packs stuff and other buys it,ex_27_img_0,ex_27_im_0_c_0
+109,no,the person with the ponytail packs stuff and other buys it,ex_27_img_1,ex_27_im_1_c_0
+110,no,the person with the ponytail buys stuff and other packs it,ex_27_img_0,ex_27_im_0_c_1
+111,yes,the person with the ponytail buys stuff and other packs it,ex_27_img_1,ex_27_im_1_c_1
+112,yes,a person walking in a field of yellow flowers with a red dress,ex_28_img_0,ex_28_im_0_c_0
+113,no,a person walking in a field of yellow flowers with a red dress,ex_28_img_1,ex_28_im_1_c_0
+114,no,a person walking in a field of red flowers with a yellow dress,ex_28_img_0,ex_28_im_0_c_1
+115,yes,a person walking in a field of red flowers with a yellow dress,ex_28_img_1,ex_28_im_1_c_1
+116,yes,a brown dog is on a white couch,ex_29_img_0,ex_29_im_0_c_0
+117,no,a brown dog is on a white couch,ex_29_img_1,ex_29_im_1_c_0
+118,no,a white dog is on a brown couch,ex_29_img_0,ex_29_im_0_c_1
+119,yes,a white dog is on a brown couch,ex_29_img_1,ex_29_im_1_c_1
+120,yes,a blue bird is next to a red berry,ex_30_img_0,ex_30_im_0_c_0
+121,no,a blue bird is next to a red berry,ex_30_img_1,ex_30_im_1_c_0
+122,no,a red bird is next to a blue berry,ex_30_img_0,ex_30_im_0_c_1
+123,yes,a red bird is next to a blue berry,ex_30_img_1,ex_30_im_1_c_1
+124,yes,The red book is above the yellow book and below the blue book,ex_31_img_0,ex_31_im_0_c_0
+125,no,The red book is above the yellow book and below the blue book,ex_31_img_1,ex_31_im_1_c_0
+126,no,The yellow book is above the blue book and below the red book,ex_31_img_0,ex_31_im_0_c_1
+127,yes,The yellow book is above the blue book and below the red book,ex_31_img_1,ex_31_im_1_c_1
+128,yes,astronauts in blue suits with a red planet in the background,ex_32_img_0,ex_32_im_0_c_0
+129,no,astronauts in blue suits with a red planet in the background,ex_32_img_1,ex_32_im_1_c_0
+130,no,astronauts in red suits with a blue planet in the background,ex_32_img_0,ex_32_im_0_c_1
+131,yes,astronauts in red suits with a blue planet in the background,ex_32_img_1,ex_32_im_1_c_1
+132,yes,the square table has a round base,ex_33_img_0,ex_33_im_0_c_0
+133,no,the square table has a round base,ex_33_img_1,ex_33_im_1_c_0
+134,no,the round table has a square base,ex_33_img_0,ex_33_im_0_c_1
+135,yes,the round table has a square base,ex_33_img_1,ex_33_im_1_c_1
+136,yes,pointy bushes are behind rectangular bushes,ex_34_img_0,ex_34_im_0_c_0
+137,no,pointy bushes are behind rectangular bushes,ex_34_img_1,ex_34_im_1_c_0
+138,no,rectangular bushes are behind pointy bushes,ex_34_img_0,ex_34_im_0_c_1
+139,yes,rectangular bushes are behind pointy bushes,ex_34_img_1,ex_34_im_1_c_1
+140,yes,a circular sign is above a rectangular sign,ex_35_img_0,ex_35_im_0_c_0
+141,no,a circular sign is above a rectangular sign,ex_35_img_1,ex_35_im_1_c_0
+142,no,a rectangular sign is above a circular sign,ex_35_img_0,ex_35_im_0_c_1
+143,yes,a rectangular sign is above a circular sign,ex_35_img_1,ex_35_im_1_c_1
+144,yes,a wood chess piece rests on metal objects,ex_36_img_0,ex_36_im_0_c_0
+145,no,a wood chess piece rests on metal objects,ex_36_img_1,ex_36_im_1_c_0
+146,no,a metal chess piece rests on wood objects,ex_36_img_0,ex_36_im_0_c_1
+147,yes,a metal chess piece rests on wood objects,ex_36_img_1,ex_36_im_1_c_1
+148,yes,soft shoes are on a smooth floor,ex_37_img_0,ex_37_im_0_c_0
+149,no,soft shoes are on a smooth floor,ex_37_img_1,ex_37_im_1_c_0
+150,no,smooth shoes are on a soft floor,ex_37_img_0,ex_37_im_0_c_1
+151,yes,smooth shoes are on a soft floor,ex_37_img_1,ex_37_im_1_c_1
+152,yes,the happy person is on the right and the sad person is on the left,ex_38_img_0,ex_38_im_0_c_0
+153,no,the happy person is on the right and the sad person is on the left,ex_38_img_1,ex_38_im_1_c_0
+154,no,the sad person is on the right and the happy person is on the left,ex_38_img_0,ex_38_im_0_c_1
+155,yes,the sad person is on the right and the happy person is on the left,ex_38_img_1,ex_38_im_1_c_1
+156,yes,the hurt person is on the left and the helpful person is on the right,ex_39_img_0,ex_39_im_0_c_0
+157,no,the hurt person is on the left and the helpful person is on the right,ex_39_img_1,ex_39_im_1_c_0
+158,no,the helpful person is on the left and the hurt person is on the right,ex_39_img_0,ex_39_im_0_c_1
+159,yes,the helpful person is on the left and the hurt person is on the right,ex_39_img_1,ex_39_im_1_c_1
+160,yes,the more content person has the healthier food and the less content person has the less healthy food,ex_40_img_0,ex_40_im_0_c_0
+161,no,the more content person has the healthier food and the less content person has the less healthy food,ex_40_img_1,ex_40_im_1_c_0
+162,no,the less content person has the healthier food and the more content person has the less healthy food,ex_40_img_0,ex_40_im_0_c_1
+163,yes,the less content person has the healthier food and the more content person has the less healthy food,ex_40_img_1,ex_40_im_1_c_1
+164,yes,the orange lollipop is sad and the red lollipop is surprised,ex_41_img_0,ex_41_im_0_c_0
+165,no,the orange lollipop is sad and the red lollipop is surprised,ex_41_img_1,ex_41_im_1_c_0
+166,no,the orange lollipop is surprised and the red lollipop is sad,ex_41_img_0,ex_41_im_0_c_1
+167,yes,the orange lollipop is surprised and the red lollipop is sad,ex_41_img_1,ex_41_im_1_c_1
+168,yes,the larger person wears yellow and the smaller person does not,ex_42_img_0,ex_42_im_0_c_0
+169,no,the larger person wears yellow and the smaller person does not,ex_42_img_1,ex_42_im_1_c_0
+170,no,the smaller person wears yellow and the larger person does not,ex_42_img_0,ex_42_im_0_c_1
+171,yes,the smaller person wears yellow and the larger person does not,ex_42_img_1,ex_42_im_1_c_1
+172,yes,a big cat is next to a small dog,ex_43_img_0,ex_43_im_0_c_0
+173,no,a big cat is next to a small dog,ex_43_img_1,ex_43_im_1_c_0
+174,no,a small cat is next to a big dog,ex_43_img_0,ex_43_im_0_c_1
+175,yes,a small cat is next to a big dog,ex_43_img_1,ex_43_im_1_c_1
+176,yes,the heavy oncoming traffic is contrasted with the light outgoing traffic,ex_44_img_0,ex_44_im_0_c_0
+177,no,the heavy oncoming traffic is contrasted with the light outgoing traffic,ex_44_img_1,ex_44_im_1_c_0
+178,no,the light oncoming traffic is contrasted with the heavy outgoing traffic,ex_44_img_0,ex_44_im_0_c_1
+179,yes,the light oncoming traffic is contrasted with the heavy outgoing traffic,ex_44_img_1,ex_44_im_1_c_1
+180,yes,a cold drink on a hot day,ex_45_img_0,ex_45_im_0_c_0
+181,no,a cold drink on a hot day,ex_45_img_1,ex_45_im_1_c_0
+182,no,a hot drink on a cold day,ex_45_img_0,ex_45_im_0_c_1
+183,yes,a hot drink on a cold day,ex_45_img_1,ex_45_im_1_c_1
+184,yes,a person is drinking now and eating later,ex_46_img_0,ex_46_im_0_c_0
+185,no,a person is drinking now and eating later,ex_46_img_1,ex_46_im_1_c_0
+186,no,a person is drinking later and eating now,ex_46_img_0,ex_46_im_0_c_1
+187,yes,a person is drinking later and eating now,ex_46_img_1,ex_46_im_1_c_1
+188,yes,the sailboat sails close but the beach is far away,ex_47_img_0,ex_47_im_0_c_0
+189,no,the sailboat sails close but the beach is far away,ex_47_img_1,ex_47_im_1_c_0
+190,no,the sailboat sails far away but the beach is close,ex_47_img_0,ex_47_im_0_c_1
+191,yes,the sailboat sails far away but the beach is close,ex_47_img_1,ex_47_im_1_c_1
+192,yes,the passenger is riding inattentive to the road and the driver is driving attentive to the road,ex_48_img_0,ex_48_im_0_c_0
+193,no,the passenger is riding inattentive to the road and the driver is driving attentive to the road,ex_48_img_1,ex_48_im_1_c_0
+194,no,the passenger is riding attentive to the road and the driver is driving inattentive to the road,ex_48_img_0,ex_48_im_0_c_1
+195,yes,the passenger is riding attentive to the road and the driver is driving inattentive to the road,ex_48_img_1,ex_48_im_1_c_1
+196,yes,it wears a hat but the person doesn't,ex_49_img_0,ex_49_im_0_c_0
+197,no,it wears a hat but the person doesn't,ex_49_img_1,ex_49_im_1_c_0
+198,no,the person wears a hat but it doesn't,ex_49_img_0,ex_49_im_0_c_1
+199,yes,the person wears a hat but it doesn't,ex_49_img_1,ex_49_im_1_c_1
+200,yes,the person with green legs is running quite slowly and the red legged one runs faster,ex_50_img_0,ex_50_im_0_c_0
+201,no,the person with green legs is running quite slowly and the red legged one runs faster,ex_50_img_1,ex_50_im_1_c_0
+202,no,the person with green legs is running faster and the red legged one runs quite slowly,ex_50_img_0,ex_50_im_0_c_1
+203,yes,the person with green legs is running faster and the red legged one runs quite slowly,ex_50_img_1,ex_50_im_1_c_1
+204,yes,a person is in the water and close to the sand,ex_51_img_0,ex_51_im_0_c_0
+205,no,a person is in the water and close to the sand,ex_51_img_1,ex_51_im_1_c_0
+206,no,a person is close to the water and in the sand,ex_51_img_0,ex_51_im_0_c_1
+207,yes,a person is close to the water and in the sand,ex_51_img_1,ex_51_im_1_c_1
+208,yes,a frog is above rocks which are under the water,ex_52_img_0,ex_52_im_0_c_0
+209,no,a frog is above rocks which are under the water,ex_52_img_1,ex_52_im_1_c_0
+210,no,a frog is under rocks which are above the water,ex_52_img_0,ex_52_im_0_c_1
+211,yes,a frog is under rocks which are above the water,ex_52_img_1,ex_52_im_1_c_1
+212,yes,driving off the road and on the unpaved terrain,ex_53_img_0,ex_53_im_0_c_0
+213,no,driving off the road and on the unpaved terrain,ex_53_img_1,ex_53_im_1_c_0
+214,no,driving on the road and off the unpaved terrain,ex_53_img_0,ex_53_im_0_c_1
+215,yes,driving on the road and off the unpaved terrain,ex_53_img_1,ex_53_im_1_c_1
+216,yes,someone is in a helicopter with a car,ex_54_img_0,ex_54_im_0_c_0
+217,no,someone is in a helicopter with a car,ex_54_img_1,ex_54_im_1_c_0
+218,no,someone is with a helicopter in a car,ex_54_img_0,ex_54_im_0_c_1
+219,yes,someone is with a helicopter in a car,ex_54_img_1,ex_54_im_1_c_1
+220,yes,the green one can fit inside the blue one and the blue one can fit outside the green one,ex_55_img_0,ex_55_im_0_c_0
+221,no,the green one can fit inside the blue one and the blue one can fit outside the green one,ex_55_img_1,ex_55_im_1_c_0
+222,no,the green one can fit outside the blue one and the blue one can fit inside the green one,ex_55_img_0,ex_55_im_0_c_1
+223,yes,the green one can fit outside the blue one and the blue one can fit inside the green one,ex_55_img_1,ex_55_im_1_c_1
+224,yes,jumping away from the photographer and towards the others,ex_56_img_0,ex_56_im_0_c_0
+225,no,jumping away from the photographer and towards the others,ex_56_img_1,ex_56_im_1_c_0
+226,no,jumping towards the photographer and away from the others,ex_56_img_0,ex_56_im_0_c_1
+227,yes,jumping towards the photographer and away from the others,ex_56_img_1,ex_56_im_1_c_1
+228,yes,someone bakes the dough before the dough is eaten,ex_57_img_0,ex_57_im_0_c_0
+229,no,someone bakes the dough before the dough is eaten,ex_57_img_1,ex_57_im_1_c_0
+230,no,the dough is eaten before someone bakes the dough,ex_57_img_0,ex_57_im_0_c_1
+231,yes,the dough is eaten before someone bakes the dough,ex_57_img_1,ex_57_im_1_c_1
+232,yes,it hatched before it was eaten,ex_58_img_0,ex_58_im_0_c_0
+233,no,it hatched before it was eaten,ex_58_img_1,ex_58_im_1_c_0
+234,no,it was eaten before it hatched,ex_58_img_0,ex_58_im_0_c_1
+235,yes,it was eaten before it hatched,ex_58_img_1,ex_58_im_1_c_1
+236,yes,there are three bananas and two apples,ex_59_img_0,ex_59_im_0_c_0
+237,no,there are three bananas and two apples,ex_59_img_1,ex_59_im_1_c_0
+238,no,there are two bananas and three apples,ex_59_img_0,ex_59_im_0_c_1
+239,yes,there are two bananas and three apples,ex_59_img_1,ex_59_im_1_c_1
+240,yes,someone has loaded their plate with one of the toast slices and two of the eggs,ex_60_img_0,ex_60_im_0_c_0
+241,no,someone has loaded their plate with one of the toast slices and two of the eggs,ex_60_img_1,ex_60_im_1_c_0
+242,no,someone has loaded their plate with two of the toast slices and one of the eggs,ex_60_img_0,ex_60_im_0_c_1
+243,yes,someone has loaded their plate with two of the toast slices and one of the eggs,ex_60_img_1,ex_60_im_1_c_1
+244,yes,there are three people and two windows,ex_61_img_0,ex_61_im_0_c_0
+245,no,there are three people and two windows,ex_61_img_1,ex_61_im_1_c_0
+246,no,there are two people and three windows,ex_61_img_0,ex_61_im_0_c_1
+247,yes,there are two people and three windows,ex_61_img_1,ex_61_im_1_c_1
+248,yes,there are 50 stars on the right flag and 5 stars on the left flag,ex_62_img_0,ex_62_im_0_c_0
+249,no,there are 50 stars on the right flag and 5 stars on the left flag,ex_62_img_1,ex_62_im_1_c_0
+250,no,there are 5 stars on the right flag and 50 stars on the left flag,ex_62_img_0,ex_62_im_0_c_1
+251,yes,there are 5 stars on the right flag and 50 stars on the left flag,ex_62_img_1,ex_62_im_1_c_1
+252,yes,no people wear blue shirts and six people wear white shirts,ex_63_img_0,ex_63_im_0_c_0
+253,no,no people wear blue shirts and six people wear white shirts,ex_63_img_1,ex_63_im_1_c_0
+254,no,six people wear blue shirts and no people wear white shirts,ex_63_img_0,ex_63_im_0_c_1
+255,yes,six people wear blue shirts and no people wear white shirts,ex_63_img_1,ex_63_im_1_c_1
+256,yes,the dog's leg is on the person's torso,ex_64_img_0,ex_64_im_0_c_0
+257,no,the dog's leg is on the person's torso,ex_64_img_1,ex_64_im_1_c_0
+258,no,the person's leg is on the dog's torso,ex_64_img_0,ex_64_im_0_c_1
+259,yes,the person's leg is on the dog's torso,ex_64_img_1,ex_64_im_1_c_1
+260,yes,the animal's eyes are bigger than the person's,ex_65_img_0,ex_65_im_0_c_0
+261,no,the animal's eyes are bigger than the person's,ex_65_img_1,ex_65_im_1_c_0
+262,no,the person's eyes are bigger than the animal's,ex_65_img_0,ex_65_im_0_c_1
+263,yes,the person's eyes are bigger than the animal's,ex_65_img_1,ex_65_im_1_c_1
+264,yes,the taller person's arm is around the shorter person's shoulder,ex_66_img_0,ex_66_im_0_c_0
+265,no,the taller person's arm is around the shorter person's shoulder,ex_66_img_1,ex_66_im_1_c_0
+266,no,the shorter person's arm is around the taller person's shoulder,ex_66_img_0,ex_66_im_0_c_1
+267,yes,the shorter person's arm is around the taller person's shoulder,ex_66_img_1,ex_66_im_1_c_1
+268,yes,the person in a brown coat looks back and the person in a black coat looks forward,ex_67_img_0,ex_67_im_0_c_0
+269,no,the person in a brown coat looks back and the person in a black coat looks forward,ex_67_img_1,ex_67_im_1_c_0
+270,no,the person in a black coat looks back and the person in a brown coat looks forward,ex_67_img_0,ex_67_im_0_c_1
+271,yes,the person in a black coat looks back and the person in a brown coat looks forward,ex_67_img_1,ex_67_im_1_c_1
+272,yes,it ran away while they pursued,ex_68_img_0,ex_68_im_0_c_0
+273,no,it ran away while they pursued,ex_68_img_1,ex_68_im_1_c_0
+274,no,they ran away while it pursued,ex_68_img_0,ex_68_im_0_c_1
+275,yes,they ran away while it pursued,ex_68_img_1,ex_68_im_1_c_1
+276,yes,almost everyone is in a boat and one is swimming,ex_69_img_0,ex_69_im_0_c_0
+277,no,almost everyone is in a boat and one is swimming,ex_69_img_1,ex_69_im_1_c_0
+278,no,one is in a boat and almost everyone is swimming,ex_69_img_0,ex_69_im_0_c_1
+279,yes,one is in a boat and almost everyone is swimming,ex_69_img_1,ex_69_im_1_c_1
+280,yes,the person with the lighter shoes is holding an emoji and the person with the darker shoes isn't,ex_70_img_0,ex_70_im_0_c_0
+281,no,the person with the lighter shoes is holding an emoji and the person with the darker shoes isn't,ex_70_img_1,ex_70_im_1_c_0
+282,no,the person with the darker shoes is holding an emoji and the person with the lighter shoes isn't,ex_70_img_0,ex_70_im_0_c_1
+283,yes,the person with the darker shoes is holding an emoji and the person with the lighter shoes isn't,ex_70_img_1,ex_70_im_1_c_1
+284,yes,the person wearing neutral colors poses and the person wearing brighter colors takes a picture,ex_71_img_0,ex_71_im_0_c_0
+285,no,the person wearing neutral colors poses and the person wearing brighter colors takes a picture,ex_71_img_1,ex_71_im_1_c_0
+286,no,the person wearing brighter colors poses and the person wearing neutral colors takes a picture,ex_71_img_0,ex_71_im_0_c_1
+287,yes,the person wearing brighter colors poses and the person wearing neutral colors takes a picture,ex_71_img_1,ex_71_im_1_c_1
+288,yes,it's a fire truck,ex_72_img_0,ex_72_im_0_c_0
+289,no,it's a fire truck,ex_72_img_1,ex_72_im_1_c_0
+290,no,it's a truck fire,ex_72_img_0,ex_72_im_0_c_1
+291,yes,it's a truck fire,ex_72_img_1,ex_72_im_1_c_1
+292,yes,watching the present,ex_73_img_0,ex_73_im_0_c_0
+293,no,watching the present,ex_73_img_1,ex_73_im_1_c_0
+294,no,presenting the watch,ex_73_img_0,ex_73_im_0_c_1
+295,yes,presenting the watch,ex_73_img_1,ex_73_im_1_c_1
+296,yes,walking out on a rock,ex_74_img_0,ex_74_im_0_c_0
+297,no,walking out on a rock,ex_74_img_1,ex_74_im_1_c_0
+298,no,rocking out on a walk,ex_74_img_0,ex_74_im_0_c_1
+299,yes,rocking out on a walk,ex_74_img_1,ex_74_im_1_c_1
+300,yes,the kid with the magnifying glass looks at them,ex_75_img_0,ex_75_im_0_c_0
+301,no,the kid with the magnifying glass looks at them,ex_75_img_1,ex_75_im_1_c_0
+302,no,the kid looks at them with the magnifying glass,ex_75_img_0,ex_75_im_0_c_1
+303,yes,the kid looks at them with the magnifying glass,ex_75_img_1,ex_75_im_1_c_1
+304,yes,the person with the kids is sitting,ex_76_img_0,ex_76_im_0_c_0
+305,no,the person with the kids is sitting,ex_76_img_1,ex_76_im_1_c_0
+306,no,the person is sitting with the kids,ex_76_img_0,ex_76_im_0_c_1
+307,yes,the person is sitting with the kids,ex_76_img_1,ex_76_im_1_c_1
+308,yes,the people with shoes are touching each other,ex_77_img_0,ex_77_im_0_c_0
+309,no,the people with shoes are touching each other,ex_77_img_1,ex_77_im_1_c_0
+310,no,the people are touching each other with shoes,ex_77_img_0,ex_77_im_0_c_1
+311,yes,the people are touching each other with shoes,ex_77_img_1,ex_77_im_1_c_1
+312,yes,someone with an apple is hurt by a tree,ex_78_img_0,ex_78_im_0_c_0
+313,no,someone with an apple is hurt by a tree,ex_78_img_1,ex_78_im_1_c_0
+314,no,someone is hurt by a tree with an apple,ex_78_img_0,ex_78_im_0_c_1
+315,yes,someone is hurt by a tree with an apple,ex_78_img_1,ex_78_im_1_c_1
+316,yes,the person that is on the table is eating the food,ex_79_img_0,ex_79_im_0_c_0
+317,no,the person that is on the table is eating the food,ex_79_img_1,ex_79_im_1_c_0
+318,no,the person is eating the food that is on the table,ex_79_img_0,ex_79_im_0_c_1
+319,yes,the person is eating the food that is on the table,ex_79_img_1,ex_79_im_1_c_1
+320,yes,the watering can is larger than the pot,ex_80_img_0,ex_80_im_0_c_0
+321,no,the watering can is larger than the pot,ex_80_img_1,ex_80_im_1_c_0
+322,no,the pot is larger than the watering can,ex_80_img_0,ex_80_im_0_c_1
+323,yes,the pot is larger than the watering can,ex_80_img_1,ex_80_im_1_c_1
+324,yes,they hold a suitcase handle with their left hand and they hold a passport with their right hand,ex_81_img_0,ex_81_im_0_c_0
+325,no,they hold a suitcase handle with their left hand and they hold a passport with their right hand,ex_81_img_1,ex_81_im_1_c_0
+326,no,they hold a passport with their left hand and they hold a suitcase handle with their right hand,ex_81_img_0,ex_81_im_0_c_1
+327,yes,they hold a passport with their left hand and they hold a suitcase handle with their right hand,ex_81_img_1,ex_81_im_1_c_1
+328,yes,the person with the patterned shirt is curly-haired and the other is straight-haired,ex_82_img_0,ex_82_im_0_c_0
+329,no,the person with the patterned shirt is curly-haired and the other is straight-haired,ex_82_img_1,ex_82_im_1_c_0
+330,no,the person with the patterned shirt is straight-haired and the other is curly-haired,ex_82_img_0,ex_82_im_0_c_1
+331,yes,the person with the patterned shirt is straight-haired and the other is curly-haired,ex_82_img_1,ex_82_im_1_c_1
+332,yes,a diagram showing movement from right to left,ex_83_img_0,ex_83_im_0_c_0
+333,no,a diagram showing movement from right to left,ex_83_img_1,ex_83_im_1_c_0
+334,no,a diagram showing movement from left to right,ex_83_img_0,ex_83_im_0_c_1
+335,yes,a diagram showing movement from left to right,ex_83_img_1,ex_83_im_1_c_1
+336,yes,the flip flops are too big for these feet,ex_84_img_0,ex_84_im_0_c_0
+337,no,the flip flops are too big for these feet,ex_84_img_1,ex_84_im_1_c_0
+338,no,the feet are too big for these flip flops,ex_84_img_0,ex_84_im_0_c_1
+339,yes,the feet are too big for these flip flops,ex_84_img_1,ex_84_im_1_c_1
+340,yes,the person who is wearing a crown is kissing a frog,ex_85_img_0,ex_85_im_0_c_0
+341,no,the person who is wearing a crown is kissing a frog,ex_85_img_1,ex_85_im_1_c_0
+342,no,the person is kissing a frog who is wearing a crown,ex_85_img_0,ex_85_im_0_c_1
+343,yes,the person is kissing a frog who is wearing a crown,ex_85_img_1,ex_85_im_1_c_1
+344,yes,a dog sitting on a couch with a person lying on the floor,ex_86_img_0,ex_86_im_0_c_0
+345,no,a dog sitting on a couch with a person lying on the floor,ex_86_img_1,ex_86_im_1_c_0
+346,no,a person lying on a couch with a dog sitting on the floor,ex_86_img_0,ex_86_im_0_c_1
+347,yes,a person lying on a couch with a dog sitting on the floor,ex_86_img_1,ex_86_im_1_c_1
+348,yes,The uncaged bird has an opened cage door,ex_87_img_0,ex_87_im_0_c_0
+349,no,The uncaged bird has an opened cage door,ex_87_img_1,ex_87_im_1_c_0
+350,no,The caged bird has an unopened cage door,ex_87_img_0,ex_87_im_0_c_1
+351,yes,The caged bird has an unopened cage door,ex_87_img_1,ex_87_im_1_c_1
+352,yes,meat with potatoes,ex_88_img_0,ex_88_im_0_c_0
+353,no,meat with potatoes,ex_88_img_1,ex_88_im_1_c_0
+354,no,potatoes with meat,ex_88_img_0,ex_88_im_0_c_1
+355,yes,potatoes with meat,ex_88_img_1,ex_88_im_1_c_1
+356,yes,the person in pink was close to not winning,ex_89_img_0,ex_89_im_0_c_0
+357,no,the person in pink was close to not winning,ex_89_img_1,ex_89_im_1_c_0
+358,no,the person in pink was not close to winning,ex_89_img_0,ex_89_im_0_c_1
+359,yes,the person in pink was not close to winning,ex_89_img_1,ex_89_im_1_c_1
+360,yes,two humans and one wheel,ex_90_img_0,ex_90_im_0_c_0
+361,no,two humans and one wheel,ex_90_img_1,ex_90_im_1_c_0
+362,no,two wheels and one human,ex_90_img_0,ex_90_im_0_c_1
+363,yes,two wheels and one human,ex_90_img_1,ex_90_im_1_c_1
+364,yes,clothing on lines,ex_91_img_0,ex_91_im_0_c_0
+365,no,clothing on lines,ex_91_img_1,ex_91_im_1_c_0
+366,no,lines on clothing,ex_91_img_0,ex_91_im_0_c_1
+367,yes,lines on clothing,ex_91_img_1,ex_91_im_1_c_1
+368,yes,someone talks on the phone angrily while another person sits happily,ex_92_img_0,ex_92_im_0_c_0
+369,no,someone talks on the phone angrily while another person sits happily,ex_92_img_1,ex_92_im_1_c_0
+370,no,someone talks on the phone happily while another person sits angrily,ex_92_img_0,ex_92_im_0_c_1
+371,yes,someone talks on the phone happily while another person sits angrily,ex_92_img_1,ex_92_im_1_c_1
+372,yes,two boats and one direction down the stream,ex_93_img_0,ex_93_im_0_c_0
+373,no,two boats and one direction down the stream,ex_93_img_1,ex_93_im_1_c_0
+374,no,one boat and two directions down the stream,ex_93_img_0,ex_93_im_0_c_1
+375,yes,one boat and two directions down the stream,ex_93_img_1,ex_93_im_1_c_1
+376,yes,The dog rides without a visible tongue,ex_94_img_0,ex_94_im_0_c_0
+377,no,The dog rides without a visible tongue,ex_94_img_1,ex_94_im_1_c_0
+378,no,The dog rides with a visible tongue out,ex_94_img_0,ex_94_im_0_c_1
+379,yes,The dog rides with a visible tongue out,ex_94_img_1,ex_94_im_1_c_1
+380,yes,handing a hammer,ex_95_img_0,ex_95_im_0_c_0
+381,no,handing a hammer,ex_95_img_1,ex_95_im_1_c_0
+382,no,hammering a hand,ex_95_img_0,ex_95_im_0_c_1
+383,yes,hammering a hand,ex_95_img_1,ex_95_im_1_c_1
+384,yes,leaves its shedding,ex_96_img_0,ex_96_im_0_c_0
+385,no,leaves its shedding,ex_96_img_1,ex_96_im_1_c_0
+386,no,shedding its leaves,ex_96_img_0,ex_96_im_0_c_1
+387,yes,shedding its leaves,ex_96_img_1,ex_96_im_1_c_1
+388,yes,they are using no bait but still got fish,ex_97_img_0,ex_97_im_0_c_0
+389,no,they are using no bait but still got fish,ex_97_img_1,ex_97_im_1_c_0
+390,no,they are using bait but still got no fish,ex_97_img_0,ex_97_im_0_c_1
+391,yes,they are using bait but still got no fish,ex_97_img_1,ex_97_im_1_c_1
+392,yes,someone on the ground is spraying water towards a vehicle,ex_98_img_0,ex_98_im_0_c_0
+393,no,someone on the ground is spraying water towards a vehicle,ex_98_img_1,ex_98_im_1_c_0
+394,no,someone is on a vehicle spraying water towards the ground,ex_98_img_0,ex_98_im_0_c_1
+395,yes,someone is on a vehicle spraying water towards the ground,ex_98_img_1,ex_98_im_1_c_1
+396,yes,the dog wears as a hat what someone would normally bite,ex_99_img_0,ex_99_im_0_c_0
+397,no,the dog wears as a hat what someone would normally bite,ex_99_img_1,ex_99_im_1_c_0
+398,no,the dog bites what someone would normally wear as a hat,ex_99_img_0,ex_99_im_0_c_1
+399,yes,the dog bites what someone would normally wear as a hat,ex_99_img_1,ex_99_im_1_c_1
+400,yes,the happy one is on the left and the upset one is on the right,ex_100_img_0,ex_100_im_0_c_0
+401,no,the happy one is on the left and the upset one is on the right,ex_100_img_1,ex_100_im_1_c_0
+402,no,the upset one is on the left and the happy one is on the right,ex_100_img_0,ex_100_im_0_c_1
+403,yes,the upset one is on the left and the happy one is on the right,ex_100_img_1,ex_100_im_1_c_1
+404,yes,fake mustache and real hair on head,ex_101_img_0,ex_101_im_0_c_0
+405,no,fake mustache and real hair on head,ex_101_img_1,ex_101_im_1_c_0
+406,no,real mustache and fake hair on head,ex_101_img_0,ex_101_im_0_c_1
+407,yes,real mustache and fake hair on head,ex_101_img_1,ex_101_im_1_c_1
+408,yes,real cat with toy baby,ex_102_img_0,ex_102_im_0_c_0
+409,no,real cat with toy baby,ex_102_img_1,ex_102_im_1_c_0
+410,no,toy cat with real baby,ex_102_img_0,ex_102_im_0_c_1
+411,yes,toy cat with real baby,ex_102_img_1,ex_102_im_1_c_1
+412,yes,the lion is loud and the lionness is quiet,ex_103_img_0,ex_103_im_0_c_0
+413,no,the lion is loud and the lionness is quiet,ex_103_img_1,ex_103_im_1_c_0
+414,no,the lion is quiet and the lionness is loud,ex_103_img_0,ex_103_im_0_c_1
+415,yes,the lion is quiet and the lionness is loud,ex_103_img_1,ex_103_im_1_c_1
+416,yes,there is a pink couch with green pillows,ex_104_img_0,ex_104_im_0_c_0
+417,no,there is a pink couch with green pillows,ex_104_img_1,ex_104_im_1_c_0
+418,no,there is a green couch with pink pillows,ex_104_img_0,ex_104_im_0_c_1
+419,yes,there is a green couch with pink pillows,ex_104_img_1,ex_104_im_1_c_1
+420,yes,light colored dog with dark colored cat,ex_105_img_0,ex_105_im_0_c_0
+421,no,light colored dog with dark colored cat,ex_105_img_1,ex_105_im_1_c_0
+422,no,dark colored dog with light colored cat,ex_105_img_0,ex_105_im_0_c_1
+423,yes,dark colored dog with light colored cat,ex_105_img_1,ex_105_im_1_c_1
+424,yes,someone is wearing a black hat and yellow shirt,ex_106_img_0,ex_106_im_0_c_0
+425,no,someone is wearing a black hat and yellow shirt,ex_106_img_1,ex_106_im_1_c_0
+426,no,someone is wearing a yellow hat and black shirt,ex_106_img_0,ex_106_im_0_c_1
+427,yes,someone is wearing a yellow hat and black shirt,ex_106_img_1,ex_106_im_1_c_1
+428,yes,black socks and orange shoes,ex_107_img_0,ex_107_im_0_c_0
+429,no,black socks and orange shoes,ex_107_img_1,ex_107_im_1_c_0
+430,no,orange socks and black shoes,ex_107_img_0,ex_107_im_0_c_1
+431,yes,orange socks and black shoes,ex_107_img_1,ex_107_im_1_c_1
+432,yes,red building with white shutters,ex_108_img_0,ex_108_im_0_c_0
+433,no,red building with white shutters,ex_108_img_1,ex_108_im_1_c_0
+434,no,white building with red shutters,ex_108_img_0,ex_108_im_0_c_1
+435,yes,white building with red shutters,ex_108_img_1,ex_108_im_1_c_1
+436,yes,blue pants and green top,ex_109_img_0,ex_109_im_0_c_0
+437,no,blue pants and green top,ex_109_img_1,ex_109_im_1_c_0
+438,no,green pants and blue top,ex_109_img_0,ex_109_im_0_c_1
+439,yes,green pants and blue top,ex_109_img_1,ex_109_im_1_c_1
+440,yes,there's one blue and many yellow balls,ex_110_img_0,ex_110_im_0_c_0
+441,no,there's one blue and many yellow balls,ex_110_img_1,ex_110_im_1_c_0
+442,no,there's one yellow and many blue balls,ex_110_img_0,ex_110_im_0_c_1
+443,yes,there's one yellow and many blue balls,ex_110_img_1,ex_110_im_1_c_1
+444,yes,there are more silver coins than gold coins,ex_111_img_0,ex_111_im_0_c_0
+445,no,there are more silver coins than gold coins,ex_111_img_1,ex_111_im_1_c_0
+446,no,there are more gold coins than silver coins,ex_111_img_0,ex_111_im_0_c_1
+447,yes,there are more gold coins than silver coins,ex_111_img_1,ex_111_im_1_c_1
+448,yes,the red team kicking the ball directly next to the blue team,ex_112_img_0,ex_112_im_0_c_0
+449,no,the red team kicking the ball directly next to the blue team,ex_112_img_1,ex_112_im_1_c_0
+450,no,the blue team kicking the ball directly next to the red team,ex_112_img_0,ex_112_im_0_c_1
+451,yes,the blue team kicking the ball directly next to the red team,ex_112_img_1,ex_112_im_1_c_1
+452,yes,black dog wearing a brown sweater,ex_113_img_0,ex_113_im_0_c_0
+453,no,black dog wearing a brown sweater,ex_113_img_1,ex_113_im_1_c_0
+454,no,brown dog wearing a black sweater,ex_113_img_0,ex_113_im_0_c_1
+455,yes,brown dog wearing a black sweater,ex_113_img_1,ex_113_im_1_c_1
+456,yes,one green apple surrounded by a bunch of red apples,ex_114_img_0,ex_114_im_0_c_0
+457,no,one green apple surrounded by a bunch of red apples,ex_114_img_1,ex_114_im_1_c_0
+458,no,one red apple surrounded by a bunch of green apples,ex_114_img_0,ex_114_im_0_c_1
+459,yes,one red apple surrounded by a bunch of green apples,ex_114_img_1,ex_114_im_1_c_1
+460,yes,person in white is reading the orange book,ex_115_img_0,ex_115_im_0_c_0
+461,no,person in white is reading the orange book,ex_115_img_1,ex_115_im_1_c_0
+462,no,person in orange is reading the white book,ex_115_img_0,ex_115_im_0_c_1
+463,yes,person in orange is reading the white book,ex_115_img_1,ex_115_im_1_c_1
+464,yes,the children are being quiet while the adult is loud,ex_116_img_0,ex_116_im_0_c_0
+465,no,the children are being quiet while the adult is loud,ex_116_img_1,ex_116_im_1_c_0
+466,no,the children are being loud while the adult is quiet,ex_116_img_0,ex_116_im_0_c_1
+467,yes,the children are being loud while the adult is quiet,ex_116_img_1,ex_116_im_1_c_1
+468,yes,the circular mirror is on the left and the rectangular mirror is on the right,ex_117_img_0,ex_117_im_0_c_0
+469,no,the circular mirror is on the left and the rectangular mirror is on the right,ex_117_img_1,ex_117_im_1_c_0
+470,no,the rectangular mirror is on the left and the circular mirror is on the right,ex_117_img_0,ex_117_im_0_c_1
+471,yes,the rectangular mirror is on the left and the circular mirror is on the right,ex_117_img_1,ex_117_im_1_c_1
+472,yes,circular food on heart-shaped wood,ex_118_img_0,ex_118_im_0_c_0
+473,no,circular food on heart-shaped wood,ex_118_img_1,ex_118_im_1_c_0
+474,no,heart-shaped food on circular wood,ex_118_img_0,ex_118_im_0_c_1
+475,yes,heart-shaped food on circular wood,ex_118_img_1,ex_118_im_1_c_1
+476,yes,the dress on the left is long and the dress on the right is short,ex_119_img_0,ex_119_im_0_c_0
+477,no,the dress on the left is long and the dress on the right is short,ex_119_img_1,ex_119_im_1_c_0
+478,no,the dress on the left is short and the dress on the right is long,ex_119_img_0,ex_119_im_0_c_1
+479,yes,the dress on the left is short and the dress on the right is long,ex_119_img_1,ex_119_im_1_c_1
+480,yes,the balloon in the middle has less air and the other balloons have more air,ex_120_img_0,ex_120_im_0_c_0
+481,no,the balloon in the middle has less air and the other balloons have more air,ex_120_img_1,ex_120_im_1_c_0
+482,no,the balloon in the middle has more air and the other balloons have less air,ex_120_img_0,ex_120_im_0_c_1
+483,yes,the balloon in the middle has more air and the other balloons have less air,ex_120_img_1,ex_120_im_1_c_1
+484,yes,the pool has no people and the area around it has a lot of people,ex_121_img_0,ex_121_im_0_c_0
+485,no,the pool has no people and the area around it has a lot of people,ex_121_img_1,ex_121_im_1_c_0
+486,no,the pool has a lot of people and the area around it has no people,ex_121_img_0,ex_121_im_0_c_1
+487,yes,the pool has a lot of people and the area around it has no people,ex_121_img_1,ex_121_im_1_c_1
+488,yes,big fish beside a small person,ex_122_img_0,ex_122_im_0_c_0
+489,no,big fish beside a small person,ex_122_img_1,ex_122_im_1_c_0
+490,no,small fish beside a big person,ex_122_img_0,ex_122_im_0_c_1
+491,yes,small fish beside a big person,ex_122_img_1,ex_122_im_1_c_1
+492,yes,the train is moving fast while the person is still,ex_123_img_0,ex_123_im_0_c_0
+493,no,the train is moving fast while the person is still,ex_123_img_1,ex_123_im_1_c_0
+494,no,the train is still while the person is moving fast,ex_123_img_0,ex_123_im_0_c_1
+495,yes,the train is still while the person is moving fast,ex_123_img_1,ex_123_im_1_c_1
+496,yes,they're enjoying hot water on a cold day,ex_124_img_0,ex_124_im_0_c_0
+497,no,they're enjoying hot water on a cold day,ex_124_img_1,ex_124_im_1_c_0
+498,no,they're enjoying cold water on a hot day,ex_124_img_0,ex_124_im_0_c_1
+499,yes,they're enjoying cold water on a hot day,ex_124_img_1,ex_124_im_1_c_1
+500,yes,concrete floors with wood walls,ex_125_img_0,ex_125_im_0_c_0
+501,no,concrete floors with wood walls,ex_125_img_1,ex_125_im_1_c_0
+502,no,wood floors with concrete walls,ex_125_img_0,ex_125_im_0_c_1
+503,yes,wood floors with concrete walls,ex_125_img_1,ex_125_im_1_c_1
+504,yes,the person on the left has curly hair and the person on the right has straight hair,ex_126_img_0,ex_126_im_0_c_0
+505,no,the person on the left has curly hair and the person on the right has straight hair,ex_126_img_1,ex_126_im_1_c_0
+506,no,the person on the left has straight hair and the person on the right has curly hair,ex_126_img_0,ex_126_im_0_c_1
+507,yes,the person on the left has straight hair and the person on the right has curly hair,ex_126_img_1,ex_126_im_1_c_1
+508,yes,there's a metal bottle with a plastic lid,ex_127_img_0,ex_127_im_0_c_0
+509,no,there's a metal bottle with a plastic lid,ex_127_img_1,ex_127_im_1_c_0
+510,no,there's a plastic bottle with a metal lid,ex_127_img_0,ex_127_im_0_c_1
+511,yes,there's a plastic bottle with a metal lid,ex_127_img_1,ex_127_im_1_c_1
+512,yes,the fruit is heavy while the junk food is light,ex_128_img_0,ex_128_im_0_c_0
+513,no,the fruit is heavy while the junk food is light,ex_128_img_1,ex_128_im_1_c_0
+514,no,the fruit is light while the junk food is heavy,ex_128_img_0,ex_128_im_0_c_1
+515,yes,the fruit is light while the junk food is heavy,ex_128_img_1,ex_128_im_1_c_1
+516,yes,the car is sitting upside down while the person is standing rightside up,ex_129_img_0,ex_129_im_0_c_0
+517,no,the car is sitting upside down while the person is standing rightside up,ex_129_img_1,ex_129_im_1_c_0
+518,no,the car is sitting rightside up while the person is standing upside down,ex_129_img_0,ex_129_im_0_c_1
+519,yes,the car is sitting rightside up while the person is standing upside down,ex_129_img_1,ex_129_im_1_c_1
+520,yes,the cup on the left is filled first and the cup on the right is filled second,ex_130_img_0,ex_130_im_0_c_0
+521,no,the cup on the left is filled first and the cup on the right is filled second,ex_130_img_1,ex_130_im_1_c_0
+522,no,the cup on the left is filled second and the cup on the right is filled first,ex_130_img_0,ex_130_im_0_c_1
+523,yes,the cup on the left is filled second and the cup on the right is filled first,ex_130_img_1,ex_130_im_1_c_1
+524,yes,milk cow,ex_131_img_0,ex_131_im_0_c_0
+525,no,milk cow,ex_131_img_1,ex_131_im_1_c_0
+526,no,cow milk,ex_131_img_0,ex_131_im_0_c_1
+527,yes,cow milk,ex_131_img_1,ex_131_im_1_c_1
+528,yes,there is a clock wall,ex_132_img_0,ex_132_im_0_c_0
+529,no,there is a clock wall,ex_132_img_1,ex_132_im_1_c_0
+530,no,there is a wall clock,ex_132_img_0,ex_132_im_0_c_1
+531,yes,there is a wall clock,ex_132_img_1,ex_132_im_1_c_1
+532,yes,there is a split banana,ex_133_img_0,ex_133_im_0_c_0
+533,no,there is a split banana,ex_133_img_1,ex_133_im_1_c_0
+534,no,there is a banana split,ex_133_img_0,ex_133_im_0_c_1
+535,yes,there is a banana split,ex_133_img_1,ex_133_im_1_c_1
+536,yes,there are two people and a bunch of horses,ex_134_img_0,ex_134_im_0_c_0
+537,no,there are two people and a bunch of horses,ex_134_img_1,ex_134_im_1_c_0
+538,no,there are a bunch of people and two horses,ex_134_img_0,ex_134_im_0_c_1
+539,yes,there are a bunch of people and two horses,ex_134_img_1,ex_134_im_1_c_1
+540,yes,three white and two brown eggs,ex_135_img_0,ex_135_im_0_c_0
+541,no,three white and two brown eggs,ex_135_img_1,ex_135_im_1_c_0
+542,no,two white and three brown eggs,ex_135_img_0,ex_135_im_0_c_1
+543,yes,two white and three brown eggs,ex_135_img_1,ex_135_im_1_c_1
+544,yes,the plastic is in the fish,ex_136_img_0,ex_136_im_0_c_0
+545,no,the plastic is in the fish,ex_136_img_1,ex_136_im_1_c_0
+546,no,the fish is in the plastic,ex_136_img_0,ex_136_im_0_c_1
+547,yes,the fish is in the plastic,ex_136_img_1,ex_136_im_1_c_1
+548,yes,the dog's paw is on the cat's face,ex_137_img_0,ex_137_im_0_c_0
+549,no,the dog's paw is on the cat's face,ex_137_img_1,ex_137_im_1_c_0
+550,no,the cat's paw is on the dog's face,ex_137_img_0,ex_137_im_0_c_1
+551,yes,the cat's paw is on the dog's face,ex_137_img_1,ex_137_im_1_c_1
+552,yes,the computer's screen is on and the phone's screen is off,ex_138_img_0,ex_138_im_0_c_0
+553,no,the computer's screen is on and the phone's screen is off,ex_138_img_1,ex_138_im_1_c_0
+554,no,the phone's screen is on and the computer's screen is off,ex_138_img_0,ex_138_im_0_c_1
+555,yes,the phone's screen is on and the computer's screen is off,ex_138_img_1,ex_138_im_1_c_1
+556,yes,the dog is in the driver's seat and the person is in the passenger's seat,ex_139_img_0,ex_139_im_0_c_0
+557,no,the dog is in the driver's seat and the person is in the passenger's seat,ex_139_img_1,ex_139_im_1_c_0
+558,no,the dog is in the passenger's seat and the person is in the driver's seat,ex_139_img_0,ex_139_im_0_c_1
+559,yes,the dog is in the passenger's seat and the person is in the driver's seat,ex_139_img_1,ex_139_im_1_c_1
+560,yes,there are more trees than people,ex_140_img_0,ex_140_im_0_c_0
+561,no,there are more trees than people,ex_140_img_1,ex_140_im_1_c_0
+562,no,there are more people than trees,ex_140_img_0,ex_140_im_0_c_1
+563,yes,there are more people than trees,ex_140_img_1,ex_140_im_1_c_1
+564,yes,there are more computers than people,ex_141_img_0,ex_141_im_0_c_0
+565,no,there are more computers than people,ex_141_img_1,ex_141_im_1_c_0
+566,no,there are more people than computers,ex_141_img_0,ex_141_im_0_c_1
+567,yes,there are more people than computers,ex_141_img_1,ex_141_im_1_c_1
+568,yes,there is more wood than metal,ex_142_img_0,ex_142_im_0_c_0
+569,no,there is more wood than metal,ex_142_img_1,ex_142_im_1_c_0
+570,no,there is more metal than wood,ex_142_img_0,ex_142_im_0_c_1
+571,yes,there is more metal than wood,ex_142_img_1,ex_142_im_1_c_1
+572,yes,there are more hats than people,ex_143_img_0,ex_143_im_0_c_0
+573,no,there are more hats than people,ex_143_img_1,ex_143_im_1_c_0
+574,no,there are more people than hats,ex_143_img_0,ex_143_im_0_c_1
+575,yes,there are more people than hats,ex_143_img_1,ex_143_im_1_c_1
+576,yes,there are more people than stools,ex_144_img_0,ex_144_im_0_c_0
+577,no,there are more people than stools,ex_144_img_1,ex_144_im_1_c_0
+578,no,there are more stools than people,ex_144_img_0,ex_144_im_0_c_1
+579,yes,there are more stools than people,ex_144_img_1,ex_144_im_1_c_1
+580,yes,there is more red wine than white wine,ex_145_img_0,ex_145_im_0_c_0
+581,no,there is more red wine than white wine,ex_145_img_1,ex_145_im_1_c_0
+582,no,there is more white wine than red wine,ex_145_img_0,ex_145_im_0_c_1
+583,yes,there is more white wine than red wine,ex_145_img_1,ex_145_im_1_c_1
+584,yes,there's more milk than coffee,ex_146_img_0,ex_146_im_0_c_0
+585,no,there's more milk than coffee,ex_146_img_1,ex_146_im_1_c_0
+586,no,there's more coffee than milk,ex_146_img_0,ex_146_im_0_c_1
+587,yes,there's more coffee than milk,ex_146_img_1,ex_146_im_1_c_1
+588,yes,there's more cereal in the bowl than milk,ex_147_img_0,ex_147_im_0_c_0
+589,no,there's more cereal in the bowl than milk,ex_147_img_1,ex_147_im_1_c_0
+590,no,there's more milk in the bowl than cereal,ex_147_img_0,ex_147_im_0_c_1
+591,yes,there's more milk in the bowl than cereal,ex_147_img_1,ex_147_im_1_c_1
+592,yes,boat sail,ex_148_img_0,ex_148_im_0_c_0
+593,no,boat sail,ex_148_img_1,ex_148_im_1_c_0
+594,no,sail boat,ex_148_img_0,ex_148_im_0_c_1
+595,yes,sail boat,ex_148_img_1,ex_148_im_1_c_1
+596,yes,boat house,ex_149_img_0,ex_149_im_0_c_0
+597,no,boat house,ex_149_img_1,ex_149_im_1_c_0
+598,no,house boat,ex_149_img_0,ex_149_im_0_c_1
+599,yes,house boat,ex_149_img_1,ex_149_im_1_c_1
+600,yes,check a rip,ex_150_img_0,ex_150_im_0_c_0
+601,no,check a rip,ex_150_img_1,ex_150_im_1_c_0
+602,no,rip a check,ex_150_img_0,ex_150_im_0_c_1
+603,yes,rip a check,ex_150_img_1,ex_150_im_1_c_1
+604,yes,dress the display,ex_151_img_0,ex_151_im_0_c_0
+605,no,dress the display,ex_151_img_1,ex_151_im_1_c_0
+606,no,display the dress,ex_151_img_0,ex_151_im_0_c_1
+607,yes,display the dress,ex_151_img_1,ex_151_im_1_c_1
+608,yes,spoon holding honey,ex_152_img_0,ex_152_im_0_c_0
+609,no,spoon holding honey,ex_152_img_1,ex_152_im_1_c_0
+610,no,honey holding spoon,ex_152_img_0,ex_152_im_0_c_1
+611,yes,honey holding spoon,ex_152_img_1,ex_152_im_1_c_1
+612,yes,books holding up a person,ex_153_img_0,ex_153_im_0_c_0
+613,no,books holding up a person,ex_153_img_1,ex_153_im_1_c_0
+614,no,a person holding up books,ex_153_img_0,ex_153_im_0_c_1
+615,yes,a person holding up books,ex_153_img_1,ex_153_im_1_c_1
+616,yes,a dog is using a wheelchair next to a person,ex_154_img_0,ex_154_im_0_c_0
+617,no,a dog is using a wheelchair next to a person,ex_154_img_1,ex_154_im_1_c_0
+618,no,a person is using a wheelchair next to a dog,ex_154_img_0,ex_154_im_0_c_1
+619,yes,a person is using a wheelchair next to a dog,ex_154_img_1,ex_154_im_1_c_1
+620,yes,some plants surrounding a lightbulb,ex_155_img_0,ex_155_im_0_c_0
+621,no,some plants surrounding a lightbulb,ex_155_img_1,ex_155_im_1_c_0
+622,no,a lightbulb surrounding some plants,ex_155_img_0,ex_155_im_0_c_1
+623,yes,a lightbulb surrounding some plants,ex_155_img_1,ex_155_im_1_c_1
+624,yes,a more lightly-colored dog is holding a toy next to a black dog,ex_156_img_0,ex_156_im_0_c_0
+625,no,a more lightly-colored dog is holding a toy next to a black dog,ex_156_img_1,ex_156_im_1_c_0
+626,no,a black dog is holding a toy next to a more lightly-colored dog,ex_156_img_0,ex_156_im_0_c_1
+627,yes,a black dog is holding a toy next to a more lightly-colored dog,ex_156_img_1,ex_156_im_1_c_1
+628,yes,the flowers are taller than the people,ex_157_img_0,ex_157_im_0_c_0
+629,no,the flowers are taller than the people,ex_157_img_1,ex_157_im_1_c_0
+630,no,the people are taller than the flowers,ex_157_img_0,ex_157_im_0_c_1
+631,yes,the people are taller than the flowers,ex_157_img_1,ex_157_im_1_c_1
+632,yes,there's a human in a stroller next to a dog,ex_158_img_0,ex_158_im_0_c_0
+633,no,there's a human in a stroller next to a dog,ex_158_img_1,ex_158_im_1_c_0
+634,no,there's a dog in a stroller next to a human,ex_158_img_0,ex_158_im_0_c_1
+635,yes,there's a dog in a stroller next to a human,ex_158_img_1,ex_158_im_1_c_1
+636,yes,a person is casting a shadow beside a ball,ex_159_img_0,ex_159_im_0_c_0
+637,no,a person is casting a shadow beside a ball,ex_159_img_1,ex_159_im_1_c_0
+638,no,a ball is casting a shadow beside a person,ex_159_img_0,ex_159_im_0_c_1
+639,yes,a ball is casting a shadow beside a person,ex_159_img_1,ex_159_im_1_c_1
+640,yes,its tail is shorter than its body,ex_160_img_0,ex_160_im_0_c_0
+641,no,its tail is shorter than its body,ex_160_img_1,ex_160_im_1_c_0
+642,no,its body is shorter than its tail,ex_160_img_0,ex_160_im_0_c_1
+643,yes,its body is shorter than its tail,ex_160_img_1,ex_160_im_1_c_1
+644,yes,the child is throwing the adult the ball,ex_161_img_0,ex_161_im_0_c_0
+645,no,the child is throwing the adult the ball,ex_161_img_1,ex_161_im_1_c_0
+646,no,the adult is throwing the child the ball,ex_161_img_0,ex_161_im_0_c_1
+647,yes,the adult is throwing the child the ball,ex_161_img_1,ex_161_im_1_c_1
+648,yes,a person underneath lights,ex_162_img_0,ex_162_im_0_c_0
+649,no,a person underneath lights,ex_162_img_1,ex_162_im_1_c_0
+650,no,lights underneath a person,ex_162_img_0,ex_162_im_0_c_1
+651,yes,lights underneath a person,ex_162_img_1,ex_162_im_1_c_1
+652,yes,some green on the ball,ex_163_img_0,ex_163_im_0_c_0
+653,no,some green on the ball,ex_163_img_1,ex_163_im_1_c_0
+654,no,the ball on some green,ex_163_img_0,ex_163_im_0_c_1
+655,yes,the ball on some green,ex_163_img_1,ex_163_im_1_c_1
+656,yes,mind in the clouds,ex_164_img_0,ex_164_im_0_c_0
+657,no,mind in the clouds,ex_164_img_1,ex_164_im_1_c_0
+658,no,clouds in the mind,ex_164_img_0,ex_164_im_0_c_1
+659,yes,clouds in the mind,ex_164_img_1,ex_164_im_1_c_1
+660,yes,there's a phone on a map,ex_165_img_0,ex_165_im_0_c_0
+661,no,there's a phone on a map,ex_165_img_1,ex_165_im_1_c_0
+662,no,there's a map on a phone,ex_165_img_0,ex_165_im_0_c_1
+663,yes,there's a map on a phone,ex_165_img_1,ex_165_im_1_c_1
+664,yes,a person on a rock next to a dog,ex_166_img_0,ex_166_im_0_c_0
+665,no,a person on a rock next to a dog,ex_166_img_1,ex_166_im_1_c_0
+666,no,a dog on a rock next to a person,ex_166_img_0,ex_166_im_0_c_1
+667,yes,a dog on a rock next to a person,ex_166_img_1,ex_166_im_1_c_1
+668,yes,an adult is flexing beside a child,ex_167_img_0,ex_167_im_0_c_0
+669,no,an adult is flexing beside a child,ex_167_img_1,ex_167_im_1_c_0
+670,no,a child is flexing beside an adult,ex_167_img_0,ex_167_im_0_c_1
+671,yes,a child is flexing beside an adult,ex_167_img_1,ex_167_im_1_c_1
+672,yes,the person is looking at the dog,ex_168_img_0,ex_168_im_0_c_0
+673,no,the person is looking at the dog,ex_168_img_1,ex_168_im_1_c_0
+674,no,the dog is looking at the person,ex_168_img_0,ex_168_im_0_c_1
+675,yes,the dog is looking at the person,ex_168_img_1,ex_168_im_1_c_1
+676,yes,a cat is underneath a red blanket,ex_169_img_0,ex_169_im_0_c_0
+677,no,a cat is underneath a red blanket,ex_169_img_1,ex_169_im_1_c_0
+678,no,a red blanket is underneath a cat,ex_169_img_0,ex_169_im_0_c_1
+679,yes,a red blanket is underneath a cat,ex_169_img_1,ex_169_im_1_c_1
+680,yes,the person is bigger than the house,ex_170_img_0,ex_170_im_0_c_0
+681,no,the person is bigger than the house,ex_170_img_1,ex_170_im_1_c_0
+682,no,the house is bigger than the person,ex_170_img_0,ex_170_im_0_c_1
+683,yes,the house is bigger than the person,ex_170_img_1,ex_170_im_1_c_1
+684,yes,the person is underneath the car,ex_171_img_0,ex_171_im_0_c_0
+685,no,the person is underneath the car,ex_171_img_1,ex_171_im_1_c_0
+686,no,the car is underneath the person,ex_171_img_0,ex_171_im_0_c_1
+687,yes,the car is underneath the person,ex_171_img_1,ex_171_im_1_c_1
+688,yes,the water is filled with plastic,ex_172_img_0,ex_172_im_0_c_0
+689,no,the water is filled with plastic,ex_172_img_1,ex_172_im_1_c_0
+690,no,the plastic is filled with water,ex_172_img_0,ex_172_im_0_c_1
+691,yes,the plastic is filled with water,ex_172_img_1,ex_172_im_1_c_1
+692,yes,an apple is on a target,ex_173_img_0,ex_173_im_0_c_0
+693,no,an apple is on a target,ex_173_img_1,ex_173_im_1_c_0
+694,no,a target is on an apple,ex_173_img_0,ex_173_im_0_c_1
+695,yes,a target is on an apple,ex_173_img_1,ex_173_im_1_c_1
+696,yes,plant made out of a light bulb,ex_174_img_0,ex_174_im_0_c_0
+697,no,plant made out of a light bulb,ex_174_img_1,ex_174_im_1_c_0
+698,no,light bulb made out of a plant,ex_174_img_0,ex_174_im_0_c_1
+699,yes,light bulb made out of a plant,ex_174_img_1,ex_174_im_1_c_1
+700,yes,parent pointing at child,ex_175_img_0,ex_175_im_0_c_0
+701,no,parent pointing at child,ex_175_img_1,ex_175_im_1_c_0
+702,no,child pointing at parent,ex_175_img_0,ex_175_im_0_c_1
+703,yes,child pointing at parent,ex_175_img_1,ex_175_im_1_c_1
+704,yes,the person reached the base before the ball,ex_176_img_0,ex_176_im_0_c_0
+705,no,the person reached the base before the ball,ex_176_img_1,ex_176_im_1_c_0
+706,no,the ball reached the base before the person,ex_176_img_0,ex_176_im_0_c_1
+707,yes,the ball reached the base before the person,ex_176_img_1,ex_176_im_1_c_1
+708,yes,ice being dumped on top of fish,ex_177_img_0,ex_177_im_0_c_0
+709,no,ice being dumped on top of fish,ex_177_img_1,ex_177_im_1_c_0
+710,no,fish being dumped on top of ice,ex_177_img_0,ex_177_im_0_c_1
+711,yes,fish being dumped on top of ice,ex_177_img_1,ex_177_im_1_c_1
+712,yes,an adult kisses a child,ex_178_img_0,ex_178_im_0_c_0
+713,no,an adult kisses a child,ex_178_img_1,ex_178_im_1_c_0
+714,no,a child kisses an adult,ex_178_img_0,ex_178_im_0_c_1
+715,yes,a child kisses an adult,ex_178_img_1,ex_178_im_1_c_1
+716,yes,there's a dog in a mask and a person beside it,ex_179_img_0,ex_179_im_0_c_0
+717,no,there's a dog in a mask and a person beside it,ex_179_img_1,ex_179_im_1_c_0
+718,no,there's a dog and a person in a mask beside it,ex_179_img_0,ex_179_im_0_c_1
+719,yes,there's a dog and a person in a mask beside it,ex_179_img_1,ex_179_im_1_c_1
+720,yes,the baby on the phone is next to an adult,ex_180_img_0,ex_180_im_0_c_0
+721,no,the baby on the phone is next to an adult,ex_180_img_1,ex_180_im_1_c_0
+722,no,the baby is next to an adult on the phone,ex_180_img_0,ex_180_im_0_c_1
+723,yes,the baby is next to an adult on the phone,ex_180_img_1,ex_180_im_1_c_1
+724,yes,the person on the left has their arms up and the person on the right has their arms down,ex_181_img_0,ex_181_im_0_c_0
+725,no,the person on the left has their arms up and the person on the right has their arms down,ex_181_img_1,ex_181_im_1_c_0
+726,no,the person on the right has their arms up and the person on the left has their arms down,ex_181_img_0,ex_181_im_0_c_1
+727,yes,the person on the right has their arms up and the person on the left has their arms down,ex_181_img_1,ex_181_im_1_c_1
+728,yes,the person on the left is holding the phone and the person on the right is staring at it,ex_182_img_0,ex_182_im_0_c_0
+729,no,the person on the left is holding the phone and the person on the right is staring at it,ex_182_img_1,ex_182_im_1_c_0
+730,no,the person on the right is holding the phone and the person on the left is staring at it,ex_182_img_0,ex_182_im_0_c_1
+731,yes,the person on the right is holding the phone and the person on the left is staring at it,ex_182_img_1,ex_182_im_1_c_1
+732,yes,the orange on the left is moldy while the orange on the right is fresh,ex_183_img_0,ex_183_im_0_c_0
+733,no,the orange on the left is moldy while the orange on the right is fresh,ex_183_img_1,ex_183_im_1_c_0
+734,no,the orange on the right is moldy while the orange on the left is fresh,ex_183_img_0,ex_183_im_0_c_1
+735,yes,the orange on the right is moldy while the orange on the left is fresh,ex_183_img_1,ex_183_im_1_c_1
+736,yes,a pink scoop of ice cream on top and a blue scoop on bottom,ex_184_img_0,ex_184_im_0_c_0
+737,no,a pink scoop of ice cream on top and a blue scoop on bottom,ex_184_img_1,ex_184_im_1_c_0
+738,no,a pink scoop of ice cream on bottom and a blue scoop on top,ex_184_img_0,ex_184_im_0_c_1
+739,yes,a pink scoop of ice cream on bottom and a blue scoop on top,ex_184_img_1,ex_184_im_1_c_1
+740,yes,the glasses on the right are fuller than the glasses on the left,ex_185_img_0,ex_185_im_0_c_0
+741,no,the glasses on the right are fuller than the glasses on the left,ex_185_img_1,ex_185_im_1_c_0
+742,no,the glasses on the left are fuller than the glasses on the right,ex_185_img_0,ex_185_im_0_c_1
+743,yes,the glasses on the left are fuller than the glasses on the right,ex_185_img_1,ex_185_im_1_c_1
+744,yes,the person on the left is blowing bubbles and the person on the right is watching,ex_186_img_0,ex_186_im_0_c_0
+745,no,the person on the left is blowing bubbles and the person on the right is watching,ex_186_img_1,ex_186_im_1_c_0
+746,no,the person on the right is blowing bubbles and the person on the left is watching,ex_186_img_0,ex_186_im_0_c_1
+747,yes,the person on the right is blowing bubbles and the person on the left is watching,ex_186_img_1,ex_186_im_1_c_1
+748,yes,there's more foam on the left than on the right,ex_187_img_0,ex_187_im_0_c_0
+749,no,there's more foam on the left than on the right,ex_187_img_1,ex_187_im_1_c_0
+750,no,there's more foam on the right than on the left,ex_187_img_0,ex_187_im_0_c_1
+751,yes,there's more foam on the right than on the left,ex_187_img_1,ex_187_im_1_c_1
+752,yes,a fish is jumping from left to right,ex_188_img_0,ex_188_im_0_c_0
+753,no,a fish is jumping from left to right,ex_188_img_1,ex_188_im_1_c_0
+754,no,a fish is jumping from right to left,ex_188_img_0,ex_188_im_0_c_1
+755,yes,a fish is jumping from right to left,ex_188_img_1,ex_188_im_1_c_1
+756,yes,they worked out then they drank water,ex_189_img_0,ex_189_im_0_c_0
+757,no,they worked out then they drank water,ex_189_img_1,ex_189_im_1_c_0
+758,no,they drank water then they worked out,ex_189_img_0,ex_189_im_0_c_1
+759,yes,they drank water then they worked out,ex_189_img_1,ex_189_im_1_c_1
+760,yes,the shrimp are peeled then the shrimp are cooked,ex_190_img_0,ex_190_im_0_c_0
+761,no,the shrimp are peeled then the shrimp are cooked,ex_190_img_1,ex_190_im_1_c_0
+762,no,the shrimp are cooked then the shrimp are peeled,ex_190_img_0,ex_190_im_0_c_1
+763,yes,the shrimp are cooked then the shrimp are peeled,ex_190_img_1,ex_190_im_1_c_1
+764,yes,the coffee is poured before it is ground,ex_191_img_0,ex_191_im_0_c_0
+765,no,the coffee is poured before it is ground,ex_191_img_1,ex_191_im_1_c_0
+766,no,it is ground before the coffee is poured,ex_191_img_0,ex_191_im_0_c_1
+767,yes,it is ground before the coffee is poured,ex_191_img_1,ex_191_im_1_c_1
+768,yes,the potato is washed and then it is cut,ex_192_img_0,ex_192_im_0_c_0
+769,no,the potato is washed and then it is cut,ex_192_img_1,ex_192_im_1_c_0
+770,no,the potato is cut and then it is washed,ex_192_img_0,ex_192_im_0_c_1
+771,yes,the potato is cut and then it is washed,ex_192_img_1,ex_192_im_1_c_1
+772,yes,the banana is peeled then it is sliced,ex_193_img_0,ex_193_im_0_c_0
+773,no,the banana is peeled then it is sliced,ex_193_img_1,ex_193_im_1_c_0
+774,no,the banana is sliced then it is peeled,ex_193_img_0,ex_193_im_0_c_1
+775,yes,the banana is sliced then it is peeled,ex_193_img_1,ex_193_im_1_c_1
+776,yes,the dog is swimming and the person is standing,ex_194_img_0,ex_194_im_0_c_0
+777,no,the dog is swimming and the person is standing,ex_194_img_1,ex_194_im_1_c_0
+778,no,the dog is standing and the person is swimming,ex_194_img_0,ex_194_im_0_c_1
+779,yes,the dog is standing and the person is swimming,ex_194_img_1,ex_194_im_1_c_1
+780,yes,the person is jumping while the cat is sitting,ex_195_img_0,ex_195_im_0_c_0
+781,no,the person is jumping while the cat is sitting,ex_195_img_1,ex_195_im_1_c_0
+782,no,the person is sitting while the cat is jumping,ex_195_img_0,ex_195_im_0_c_1
+783,yes,the person is sitting while the cat is jumping,ex_195_img_1,ex_195_im_1_c_1
+784,yes,a cat is lying down and a person is stretching,ex_196_img_0,ex_196_im_0_c_0
+785,no,a cat is lying down and a person is stretching,ex_196_img_1,ex_196_im_1_c_0
+786,no,a cat is stretching and a person is lying down,ex_196_img_0,ex_196_im_0_c_1
+787,yes,a cat is stretching and a person is lying down,ex_196_img_1,ex_196_im_1_c_1
+788,yes,some people are standing but more are sitting,ex_197_img_0,ex_197_im_0_c_0
+789,no,some people are standing but more are sitting,ex_197_img_1,ex_197_im_1_c_0
+790,no,some people are sitting but more are standing,ex_197_img_0,ex_197_im_0_c_1
+791,yes,some people are sitting but more are standing,ex_197_img_1,ex_197_im_1_c_1
+792,yes,The kid throws the pancake and the adult sees it,ex_198_img_0,ex_198_im_0_c_0
+793,no,The kid throws the pancake and the adult sees it,ex_198_img_1,ex_198_im_1_c_0
+794,no,The kids see the pancake and the adult throws it,ex_198_img_0,ex_198_im_0_c_1
+795,yes,The kids see the pancake and the adult throws it,ex_198_img_1,ex_198_im_1_c_1
+796,yes,painting gray walls white,ex_199_img_0,ex_199_im_0_c_0
+797,no,painting gray walls white,ex_199_img_1,ex_199_im_1_c_0
+798,no,painting white walls gray,ex_199_img_0,ex_199_im_0_c_1
+799,yes,painting white walls gray,ex_199_img_1,ex_199_im_1_c_1
+800,yes,a shorter person wearing blue standing next to a taller person,ex_200_img_0,ex_200_im_0_c_0
+801,no,a shorter person wearing blue standing next to a taller person,ex_200_img_1,ex_200_im_1_c_0
+802,no,a taller person wearing blue standing next to a shorter person,ex_200_img_0,ex_200_im_0_c_1
+803,yes,a taller person wearing blue standing next to a shorter person,ex_200_img_1,ex_200_im_1_c_1
+804,yes,a person wearing a bear mask in blue on the left hand side of a person wearing a panda mask with glasses in pink,ex_201_img_0,ex_201_im_0_c_0
+805,no,a person wearing a bear mask in blue on the left hand side of a person wearing a panda mask with glasses in pink,ex_201_img_1,ex_201_im_1_c_0
+806,no,a person wearing a panda mask with glasses in blue on the left hand side of a person wearing a bear mask in pink,ex_201_img_0,ex_201_im_0_c_1
+807,yes,a person wearing a panda mask with glasses in blue on the left hand side of a person wearing a bear mask in pink,ex_201_img_1,ex_201_im_1_c_1
+808,yes,a car containing many a box,ex_202_img_0,ex_202_im_0_c_0
+809,no,a car containing many a box,ex_202_img_1,ex_202_im_1_c_0
+810,no,a box containing many a car,ex_202_img_0,ex_202_im_0_c_1
+811,yes,a box containing many a car,ex_202_img_1,ex_202_im_1_c_1
+812,yes,left is red and right is blue,ex_203_img_0,ex_203_im_0_c_0
+813,no,left is red and right is blue,ex_203_img_1,ex_203_im_1_c_0
+814,no,left is blue and right is red,ex_203_img_0,ex_203_im_0_c_1
+815,yes,left is blue and right is red,ex_203_img_1,ex_203_im_1_c_1
+816,yes,"many a table tennis racket, just one ball",ex_204_img_0,ex_204_im_0_c_0
+817,no,"many a table tennis racket, just one ball",ex_204_img_1,ex_204_im_1_c_0
+818,no,"just one table tennis racket, many a ball",ex_204_img_0,ex_204_im_0_c_1
+819,yes,"just one table tennis racket, many a ball",ex_204_img_1,ex_204_im_1_c_1
+820,yes,"four lions, no tigers",ex_205_img_0,ex_205_im_0_c_0
+821,no,"four lions, no tigers",ex_205_img_1,ex_205_im_1_c_0
+822,no,"no lions, four tigers",ex_205_img_0,ex_205_im_0_c_1
+823,yes,"no lions, four tigers",ex_205_img_1,ex_205_im_1_c_1
+824,yes,a small spherical object is heavier than a big spherical object,ex_206_img_0,ex_206_im_0_c_0
+825,no,a small spherical object is heavier than a big spherical object,ex_206_img_1,ex_206_im_1_c_0
+826,no,a big spherical object is heavier than a small spherical object,ex_206_img_0,ex_206_im_0_c_1
+827,yes,a big spherical object is heavier than a small spherical object,ex_206_img_1,ex_206_im_1_c_1
+828,yes,an older person blocking a younger person,ex_207_img_0,ex_207_im_0_c_0
+829,no,an older person blocking a younger person,ex_207_img_1,ex_207_im_1_c_0
+830,no,a younger person blocking an older person,ex_207_img_0,ex_207_im_0_c_1
+831,yes,a younger person blocking an older person,ex_207_img_1,ex_207_im_1_c_1
+832,yes,white land and black water,ex_208_img_0,ex_208_im_0_c_0
+833,no,white land and black water,ex_208_img_1,ex_208_im_1_c_0
+834,no,black land and white water,ex_208_img_0,ex_208_im_0_c_1
+835,yes,black land and white water,ex_208_img_1,ex_208_im_1_c_1
+836,yes,the cube is smaller than the shape whose lateral faces meet at a vertex,ex_209_img_0,ex_209_im_0_c_0
+837,no,the cube is smaller than the shape whose lateral faces meet at a vertex,ex_209_img_1,ex_209_im_1_c_0
+838,no,the shape whose lateral faces meet at a vertex is smaller than the cube,ex_209_img_0,ex_209_im_0_c_1
+839,yes,the shape whose lateral faces meet at a vertex is smaller than the cube,ex_209_img_1,ex_209_im_1_c_1
+840,yes,more bicycles than cars,ex_210_img_0,ex_210_im_0_c_0
+841,no,more bicycles than cars,ex_210_img_1,ex_210_im_1_c_0
+842,no,more cars than bicycles,ex_210_img_0,ex_210_im_0_c_1
+843,yes,more cars than bicycles,ex_210_img_1,ex_210_im_1_c_1
+844,yes,there are more apples than pears,ex_211_img_0,ex_211_im_0_c_0
+845,no,there are more apples than pears,ex_211_img_1,ex_211_im_1_c_0
+846,no,there are more pears than apples,ex_211_img_0,ex_211_im_0_c_1
+847,yes,there are more pears than apples,ex_211_img_1,ex_211_im_1_c_1
+848,yes,there is more love than hate,ex_212_img_0,ex_212_im_0_c_0
+849,no,there is more love than hate,ex_212_img_1,ex_212_im_1_c_0
+850,no,there is more hate than love,ex_212_img_0,ex_212_im_0_c_1
+851,yes,there is more hate than love,ex_212_img_1,ex_212_im_1_c_1
+852,yes,more water than oil,ex_213_img_0,ex_213_im_0_c_0
+853,no,more water than oil,ex_213_img_1,ex_213_im_1_c_0
+854,no,more oil than water,ex_213_img_0,ex_213_im_0_c_1
+855,yes,more oil than water,ex_213_img_1,ex_213_im_1_c_1
+856,yes,a person cries while another person wearing jewelry above their shoulders consoles,ex_214_img_0,ex_214_im_0_c_0
+857,no,a person cries while another person wearing jewelry above their shoulders consoles,ex_214_img_1,ex_214_im_1_c_0
+858,no,a person consoles while another person wearing jewelry above their shoulders cries,ex_214_img_0,ex_214_im_0_c_1
+859,yes,a person consoles while another person wearing jewelry above their shoulders cries,ex_214_img_1,ex_214_im_1_c_1
+860,yes,a person with long hair eating a meat-based product while a person with short hair snacks on some fries,ex_215_img_0,ex_215_im_0_c_0
+861,no,a person with long hair eating a meat-based product while a person with short hair snacks on some fries,ex_215_img_1,ex_215_im_1_c_0
+862,no,a person with short hair eating a meat-based product while a person with long hair snacks on some fries,ex_215_img_0,ex_215_im_0_c_1
+863,yes,a person with short hair eating a meat-based product while a person with long hair snacks on some fries,ex_215_img_1,ex_215_im_1_c_1
+864,yes,water below the boat,ex_216_img_0,ex_216_im_0_c_0
+865,no,water below the boat,ex_216_img_1,ex_216_im_1_c_0
+866,no,boat below the water,ex_216_img_0,ex_216_im_0_c_1
+867,yes,boat below the water,ex_216_img_1,ex_216_im_1_c_1
+868,yes,the one in front is faster than the other one,ex_217_img_0,ex_217_im_0_c_0
+869,no,the one in front is faster than the other one,ex_217_img_1,ex_217_im_1_c_0
+870,no,the other one is faster than the one in front,ex_217_img_0,ex_217_im_0_c_1
+871,yes,the other one is faster than the one in front,ex_217_img_1,ex_217_im_1_c_1
+872,yes,You can catch more flies with honey than you can with vinegar,ex_218_img_0,ex_218_im_0_c_0
+873,no,You can catch more flies with honey than you can with vinegar,ex_218_img_1,ex_218_im_1_c_0
+874,no,You can catch more flies with vinegar than you can with honey,ex_218_img_0,ex_218_im_0_c_1
+875,yes,You can catch more flies with vinegar than you can with honey,ex_218_img_1,ex_218_im_1_c_1
+876,yes,"It starts with ""A"" and ends with ""Z""",ex_219_img_0,ex_219_im_0_c_0
+877,no,"It starts with ""A"" and ends with ""Z""",ex_219_img_1,ex_219_im_1_c_0
+878,no,"It starts with ""Z"" and ends with ""A""",ex_219_img_0,ex_219_im_0_c_1
+879,yes,"It starts with ""Z"" and ends with ""A""",ex_219_img_1,ex_219_im_1_c_1
+880,yes,a shadow within the line,ex_220_img_0,ex_220_im_0_c_0
+881,no,a shadow within the line,ex_220_img_1,ex_220_im_1_c_0
+882,no,a line within the shadow,ex_220_img_0,ex_220_im_0_c_1
+883,yes,a line within the shadow,ex_220_img_1,ex_220_im_1_c_1
+884,yes,the brave in the face of fear,ex_221_img_0,ex_221_im_0_c_0
+885,no,the brave in the face of fear,ex_221_img_1,ex_221_im_1_c_0
+886,no,fear in the face of the brave,ex_221_img_0,ex_221_im_0_c_1
+887,yes,fear in the face of the brave,ex_221_img_1,ex_221_im_1_c_1
+888,yes,I need my strength back,ex_222_img_0,ex_222_im_0_c_0
+889,no,I need my strength back,ex_222_img_1,ex_222_im_1_c_0
+890,no,I need my back strength,ex_222_img_0,ex_222_im_0_c_1
+891,yes,I need my back strength,ex_222_img_1,ex_222_im_1_c_1
+892,yes,the one in the middle is taller than the ones on the side are,ex_223_img_0,ex_223_im_0_c_0
+893,no,the one in the middle is taller than the ones on the side are,ex_223_img_1,ex_223_im_1_c_0
+894,no,the ones on the side are taller than the one in the middle is,ex_223_img_0,ex_223_im_0_c_1
+895,yes,the ones on the side are taller than the one in the middle is,ex_223_img_1,ex_223_im_1_c_1
+896,yes,fish flying,ex_224_img_0,ex_224_im_0_c_0
+897,no,fish flying,ex_224_img_1,ex_224_im_1_c_0
+898,no,fly fishing,ex_224_img_0,ex_224_im_0_c_1
+899,yes,fly fishing,ex_224_img_1,ex_224_im_1_c_1
+900,yes,the red car is behind the blue car,ex_225_img_0,ex_225_im_0_c_0
+901,no,the red car is behind the blue car,ex_225_img_1,ex_225_im_1_c_0
+902,no,the blue car is behind the red car,ex_225_img_0,ex_225_im_0_c_1
+903,yes,the blue car is behind the red car,ex_225_img_1,ex_225_im_1_c_1
+904,yes,the driver wearing a shirt is in front of the other person wearing a sleeveless top,ex_226_img_0,ex_226_im_0_c_0
+905,no,the driver wearing a shirt is in front of the other person wearing a sleeveless top,ex_226_img_1,ex_226_im_1_c_0
+906,no,the driver wearing a sleeveless top is in front of the other person wearing a shirt,ex_226_img_0,ex_226_im_0_c_1
+907,yes,the driver wearing a sleeveless top is in front of the other person wearing a shirt,ex_226_img_1,ex_226_im_1_c_1
+908,yes,an object that rolls is on some wood,ex_227_img_0,ex_227_im_0_c_0
+909,no,an object that rolls is on some wood,ex_227_img_1,ex_227_im_1_c_0
+910,no,some wood is on an object that rolls,ex_227_img_0,ex_227_im_0_c_1
+911,yes,some wood is on an object that rolls,ex_227_img_1,ex_227_im_1_c_1
+912,yes,a cat viewing a human on a screen,ex_228_img_0,ex_228_im_0_c_0
+913,no,a cat viewing a human on a screen,ex_228_img_1,ex_228_im_1_c_0
+914,no,a human viewing a cat on a screen,ex_228_img_0,ex_228_im_0_c_1
+915,yes,a human viewing a cat on a screen,ex_228_img_1,ex_228_im_1_c_1
+916,yes,a normal person wishing they were a superhero,ex_229_img_0,ex_229_im_0_c_0
+917,no,a normal person wishing they were a superhero,ex_229_img_1,ex_229_im_1_c_0
+918,no,a superhero wishing they were a normal person,ex_229_img_0,ex_229_im_0_c_1
+919,yes,a superhero wishing they were a normal person,ex_229_img_1,ex_229_im_1_c_1
+920,yes,a mike in the right hand while raising the left,ex_230_img_0,ex_230_im_0_c_0
+921,no,a mike in the right hand while raising the left,ex_230_img_1,ex_230_im_1_c_0
+922,no,a mike in the left hand while raising the right,ex_230_img_0,ex_230_im_0_c_1
+923,yes,a mike in the left hand while raising the right,ex_230_img_1,ex_230_im_1_c_1
+924,yes,a person with long hair behind a person with a beard,ex_231_img_0,ex_231_im_0_c_0
+925,no,a person with long hair behind a person with a beard,ex_231_img_1,ex_231_im_1_c_0
+926,no,a person with a beard behind a person with long hair,ex_231_img_0,ex_231_im_0_c_1
+927,yes,a person with a beard behind a person with long hair,ex_231_img_1,ex_231_im_1_c_1
+928,yes,the person with hair to their shoulders has brown eyes and the other person's are blue,ex_232_img_0,ex_232_im_0_c_0
+929,no,the person with hair to their shoulders has brown eyes and the other person's are blue,ex_232_img_1,ex_232_im_1_c_0
+930,no,the person with hair to their shoulders has blue eyes and the other person's are brown,ex_232_img_0,ex_232_im_0_c_1
+931,yes,the person with hair to their shoulders has blue eyes and the other person's are brown,ex_232_img_1,ex_232_im_1_c_1
+932,yes,a human being on a device that intercepts the sun's rays,ex_233_img_0,ex_233_im_0_c_0
+933,no,a human being on a device that intercepts the sun's rays,ex_233_img_1,ex_233_im_1_c_0
+934,no,a device that intercepts the sun's rays on a human being,ex_233_img_0,ex_233_im_0_c_1
+935,yes,a device that intercepts the sun's rays on a human being,ex_233_img_1,ex_233_im_1_c_1
+936,yes,more humans than phones,ex_234_img_0,ex_234_im_0_c_0
+937,no,more humans than phones,ex_234_img_1,ex_234_im_1_c_0
+938,no,more phones than humans,ex_234_img_0,ex_234_im_0_c_1
+939,yes,more phones than humans,ex_234_img_1,ex_234_im_1_c_1
+940,yes,a person is in the tube,ex_235_img_0,ex_235_im_0_c_0
+941,no,a person is in the tube,ex_235_img_1,ex_235_im_1_c_0
+942,no,a tube is in the person,ex_235_img_0,ex_235_im_0_c_1
+943,yes,a tube is in the person,ex_235_img_1,ex_235_im_1_c_1
+944,yes,the person's head is above the rest of their body,ex_236_img_0,ex_236_im_0_c_0
+945,no,the person's head is above the rest of their body,ex_236_img_1,ex_236_im_1_c_0
+946,no,the rest of their body is above the person's head,ex_236_img_0,ex_236_im_0_c_1
+947,yes,the rest of their body is above the person's head,ex_236_img_1,ex_236_im_1_c_1
+948,yes,person overboard,ex_237_img_0,ex_237_im_0_c_0
+949,no,person overboard,ex_237_img_1,ex_237_im_1_c_0
+950,no,person over board,ex_237_img_0,ex_237_im_0_c_1
+951,yes,person over board,ex_237_img_1,ex_237_im_1_c_1
+952,yes,more red buttons than blue,ex_238_img_0,ex_238_im_0_c_0
+953,no,more red buttons than blue,ex_238_img_1,ex_238_im_1_c_0
+954,no,more blue buttons than red,ex_238_img_0,ex_238_im_0_c_1
+955,yes,more blue buttons than red,ex_238_img_1,ex_238_im_1_c_1
+956,yes,the object at the top left is purple and the one at the bottom right of the group is red,ex_239_img_0,ex_239_im_0_c_0
+957,no,the object at the top left is purple and the one at the bottom right of the group is red,ex_239_img_1,ex_239_im_1_c_0
+958,no,the object at the bottom right is purple and the one at the top left of the group is red,ex_239_img_0,ex_239_im_0_c_1
+959,yes,the object at the bottom right is purple and the one at the top left of the group is red,ex_239_img_1,ex_239_im_1_c_1
+960,yes,flat at the bottom and pointy on top,ex_240_img_0,ex_240_im_0_c_0
+961,no,flat at the bottom and pointy on top,ex_240_img_1,ex_240_im_1_c_0
+962,no,flat on top and pointy at the bottom,ex_240_img_0,ex_240_im_0_c_1
+963,yes,flat on top and pointy at the bottom,ex_240_img_1,ex_240_im_1_c_1
+964,yes,seat numbers increasing from left to right,ex_241_img_0,ex_241_im_0_c_0
+965,no,seat numbers increasing from left to right,ex_241_img_1,ex_241_im_1_c_0
+966,no,seat numbers increasing from right to left,ex_241_img_0,ex_241_im_0_c_1
+967,yes,seat numbers increasing from right to left,ex_241_img_1,ex_241_im_1_c_1
+968,yes,the number on the right is larger than the number on the left,ex_242_img_0,ex_242_im_0_c_0
+969,no,the number on the right is larger than the number on the left,ex_242_img_1,ex_242_im_1_c_0
+970,no,the number on the left is larger than the number on the right,ex_242_img_0,ex_242_im_0_c_1
+971,yes,the number on the left is larger than the number on the right,ex_242_img_1,ex_242_im_1_c_1
+972,yes,more hair on the person's face than on their head,ex_243_img_0,ex_243_im_0_c_0
+973,no,more hair on the person's face than on their head,ex_243_img_1,ex_243_im_1_c_0
+974,no,more hair on the person's head than on their face,ex_243_img_0,ex_243_im_0_c_1
+975,yes,more hair on the person's head than on their face,ex_243_img_1,ex_243_im_1_c_1
+976,yes,the knife on the left and the fork on the right,ex_244_img_0,ex_244_im_0_c_0
+977,no,the knife on the left and the fork on the right,ex_244_img_1,ex_244_im_1_c_0
+978,no,the knife on the right and the fork on the left,ex_244_img_0,ex_244_im_0_c_1
+979,yes,the knife on the right and the fork on the left,ex_244_img_1,ex_244_im_1_c_1
+980,yes,food on their eyes,ex_245_img_0,ex_245_im_0_c_0
+981,no,food on their eyes,ex_245_img_1,ex_245_im_1_c_0
+982,no,eyes on their food,ex_245_img_0,ex_245_im_0_c_1
+983,yes,eyes on their food,ex_245_img_1,ex_245_im_1_c_1
+984,yes,cars of bits,ex_246_img_0,ex_246_im_0_c_0
+985,no,cars of bits,ex_246_img_1,ex_246_im_1_c_0
+986,no,bits of cars,ex_246_img_0,ex_246_im_0_c_1
+987,yes,bits of cars,ex_246_img_1,ex_246_im_1_c_1
+988,yes,a person on top of the world,ex_247_img_0,ex_247_im_0_c_0
+989,no,a person on top of the world,ex_247_img_1,ex_247_im_1_c_0
+990,no,the world on top of a person,ex_247_img_0,ex_247_im_0_c_1
+991,yes,the world on top of a person,ex_247_img_1,ex_247_im_1_c_1
+992,yes,two people; the one on the right has curly hair and the one on the left doesn't,ex_248_img_0,ex_248_im_0_c_0
+993,no,two people; the one on the right has curly hair and the one on the left doesn't,ex_248_img_1,ex_248_im_1_c_0
+994,no,two people; the one on the left has curly hair and the one on the right doesn't,ex_248_img_0,ex_248_im_0_c_1
+995,yes,two people; the one on the left has curly hair and the one on the right doesn't,ex_248_img_1,ex_248_im_1_c_1
+996,yes,"first the cream, then the jam",ex_249_img_0,ex_249_im_0_c_0
+997,no,"first the cream, then the jam",ex_249_img_1,ex_249_im_1_c_0
+998,no,"first the jam, then the cream",ex_249_img_0,ex_249_im_0_c_1
+999,yes,"first the jam, then the cream",ex_249_img_1,ex_249_im_1_c_1
+1000,yes,more kisses than hugs,ex_250_img_0,ex_250_im_0_c_0
+1001,no,more kisses than hugs,ex_250_img_1,ex_250_im_1_c_0
+1002,no,more hugs than kisses,ex_250_img_0,ex_250_im_0_c_1
+1003,yes,more hugs than kisses,ex_250_img_1,ex_250_im_1_c_1
+1004,yes,an inflatable flamingo on a person,ex_251_img_0,ex_251_im_0_c_0
+1005,no,an inflatable flamingo on a person,ex_251_img_1,ex_251_im_1_c_0
+1006,no,a person on an inflatable flamingo,ex_251_img_0,ex_251_im_0_c_1
+1007,yes,a person on an inflatable flamingo,ex_251_img_1,ex_251_im_1_c_1
+1008,yes,a pink bird with a white beak,ex_252_img_0,ex_252_im_0_c_0
+1009,no,a pink bird with a white beak,ex_252_img_1,ex_252_im_1_c_0
+1010,no,a white bird with a pink beak,ex_252_img_0,ex_252_im_0_c_1
+1011,yes,a white bird with a pink beak,ex_252_img_1,ex_252_im_1_c_1
+1012,yes,a large pink inflatable flamingo along with some other lilos on the water including one that is mostly white,ex_253_img_0,ex_253_im_0_c_0
+1013,no,a large pink inflatable flamingo along with some other lilos on the water including one that is mostly white,ex_253_img_1,ex_253_im_1_c_0
+1014,no,a large white inflatable flamingo along with some other lilos on the water including one that is mostly pink,ex_253_img_0,ex_253_im_0_c_1
+1015,yes,a large white inflatable flamingo along with some other lilos on the water including one that is mostly pink,ex_253_img_1,ex_253_im_1_c_1
+1016,yes,there are more eyes in the image than there are on a typical human,ex_254_img_0,ex_254_im_0_c_0
+1017,no,there are more eyes in the image than there are on a typical human,ex_254_img_1,ex_254_im_1_c_0
+1018,no,there are more eyes on a typical human than there are in the image,ex_254_img_0,ex_254_im_0_c_1
+1019,yes,there are more eyes on a typical human than there are in the image,ex_254_img_1,ex_254_im_1_c_1
+1020,yes,"the confident doctor's stethoscope is around their neck, and their jacket is over their name tag",ex_255_img_0,ex_255_im_0_c_0
+1021,no,"the confident doctor's stethoscope is around their neck, and their jacket is over their name tag",ex_255_img_1,ex_255_im_1_c_0
+1022,no,"the confident doctor's stethoscope is around their neck, and their name tag is over their jacket",ex_255_img_0,ex_255_im_0_c_1
+1023,yes,"the confident doctor's stethoscope is around their neck, and their name tag is over their jacket",ex_255_img_1,ex_255_im_1_c_1
+1024,yes,few wind turbines and many clouds,ex_256_img_0,ex_256_im_0_c_0
+1025,no,few wind turbines and many clouds,ex_256_img_1,ex_256_im_1_c_0
+1026,no,few clouds and many wind turbines,ex_256_img_0,ex_256_im_0_c_1
+1027,yes,few clouds and many wind turbines,ex_256_img_1,ex_256_im_1_c_1
+1028,yes,an adult is reading to their young child,ex_257_img_0,ex_257_im_0_c_0
+1029,no,an adult is reading to their young child,ex_257_img_1,ex_257_im_1_c_0
+1030,no,their young child is reading to an adult,ex_257_img_0,ex_257_im_0_c_1
+1031,yes,their young child is reading to an adult,ex_257_img_1,ex_257_im_1_c_1
+1032,yes,the shopping basket is full and the shelves on the person's right are empty,ex_258_img_0,ex_258_im_0_c_0
+1033,no,the shopping basket is full and the shelves on the person's right are empty,ex_258_img_1,ex_258_im_1_c_0
+1034,no,the shelves on the person's right are full and the shopping basket is empty,ex_258_img_0,ex_258_im_0_c_1
+1035,yes,the shelves on the person's right are full and the shopping basket is empty,ex_258_img_1,ex_258_im_1_c_1
+1036,yes,Young person playing baseball with a green bat and blue ball,ex_259_img_0,ex_259_im_0_c_0
+1037,no,Young person playing baseball with a green bat and blue ball,ex_259_img_1,ex_259_im_1_c_0
+1038,no,Young person playing baseball with a blue bat and green ball,ex_259_img_0,ex_259_im_0_c_1
+1039,yes,Young person playing baseball with a blue bat and green ball,ex_259_img_1,ex_259_im_1_c_1
+1040,yes,painting the white wall red,ex_260_img_0,ex_260_im_0_c_0
+1041,no,painting the white wall red,ex_260_img_1,ex_260_im_1_c_0
+1042,no,painting the red wall white,ex_260_img_0,ex_260_im_0_c_1
+1043,yes,painting the red wall white,ex_260_img_1,ex_260_im_1_c_1
+1044,yes,wearing a red jacket over blue,ex_261_img_0,ex_261_im_0_c_0
+1045,no,wearing a red jacket over blue,ex_261_img_1,ex_261_im_1_c_0
+1046,no,wearing a blue jacket over red,ex_261_img_0,ex_261_im_0_c_1
+1047,yes,wearing a blue jacket over red,ex_261_img_1,ex_261_im_1_c_1
+1048,yes,I had cleaned my car,ex_262_img_0,ex_262_im_0_c_0
+1049,no,I had cleaned my car,ex_262_img_1,ex_262_im_1_c_0
+1050,no,I had my car cleaned,ex_262_img_0,ex_262_im_0_c_1
+1051,yes,I had my car cleaned,ex_262_img_1,ex_262_im_1_c_1
+1052,yes,unfortunate poor people,ex_263_img_0,ex_263_im_0_c_0
+1053,no,unfortunate poor people,ex_263_img_1,ex_263_im_1_c_0
+1054,no,poor unfortunate people,ex_263_img_0,ex_263_im_0_c_1
+1055,yes,poor unfortunate people,ex_263_img_1,ex_263_im_1_c_1
+1056,yes,there are less gloves than masks,ex_264_img_0,ex_264_im_0_c_0
+1057,no,there are less gloves than masks,ex_264_img_1,ex_264_im_1_c_0
+1058,no,there are less masks than gloves,ex_264_img_0,ex_264_im_0_c_1
+1059,yes,there are less masks than gloves,ex_264_img_1,ex_264_im_1_c_1
+1060,yes,there are more pineapples than boxes,ex_265_img_0,ex_265_im_0_c_0
+1061,no,there are more pineapples than boxes,ex_265_img_1,ex_265_im_1_c_0
+1062,no,there are more boxes than pineapples,ex_265_img_0,ex_265_im_0_c_1
+1063,yes,there are more boxes than pineapples,ex_265_img_1,ex_265_im_1_c_1
+1064,yes,the outer bristles are blue and the inner ones are white,ex_266_img_0,ex_266_im_0_c_0
+1065,no,the outer bristles are blue and the inner ones are white,ex_266_img_1,ex_266_im_1_c_0
+1066,no,the outer bristles are white and the inner ones are blue,ex_266_img_0,ex_266_im_0_c_1
+1067,yes,the outer bristles are white and the inner ones are blue,ex_266_img_1,ex_266_im_1_c_1
+1068,yes,the first vowel is E and the last consonant is N,ex_267_img_0,ex_267_im_0_c_0
+1069,no,the first vowel is E and the last consonant is N,ex_267_img_1,ex_267_im_1_c_0
+1070,no,the last vowel is E and the first consonant is N,ex_267_img_0,ex_267_im_0_c_1
+1071,yes,the last vowel is E and the first consonant is N,ex_267_img_1,ex_267_im_1_c_1
+1072,yes,the cat on the left of the photo has its right paw ahead of its left,ex_268_img_0,ex_268_im_0_c_0
+1073,no,the cat on the left of the photo has its right paw ahead of its left,ex_268_img_1,ex_268_im_1_c_0
+1074,no,the cat on the left of the photo has its left paw ahead of its right,ex_268_img_0,ex_268_im_0_c_1
+1075,yes,the cat on the left of the photo has its left paw ahead of its right,ex_268_img_1,ex_268_im_1_c_1
+1076,yes,the text is black on white,ex_269_img_0,ex_269_im_0_c_0
+1077,no,the text is black on white,ex_269_img_1,ex_269_im_1_c_0
+1078,no,the text is white on black,ex_269_img_0,ex_269_im_0_c_1
+1079,yes,the text is white on black,ex_269_img_1,ex_269_im_1_c_1
+1080,yes,the dog sits and the cat stands,ex_270_img_0,ex_270_im_0_c_0
+1081,no,the dog sits and the cat stands,ex_270_img_1,ex_270_im_1_c_0
+1082,no,the dog stands and the cat sits,ex_270_img_0,ex_270_im_0_c_1
+1083,yes,the dog stands and the cat sits,ex_270_img_1,ex_270_im_1_c_1
+1084,yes,the person with facial hair cycles and the other person runs,ex_271_img_0,ex_271_im_0_c_0
+1085,no,the person with facial hair cycles and the other person runs,ex_271_img_1,ex_271_im_1_c_0
+1086,no,the person with facial hair runs and the other person cycles,ex_271_img_0,ex_271_im_0_c_1
+1087,yes,the person with facial hair runs and the other person cycles,ex_271_img_1,ex_271_im_1_c_1
+1088,yes,using the laptop while the guitar is close by,ex_272_img_0,ex_272_im_0_c_0
+1089,no,using the laptop while the guitar is close by,ex_272_img_1,ex_272_im_1_c_0
+1090,no,using the guitar while the laptop is close by,ex_272_img_0,ex_272_im_0_c_1
+1091,yes,using the guitar while the laptop is close by,ex_272_img_1,ex_272_im_1_c_1
+1092,yes,a person in a blue coat with a brown-ish coffee cup,ex_273_img_0,ex_273_im_0_c_0
+1093,no,a person in a blue coat with a brown-ish coffee cup,ex_273_img_1,ex_273_im_1_c_0
+1094,no,a person in a brown-ish coat with a blue coffee cup,ex_273_img_0,ex_273_im_0_c_1
+1095,yes,a person in a brown-ish coat with a blue coffee cup,ex_273_img_1,ex_273_im_1_c_1
+1096,yes,space in a star,ex_274_img_0,ex_274_im_0_c_0
+1097,no,space in a star,ex_274_img_1,ex_274_im_1_c_0
+1098,no,a star in space,ex_274_img_0,ex_274_im_0_c_1
+1099,yes,a star in space,ex_274_img_1,ex_274_im_1_c_1
+1100,yes,star of death,ex_275_img_0,ex_275_im_0_c_0
+1101,no,star of death,ex_275_img_1,ex_275_im_1_c_0
+1102,no,death of star,ex_275_img_0,ex_275_im_0_c_1
+1103,yes,death of star,ex_275_img_1,ex_275_im_1_c_1
+1104,yes,the younger person is making noise while the other is silent,ex_276_img_0,ex_276_im_0_c_0
+1105,no,the younger person is making noise while the other is silent,ex_276_img_1,ex_276_im_1_c_0
+1106,no,the younger person is silent while the other is making noise,ex_276_img_0,ex_276_im_0_c_1
+1107,yes,the younger person is silent while the other is making noise,ex_276_img_1,ex_276_im_1_c_1
+1108,yes,the one on the left is happy and the other is sad,ex_277_img_0,ex_277_im_0_c_0
+1109,no,the one on the left is happy and the other is sad,ex_277_img_1,ex_277_im_1_c_0
+1110,no,the one on the left is sad and the other is happy,ex_277_img_0,ex_277_im_0_c_1
+1111,yes,the one on the left is sad and the other is happy,ex_277_img_1,ex_277_im_1_c_1
+1112,yes,the person on the left is dancing and the person on the very right is sitting on the sofa,ex_278_img_0,ex_278_im_0_c_0
+1113,no,the person on the left is dancing and the person on the very right is sitting on the sofa,ex_278_img_1,ex_278_im_1_c_0
+1114,no,the person on the left is sitting on the sofa and the person on the very right is dancing,ex_278_img_0,ex_278_im_0_c_1
+1115,yes,the person on the left is sitting on the sofa and the person on the very right is dancing,ex_278_img_1,ex_278_im_1_c_1
+1116,yes,the person on the left is crying sadly while the one on the right is smiling happily,ex_279_img_0,ex_279_im_0_c_0
+1117,no,the person on the left is crying sadly while the one on the right is smiling happily,ex_279_img_1,ex_279_im_1_c_0
+1118,no,the person on the left is smiling happily while the one on the right is crying sadly,ex_279_img_0,ex_279_im_0_c_1
+1119,yes,the person on the left is smiling happily while the one on the right is crying sadly,ex_279_img_1,ex_279_im_1_c_1
+1120,yes,the large person is drinking from the small coffee cup,ex_280_img_0,ex_280_im_0_c_0
+1121,no,the large person is drinking from the small coffee cup,ex_280_img_1,ex_280_im_1_c_0
+1122,no,the small person is drinking from the large coffee cup,ex_280_img_0,ex_280_im_0_c_1
+1123,yes,the small person is drinking from the large coffee cup,ex_280_img_1,ex_280_im_1_c_1
+1124,yes,hot rubber and cool metal,ex_281_img_0,ex_281_im_0_c_0
+1125,no,hot rubber and cool metal,ex_281_img_1,ex_281_im_1_c_0
+1126,no,cool rubber and hot metal,ex_281_img_0,ex_281_im_0_c_1
+1127,yes,cool rubber and hot metal,ex_281_img_1,ex_281_im_1_c_1
+1128,yes,the triangular shape is beneath the square one,ex_282_img_0,ex_282_im_0_c_0
+1129,no,the triangular shape is beneath the square one,ex_282_img_1,ex_282_im_1_c_0
+1130,no,the square shape is beneath the triangular one,ex_282_img_0,ex_282_im_0_c_1
+1131,yes,the square shape is beneath the triangular one,ex_282_img_1,ex_282_im_1_c_1
+1132,yes,rough outside but smooth inside,ex_283_img_0,ex_283_im_0_c_0
+1133,no,rough outside but smooth inside,ex_283_img_1,ex_283_im_1_c_0
+1134,no,smooth outside but rough inside,ex_283_img_0,ex_283_im_0_c_1
+1135,yes,smooth outside but rough inside,ex_283_img_1,ex_283_im_1_c_1
+1136,yes,the green one is fast and the one in white is comparatively slow,ex_284_img_0,ex_284_im_0_c_0
+1137,no,the green one is fast and the one in white is comparatively slow,ex_284_img_1,ex_284_im_1_c_0
+1138,no,the green one is slow and the one in white is comparatively fast,ex_284_img_0,ex_284_im_0_c_1
+1139,yes,the green one is slow and the one in white is comparatively fast,ex_284_img_1,ex_284_im_1_c_1
+1140,yes,there are more humans than balls,ex_285_img_0,ex_285_im_0_c_0
+1141,no,there are more humans than balls,ex_285_img_1,ex_285_im_1_c_0
+1142,no,there are more balls than humans,ex_285_img_0,ex_285_im_0_c_1
+1143,yes,there are more balls than humans,ex_285_img_1,ex_285_im_1_c_1
+1144,yes,there are more legs than wheels,ex_286_img_0,ex_286_im_0_c_0
+1145,no,there are more legs than wheels,ex_286_img_1,ex_286_im_1_c_0
+1146,no,there are more wheels than legs,ex_286_img_0,ex_286_im_0_c_1
+1147,yes,there are more wheels than legs,ex_286_img_1,ex_286_im_1_c_1
+1148,yes,a group of three people with longer hair and two with short hair in a business context,ex_287_img_0,ex_287_im_0_c_0
+1149,no,a group of three people with longer hair and two with short hair in a business context,ex_287_img_1,ex_287_im_1_c_0
+1150,no,a group of two people with longer hair and three with short hair in a business context,ex_287_img_0,ex_287_im_0_c_1
+1151,yes,a group of two people with longer hair and three with short hair in a business context,ex_287_img_1,ex_287_im_1_c_1
+1152,yes,the gesture of the person sitting down is supporting the understanding of the person standing up,ex_288_img_0,ex_288_im_0_c_0
+1153,no,the gesture of the person sitting down is supporting the understanding of the person standing up,ex_288_img_1,ex_288_im_1_c_0
+1154,no,the gesture of the person standing up is supporting the understanding of the person sitting down,ex_288_img_0,ex_288_im_0_c_1
+1155,yes,the gesture of the person standing up is supporting the understanding of the person sitting down,ex_288_img_1,ex_288_im_1_c_1
+1156,yes,the circle is above the cross,ex_289_img_0,ex_289_im_0_c_0
+1157,no,the circle is above the cross,ex_289_img_1,ex_289_im_1_c_0
+1158,no,the cross is above the circle,ex_289_img_0,ex_289_im_0_c_1
+1159,yes,the cross is above the circle,ex_289_img_1,ex_289_im_1_c_1
+1160,yes,aerial view of a green tree in the brown freshly turned soil next to a green field,ex_290_img_0,ex_290_im_0_c_0
+1161,no,aerial view of a green tree in the brown freshly turned soil next to a green field,ex_290_img_1,ex_290_im_1_c_0
+1162,no,aerial view of a green tree in a green field next to the brown freshly turned soil,ex_290_img_0,ex_290_im_0_c_1
+1163,yes,aerial view of a green tree in a green field next to the brown freshly turned soil,ex_290_img_1,ex_290_im_1_c_1
+1164,yes,physical therapist inspecting blue elastic therapeutic kinesio tape over pink,ex_291_img_0,ex_291_im_0_c_0
+1165,no,physical therapist inspecting blue elastic therapeutic kinesio tape over pink,ex_291_img_1,ex_291_im_1_c_0
+1166,no,physical therapist inspecting pink elastic therapeutic kinesio tape over blue,ex_291_img_0,ex_291_im_0_c_1
+1167,yes,physical therapist inspecting pink elastic therapeutic kinesio tape over blue,ex_291_img_1,ex_291_im_1_c_1
+1168,yes,the skipping rope color is different to the shoelaces but similar to the shoes,ex_292_img_0,ex_292_im_0_c_0
+1169,no,the skipping rope color is different to the shoelaces but similar to the shoes,ex_292_img_1,ex_292_im_1_c_0
+1170,no,the skipping rope color is similar to the shoelaces but different to the shoes,ex_292_img_0,ex_292_im_0_c_1
+1171,yes,the skipping rope color is similar to the shoelaces but different to the shoes,ex_292_img_1,ex_292_im_1_c_1
+1172,yes,the blue balloon is being lifted by the weight,ex_293_img_0,ex_293_im_0_c_0
+1173,no,the blue balloon is being lifted by the weight,ex_293_img_1,ex_293_im_1_c_0
+1174,no,the weight is being lifted by the blue balloon,ex_293_img_0,ex_293_im_0_c_1
+1175,yes,the weight is being lifted by the blue balloon,ex_293_img_1,ex_293_im_1_c_1
+1176,yes,the sea is rough but the rocks are smooth,ex_294_img_0,ex_294_im_0_c_0
+1177,no,the sea is rough but the rocks are smooth,ex_294_img_1,ex_294_im_1_c_0
+1178,no,the sea is smooth but the rocks are rough,ex_294_img_0,ex_294_im_0_c_1
+1179,yes,the sea is smooth but the rocks are rough,ex_294_img_1,ex_294_im_1_c_1
+1180,yes,the melting white food is cold while the brown is warm,ex_295_img_0,ex_295_im_0_c_0
+1181,no,the melting white food is cold while the brown is warm,ex_295_img_1,ex_295_im_1_c_0
+1182,no,the melting white food is warm while the brown is cold,ex_295_img_0,ex_295_im_0_c_1
+1183,yes,the melting white food is warm while the brown is cold,ex_295_img_1,ex_295_im_1_c_1
+1184,yes,the person with a beard is smiling while the person with long hair is not,ex_296_img_0,ex_296_im_0_c_0
+1185,no,the person with a beard is smiling while the person with long hair is not,ex_296_img_1,ex_296_im_1_c_0
+1186,no,the person with long hair is smiling while the person with a beard is not,ex_296_img_0,ex_296_im_0_c_1
+1187,yes,the person with long hair is smiling while the person with a beard is not,ex_296_img_1,ex_296_im_1_c_1
+1188,yes,the pet on the right is white and the one on the left is not,ex_297_img_0,ex_297_im_0_c_0
+1189,no,the pet on the right is white and the one on the left is not,ex_297_img_1,ex_297_im_1_c_0
+1190,no,the pet on the left is white and the one on the right is not,ex_297_img_0,ex_297_im_0_c_1
+1191,yes,the pet on the left is white and the one on the right is not,ex_297_img_1,ex_297_im_1_c_1
+1192,yes,the outlet carrying water from the faucet to the shower head is near the hot tap not the cold,ex_298_img_0,ex_298_im_0_c_0
+1193,no,the outlet carrying water from the faucet to the shower head is near the hot tap not the cold,ex_298_img_1,ex_298_im_1_c_0
+1194,no,the outlet carrying water from the faucet to the shower head is near the cold tap not the hot,ex_298_img_0,ex_298_im_0_c_1
+1195,yes,the outlet carrying water from the faucet to the shower head is near the cold tap not the hot,ex_298_img_1,ex_298_im_1_c_1
+1196,yes,the larger ball is heavier and the smaller one is lighter,ex_299_img_0,ex_299_im_0_c_0
+1197,no,the larger ball is heavier and the smaller one is lighter,ex_299_img_1,ex_299_im_1_c_0
+1198,no,the larger ball is lighter and the smaller one is heavier,ex_299_img_0,ex_299_im_0_c_1
+1199,yes,the larger ball is lighter and the smaller one is heavier,ex_299_img_1,ex_299_im_1_c_1
+1200,yes,The adult with the magnifying glass looks at the kid,ex_300_img_0,ex_300_im_0_c_0
+1201,no,The adult with the magnifying glass looks at the kid,ex_300_img_1,ex_300_im_1_c_0
+1202,no,The adult looks at the kid with the magnifying glass,ex_300_img_0,ex_300_im_0_c_1
+1203,yes,The adult looks at the kid with the magnifying glass,ex_300_img_1,ex_300_im_1_c_1
+1204,yes,a dog is on a blanket with spots,ex_301_img_0,ex_301_im_0_c_0
+1205,no,a dog is on a blanket with spots,ex_301_img_1,ex_301_im_1_c_0
+1206,no,a blanket is on a dog with spots,ex_301_img_0,ex_301_im_0_c_1
+1207,yes,a blanket is on a dog with spots,ex_301_img_1,ex_301_im_1_c_1
+1208,yes,There is a mouse cake for a birthday,ex_302_img_0,ex_302_im_0_c_0
+1209,no,There is a mouse cake for a birthday,ex_302_img_1,ex_302_im_1_c_0
+1210,no,There is a birthday cake for a mouse,ex_302_img_0,ex_302_im_0_c_1
+1211,yes,There is a birthday cake for a mouse,ex_302_img_1,ex_302_im_1_c_1
+1212,yes,The cold-blooded animal isn't happy in warm water,ex_303_img_0,ex_303_im_0_c_0
+1213,no,The cold-blooded animal isn't happy in warm water,ex_303_img_1,ex_303_im_1_c_0
+1214,no,The warm-blooded animal isn't happy in cold water,ex_303_img_0,ex_303_im_0_c_1
+1215,yes,The warm-blooded animal isn't happy in cold water,ex_303_img_1,ex_303_im_1_c_1
+1216,yes,The white queen is taking the black king,ex_304_img_0,ex_304_im_0_c_0
+1217,no,The white queen is taking the black king,ex_304_img_1,ex_304_im_1_c_0
+1218,no,The black queen is taking the white king,ex_304_img_0,ex_304_im_0_c_1
+1219,yes,The black queen is taking the white king,ex_304_img_1,ex_304_im_1_c_1
+1220,yes,visiting animals at home can be fun,ex_305_img_0,ex_305_im_0_c_0
+1221,no,visiting animals at home can be fun,ex_305_img_1,ex_305_im_1_c_0
+1222,no,animals visiting at home can be fun,ex_305_img_0,ex_305_im_0_c_1
+1223,yes,animals visiting at home can be fun,ex_305_img_1,ex_305_im_1_c_1
+1224,yes,the person is not happy with the cat,ex_306_img_0,ex_306_im_0_c_0
+1225,no,the person is not happy with the cat,ex_306_img_1,ex_306_im_1_c_0
+1226,no,the cat is not happy with the person,ex_306_img_0,ex_306_im_0_c_1
+1227,yes,the cat is not happy with the person,ex_306_img_1,ex_306_im_1_c_1
+1228,yes,the person is too big for the small door,ex_307_img_0,ex_307_im_0_c_0
+1229,no,the person is too big for the small door,ex_307_img_1,ex_307_im_1_c_0
+1230,no,the door is too small for the big person,ex_307_img_0,ex_307_im_0_c_1
+1231,yes,the door is too small for the big person,ex_307_img_1,ex_307_im_1_c_1
+1232,yes,a taller person is covering the eyes of a shorter person,ex_308_img_0,ex_308_im_0_c_0
+1233,no,a taller person is covering the eyes of a shorter person,ex_308_img_1,ex_308_im_1_c_0
+1234,no,a shorter person is covering the eyes of a taller person,ex_308_img_0,ex_308_im_0_c_1
+1235,yes,a shorter person is covering the eyes of a taller person,ex_308_img_1,ex_308_im_1_c_1
+1236,yes,the plant is eating the bug,ex_309_img_0,ex_309_im_0_c_0
+1237,no,the plant is eating the bug,ex_309_img_1,ex_309_im_1_c_0
+1238,no,the bug is eating the plant,ex_309_img_0,ex_309_im_0_c_1
+1239,yes,the bug is eating the plant,ex_309_img_1,ex_309_im_1_c_1
+1240,yes,every bug has a leaf,ex_310_img_0,ex_310_im_0_c_0
+1241,no,every bug has a leaf,ex_310_img_1,ex_310_im_1_c_0
+1242,no,every leaf has a bug,ex_310_img_0,ex_310_im_0_c_1
+1243,yes,every leaf has a bug,ex_310_img_1,ex_310_im_1_c_1
+1244,yes,the green leaves will soon be red as the seasons change,ex_311_img_0,ex_311_im_0_c_0
+1245,no,the green leaves will soon be red as the seasons change,ex_311_img_1,ex_311_im_1_c_0
+1246,no,the red leaves will soon be green as the seasons change,ex_311_img_0,ex_311_im_0_c_1
+1247,yes,the red leaves will soon be green as the seasons change,ex_311_img_1,ex_311_im_1_c_1
+1248,yes,the white wall will soon be painted blue,ex_312_img_0,ex_312_im_0_c_0
+1249,no,the white wall will soon be painted blue,ex_312_img_1,ex_312_im_1_c_0
+1250,no,the blue wall will soon be painted white,ex_312_img_0,ex_312_im_0_c_1
+1251,yes,the blue wall will soon be painted white,ex_312_img_1,ex_312_im_1_c_1
+1252,yes,the moon prevents the sun's rays from falling on the earth,ex_313_img_0,ex_313_im_0_c_0
+1253,no,the moon prevents the sun's rays from falling on the earth,ex_313_img_1,ex_313_im_1_c_0
+1254,no,the earth prevents the sun's rays from falling on the moon,ex_313_img_0,ex_313_im_0_c_1
+1255,yes,the earth prevents the sun's rays from falling on the moon,ex_313_img_1,ex_313_im_1_c_1
+1256,yes,all paper airplanes fly on a straight path except for one which takes a curved one,ex_314_img_0,ex_314_im_0_c_0
+1257,no,all paper airplanes fly on a straight path except for one which takes a curved one,ex_314_img_1,ex_314_im_1_c_0
+1258,no,all paper airplanes fly on a curved path except for one which takes a straight one,ex_314_img_0,ex_314_im_0_c_1
+1259,yes,all paper airplanes fly on a curved path except for one which takes a straight one,ex_314_img_1,ex_314_im_1_c_1
+1260,yes,the person is too big for the pants,ex_315_img_0,ex_315_im_0_c_0
+1261,no,the person is too big for the pants,ex_315_img_1,ex_315_im_1_c_0
+1262,no,the pants is too big for the person,ex_315_img_0,ex_315_im_0_c_1
+1263,yes,the pants is too big for the person,ex_315_img_1,ex_315_im_1_c_1
+1264,yes,a kid jumped then threw a basketball,ex_316_img_0,ex_316_im_0_c_0
+1265,no,a kid jumped then threw a basketball,ex_316_img_1,ex_316_im_1_c_0
+1266,no,a kid threw a basketball then jumped,ex_316_img_0,ex_316_im_0_c_1
+1267,yes,a kid threw a basketball then jumped,ex_316_img_1,ex_316_im_1_c_1
+1268,yes,one cheerlearder supporting multiple cheerleaders,ex_317_img_0,ex_317_im_0_c_0
+1269,no,one cheerlearder supporting multiple cheerleaders,ex_317_img_1,ex_317_im_1_c_0
+1270,no,multiple cheerleaders supporting one cheerlearder,ex_317_img_0,ex_317_im_0_c_1
+1271,yes,multiple cheerleaders supporting one cheerlearder,ex_317_img_1,ex_317_im_1_c_1
+1272,yes,two persons wearing one scarf,ex_318_img_0,ex_318_im_0_c_0
+1273,no,two persons wearing one scarf,ex_318_img_1,ex_318_im_1_c_0
+1274,no,one person wearing two scarfs,ex_318_img_0,ex_318_im_0_c_1
+1275,yes,one person wearing two scarfs,ex_318_img_1,ex_318_im_1_c_1
+1276,yes,human head on pet,ex_319_img_0,ex_319_im_0_c_0
+1277,no,human head on pet,ex_319_img_1,ex_319_im_1_c_0
+1278,no,pet head on human,ex_319_img_0,ex_319_im_0_c_1
+1279,yes,pet head on human,ex_319_img_1,ex_319_im_1_c_1
+1280,yes,the cow is over the moon,ex_320_img_0,ex_320_im_0_c_0
+1281,no,the cow is over the moon,ex_320_img_1,ex_320_im_1_c_0
+1282,no,the moon is over the cow,ex_320_img_0,ex_320_im_0_c_1
+1283,yes,the moon is over the cow,ex_320_img_1,ex_320_im_1_c_1
+1284,yes,someone babys a pet,ex_321_img_0,ex_321_im_0_c_0
+1285,no,someone babys a pet,ex_321_img_1,ex_321_im_1_c_0
+1286,no,someone pets a baby,ex_321_img_0,ex_321_im_0_c_1
+1287,yes,someone pets a baby,ex_321_img_1,ex_321_im_1_c_1
+1288,yes,cat house,ex_322_img_0,ex_322_im_0_c_0
+1289,no,cat house,ex_322_img_1,ex_322_im_1_c_0
+1290,no,house cat,ex_322_img_0,ex_322_im_0_c_1
+1291,yes,house cat,ex_322_img_1,ex_322_im_1_c_1
+1292,yes,gold for pan,ex_323_img_0,ex_323_im_0_c_0
+1293,no,gold for pan,ex_323_img_1,ex_323_im_1_c_0
+1294,no,pan for gold,ex_323_img_0,ex_323_im_0_c_1
+1295,yes,pan for gold,ex_323_img_1,ex_323_im_1_c_1
+1296,yes,water for plants,ex_324_img_0,ex_324_im_0_c_0
+1297,no,water for plants,ex_324_img_1,ex_324_im_1_c_0
+1298,no,plants for water,ex_324_img_0,ex_324_im_0_c_1
+1299,yes,plants for water,ex_324_img_1,ex_324_im_1_c_1
+1300,yes,the businessperson's down fall,ex_325_img_0,ex_325_im_0_c_0
+1301,no,the businessperson's down fall,ex_325_img_1,ex_325_im_1_c_0
+1302,no,the businessperson's fall down,ex_325_img_0,ex_325_im_0_c_1
+1303,yes,the businessperson's fall down,ex_325_img_1,ex_325_im_1_c_1
+1304,yes,outswam the person in the red swimcap,ex_326_img_0,ex_326_im_0_c_0
+1305,no,outswam the person in the red swimcap,ex_326_img_1,ex_326_im_1_c_0
+1306,no,the person in the red swimcap swamout,ex_326_img_0,ex_326_im_0_c_1
+1307,yes,the person in the red swimcap swamout,ex_326_img_1,ex_326_im_1_c_1
+1308,yes,manning a ship,ex_327_img_0,ex_327_im_0_c_0
+1309,no,manning a ship,ex_327_img_1,ex_327_im_1_c_0
+1310,no,shiping a mann,ex_327_img_0,ex_327_im_0_c_1
+1311,yes,shiping a mann,ex_327_img_1,ex_327_im_1_c_1
+1312,yes,the person wearing a sweater stands in front of the person who isn't wearing a sweater,ex_328_img_0,ex_328_im_0_c_0
+1313,no,the person wearing a sweater stands in front of the person who isn't wearing a sweater,ex_328_img_1,ex_328_im_1_c_0
+1314,no,the person who isn't wearing a sweater stands in front of the person wearing a sweater,ex_328_img_0,ex_328_im_0_c_1
+1315,yes,the person who isn't wearing a sweater stands in front of the person wearing a sweater,ex_328_img_1,ex_328_im_1_c_1
+1316,yes,a person without glasses pushes a person with glasses sitting in a box,ex_329_img_0,ex_329_im_0_c_0
+1317,no,a person without glasses pushes a person with glasses sitting in a box,ex_329_img_1,ex_329_im_1_c_0
+1318,no,a person with glasses pushes a person without glasses sitting in a box,ex_329_img_0,ex_329_im_0_c_1
+1319,yes,a person with glasses pushes a person without glasses sitting in a box,ex_329_img_1,ex_329_im_1_c_1
+1320,yes,what is green will soon be yellow,ex_330_img_0,ex_330_im_0_c_0
+1321,no,what is green will soon be yellow,ex_330_img_1,ex_330_im_1_c_0
+1322,no,what is yellow will soon be green,ex_330_img_0,ex_330_im_0_c_1
+1323,yes,what is yellow will soon be green,ex_330_img_1,ex_330_im_1_c_1
+1324,yes,soon this animal not with a tail will have one,ex_331_img_0,ex_331_im_0_c_0
+1325,no,soon this animal not with a tail will have one,ex_331_img_1,ex_331_im_1_c_0
+1326,no,soon this animal with a tail will not have one,ex_331_img_0,ex_331_im_0_c_1
+1327,yes,soon this animal with a tail will not have one,ex_331_img_1,ex_331_im_1_c_1
+1328,yes,a mouse is touching a dog,ex_332_img_0,ex_332_im_0_c_0
+1329,no,a mouse is touching a dog,ex_332_img_1,ex_332_im_1_c_0
+1330,no,a dog is touching a mouse,ex_332_img_0,ex_332_im_0_c_1
+1331,yes,a dog is touching a mouse,ex_332_img_1,ex_332_im_1_c_1
+1332,yes,fishing for compliments,ex_333_img_0,ex_333_im_0_c_0
+1333,no,fishing for compliments,ex_333_img_1,ex_333_im_1_c_0
+1334,no,compliments for fishing,ex_333_img_0,ex_333_im_0_c_1
+1335,yes,compliments for fishing,ex_333_img_1,ex_333_im_1_c_1
+1336,yes,that person dusting off their hands,ex_334_img_0,ex_334_im_0_c_0
+1337,no,that person dusting off their hands,ex_334_img_1,ex_334_im_1_c_0
+1338,no,that person hands off their dusting,ex_334_img_0,ex_334_im_0_c_1
+1339,yes,that person hands off their dusting,ex_334_img_1,ex_334_im_1_c_1
+1340,yes,a person wearing black shoes cleaning a bookshelf with an orange duster while a person wearing green shoes drinks wine from an orange glass and relaxes,ex_335_img_0,ex_335_im_0_c_0
+1341,no,a person wearing black shoes cleaning a bookshelf with an orange duster while a person wearing green shoes drinks wine from an orange glass and relaxes,ex_335_img_1,ex_335_im_1_c_0
+1342,no,a person wearing green shoes cleaning a bookshelf with an orange duster while a person wearing black shoes drinks wine from an orange glass and relaxes,ex_335_img_0,ex_335_im_0_c_1
+1343,yes,a person wearing green shoes cleaning a bookshelf with an orange duster while a person wearing black shoes drinks wine from an orange glass and relaxes,ex_335_img_1,ex_335_im_1_c_1
+1344,yes,a person with short hair is happily ironing a light blue shirt while a person with long hair sits on a white couch,ex_336_img_0,ex_336_im_0_c_0
+1345,no,a person with short hair is happily ironing a light blue shirt while a person with long hair sits on a white couch,ex_336_img_1,ex_336_im_1_c_0
+1346,no,a person with long hair is happily ironing a light blue shirt while a person with short hair sits on a white couch,ex_336_img_0,ex_336_im_0_c_1
+1347,yes,a person with long hair is happily ironing a light blue shirt while a person with short hair sits on a white couch,ex_336_img_1,ex_336_im_1_c_1
+1348,yes,yellow duck shoes on,ex_337_img_0,ex_337_im_0_c_0
+1349,no,yellow duck shoes on,ex_337_img_1,ex_337_im_1_c_0
+1350,no,yellow duck on shoes,ex_337_img_0,ex_337_im_0_c_1
+1351,yes,yellow duck on shoes,ex_337_img_1,ex_337_im_1_c_1
+1352,yes,child in front facing row of yellow rubber ducks,ex_338_img_0,ex_338_im_0_c_0
+1353,no,child in front facing row of yellow rubber ducks,ex_338_img_1,ex_338_im_1_c_0
+1354,no,front facing child in row of yellow rubber ducks,ex_338_img_0,ex_338_im_0_c_1
+1355,yes,front facing child in row of yellow rubber ducks,ex_338_img_1,ex_338_im_1_c_1
+1356,yes,a bird cooking a person,ex_339_img_0,ex_339_im_0_c_0
+1357,no,a bird cooking a person,ex_339_img_1,ex_339_im_1_c_0
+1358,no,a person cooking a bird,ex_339_img_0,ex_339_im_0_c_1
+1359,yes,a person cooking a bird,ex_339_img_1,ex_339_im_1_c_1
+1360,yes,a person wearing yellow and a person wearing stripes jumping,ex_340_img_0,ex_340_im_0_c_0
+1361,no,a person wearing yellow and a person wearing stripes jumping,ex_340_img_1,ex_340_im_1_c_0
+1362,no,a jumping person wearing yellow and a person wearing stripes,ex_340_img_0,ex_340_im_0_c_1
+1363,yes,a jumping person wearing yellow and a person wearing stripes,ex_340_img_1,ex_340_im_1_c_1
+1364,yes,a person wearing yellow with their feet in the air and a person wearing stripes,ex_341_img_0,ex_341_im_0_c_0
+1365,no,a person wearing yellow with their feet in the air and a person wearing stripes,ex_341_img_1,ex_341_im_1_c_0
+1366,no,a person wearing stripes with their feet in the air and a person wearing yellow,ex_341_img_0,ex_341_im_0_c_1
+1367,yes,a person wearing stripes with their feet in the air and a person wearing yellow,ex_341_img_1,ex_341_im_1_c_1
+1368,yes,darker things become light in stripes,ex_342_img_0,ex_342_im_0_c_0
+1369,no,darker things become light in stripes,ex_342_img_1,ex_342_im_1_c_0
+1370,no,light things in stripes become darker,ex_342_img_0,ex_342_im_0_c_1
+1371,yes,light things in stripes become darker,ex_342_img_1,ex_342_im_1_c_1
+1372,yes,together hammering something,ex_343_img_0,ex_343_im_0_c_0
+1373,no,together hammering something,ex_343_img_1,ex_343_im_1_c_0
+1374,no,hammering something together,ex_343_img_0,ex_343_im_0_c_1
+1375,yes,hammering something together,ex_343_img_1,ex_343_im_1_c_1
+1376,yes,A person sits next to a baby using an orange screwdriver to assemble a white piece of furniture,ex_344_img_0,ex_344_im_0_c_0
+1377,no,A person sits next to a baby using an orange screwdriver to assemble a white piece of furniture,ex_344_img_1,ex_344_im_1_c_0
+1378,no,A baby sits next to a person using an orange screwdriver to assemble a white piece of furniture,ex_344_img_0,ex_344_im_0_c_1
+1379,yes,A baby sits next to a person using an orange screwdriver to assemble a white piece of furniture,ex_344_img_1,ex_344_im_1_c_1
+1380,yes,a worker in a yellow hat uses a drill to the left of where the opening in the wall is,ex_345_img_0,ex_345_im_0_c_0
+1381,no,a worker in a yellow hat uses a drill to the left of where the opening in the wall is,ex_345_img_1,ex_345_im_1_c_0
+1382,no,the opening in the wall is to the left of where a worker in a yellow hat uses a drill,ex_345_img_0,ex_345_im_0_c_1
+1383,yes,the opening in the wall is to the left of where a worker in a yellow hat uses a drill,ex_345_img_1,ex_345_im_1_c_1
+1384,yes,A small animal with curled hair,ex_346_img_0,ex_346_im_0_c_0
+1385,no,A small animal with curled hair,ex_346_img_1,ex_346_im_1_c_0
+1386,no,A curled small animal with hair,ex_346_img_0,ex_346_im_0_c_1
+1387,yes,A curled small animal with hair,ex_346_img_1,ex_346_im_1_c_1
+1388,yes,A right hand pulls a glove onto a left hand,ex_347_img_0,ex_347_im_0_c_0
+1389,no,A right hand pulls a glove onto a left hand,ex_347_img_1,ex_347_im_1_c_0
+1390,no,A left hand pulls a glove onto a right hand,ex_347_img_0,ex_347_im_0_c_1
+1391,yes,A left hand pulls a glove onto a right hand,ex_347_img_1,ex_347_im_1_c_1
+1392,yes,A dog and a person with their feet hanging out of a car window,ex_348_img_0,ex_348_im_0_c_0
+1393,no,A dog and a person with their feet hanging out of a car window,ex_348_img_1,ex_348_im_1_c_0
+1394,no,A dog with their feet hanging out of a car window and a person,ex_348_img_0,ex_348_im_0_c_1
+1395,yes,A dog with their feet hanging out of a car window and a person,ex_348_img_1,ex_348_im_1_c_1
+1396,yes,A person whispering into a dog's ear,ex_349_img_0,ex_349_im_0_c_0
+1397,no,A person whispering into a dog's ear,ex_349_img_1,ex_349_im_1_c_0
+1398,no,A dog whispering into a person's ear,ex_349_img_0,ex_349_im_0_c_1
+1399,yes,A dog whispering into a person's ear,ex_349_img_1,ex_349_im_1_c_1
+1400,yes,one ear that some donkey is whispering a secret into,ex_350_img_0,ex_350_im_0_c_0
+1401,no,one ear that some donkey is whispering a secret into,ex_350_img_1,ex_350_im_1_c_0
+1402,no,donkey ear that some one is whispering a secret into,ex_350_img_0,ex_350_im_0_c_1
+1403,yes,donkey ear that some one is whispering a secret into,ex_350_img_1,ex_350_im_1_c_1
+1404,yes,walking someone cut lines into green plants,ex_351_img_0,ex_351_im_0_c_0
+1405,no,walking someone cut lines into green plants,ex_351_img_1,ex_351_im_1_c_0
+1406,no,someone walking lines cut into green plants,ex_351_img_0,ex_351_im_0_c_1
+1407,yes,someone walking lines cut into green plants,ex_351_img_1,ex_351_im_1_c_1
+1408,yes,a volcano above water makes steam,ex_352_img_0,ex_352_im_0_c_0
+1409,no,a volcano above water makes steam,ex_352_img_1,ex_352_im_1_c_0
+1410,no,water above a volcano makes steam,ex_352_img_0,ex_352_im_0_c_1
+1411,yes,water above a volcano makes steam,ex_352_img_1,ex_352_im_1_c_1
+1412,yes,A child riding a bike and an adult,ex_353_img_0,ex_353_im_0_c_0
+1413,no,A child riding a bike and an adult,ex_353_img_1,ex_353_im_1_c_0
+1414,no,A child and an adult riding a bike,ex_353_img_0,ex_353_im_0_c_1
+1415,yes,A child and an adult riding a bike,ex_353_img_1,ex_353_im_1_c_1
+1416,yes,an adult putting a helmet on a child,ex_354_img_0,ex_354_im_0_c_0
+1417,no,an adult putting a helmet on a child,ex_354_img_1,ex_354_im_1_c_0
+1418,no,a child putting a helmet on an adult,ex_354_img_0,ex_354_im_0_c_1
+1419,yes,a child putting a helmet on an adult,ex_354_img_1,ex_354_im_1_c_1
+1420,yes,An adult wearing purple lying next to a child,ex_355_img_0,ex_355_im_0_c_0
+1421,no,An adult wearing purple lying next to a child,ex_355_img_1,ex_355_im_1_c_0
+1422,no,An adult lying next to a child wearing purple,ex_355_img_0,ex_355_im_0_c_1
+1423,yes,An adult lying next to a child wearing purple,ex_355_img_1,ex_355_im_1_c_1
+1424,yes,a fencer who is wearing black pants having a point scored against them by another fencer using a wheelchair,ex_356_img_0,ex_356_im_0_c_0
+1425,no,a fencer who is wearing black pants having a point scored against them by another fencer using a wheelchair,ex_356_img_1,ex_356_im_1_c_0
+1426,no,a fencer having a point scored against them by another fencer who is wearing black pants using a wheelchair,ex_356_img_0,ex_356_im_0_c_1
+1427,yes,a fencer having a point scored against them by another fencer who is wearing black pants using a wheelchair,ex_356_img_1,ex_356_im_1_c_1
+1428,yes,a person with long braids is exercising in front of a person without braids,ex_357_img_0,ex_357_im_0_c_0
+1429,no,a person with long braids is exercising in front of a person without braids,ex_357_img_1,ex_357_im_1_c_0
+1430,no,a person without braids is exercising in front of a person with long braids,ex_357_img_0,ex_357_im_0_c_1
+1431,yes,a person without braids is exercising in front of a person with long braids,ex_357_img_1,ex_357_im_1_c_1
+1432,yes,"in the stadium, the person wearing gray outperformed the one wearing blue",ex_358_img_0,ex_358_im_0_c_0
+1433,no,"in the stadium, the person wearing gray outperformed the one wearing blue",ex_358_img_1,ex_358_im_1_c_0
+1434,no,"in the stadium, the person wearing blue outperformed the one wearing gray",ex_358_img_0,ex_358_im_0_c_1
+1435,yes,"in the stadium, the person wearing blue outperformed the one wearing gray",ex_358_img_1,ex_358_im_1_c_1
+1436,yes,butchering white meat while wearing yellow but not red,ex_359_img_0,ex_359_im_0_c_0
+1437,no,butchering white meat while wearing yellow but not red,ex_359_img_1,ex_359_im_1_c_0
+1438,no,butchering red meat while wearing white but not yellow,ex_359_img_0,ex_359_im_0_c_1
+1439,yes,butchering red meat while wearing white but not yellow,ex_359_img_1,ex_359_im_1_c_1
+1440,yes,a child with a fake beard and an adult,ex_360_img_0,ex_360_im_0_c_0
+1441,no,a child with a fake beard and an adult,ex_360_img_1,ex_360_im_1_c_0
+1442,no,an adult with a fake beard and a child,ex_360_img_0,ex_360_im_0_c_1
+1443,yes,an adult with a fake beard and a child,ex_360_img_1,ex_360_im_1_c_1
+1444,yes,"on halloween, a child dressed as an insect is to the right of a child dressed as a mammal",ex_361_img_0,ex_361_im_0_c_0
+1445,no,"on halloween, a child dressed as an insect is to the right of a child dressed as a mammal",ex_361_img_1,ex_361_im_1_c_0
+1446,no,"on halloween, a child dressed as a mammal is to the right of a child dressed as an insect",ex_361_img_0,ex_361_im_0_c_1
+1447,yes,"on halloween, a child dressed as a mammal is to the right of a child dressed as an insect",ex_361_img_1,ex_361_im_1_c_1
+1448,yes,a modern office complex with many windows above a nicely landscaped lawn,ex_362_img_0,ex_362_im_0_c_0
+1449,no,a modern office complex with many windows above a nicely landscaped lawn,ex_362_img_1,ex_362_im_1_c_0
+1450,no,a nicely landscaped lawn above a modern office complex with many windows,ex_362_img_0,ex_362_im_0_c_1
+1451,yes,a nicely landscaped lawn above a modern office complex with many windows,ex_362_img_1,ex_362_im_1_c_1
+1452,yes,a tree is partially inside a parked car,ex_363_img_0,ex_363_im_0_c_0
+1453,no,a tree is partially inside a parked car,ex_363_img_1,ex_363_im_1_c_0
+1454,no,a parked car is partially inside a tree,ex_363_img_0,ex_363_im_0_c_1
+1455,yes,a parked car is partially inside a tree,ex_363_img_1,ex_363_im_1_c_1
+1456,yes,some are parking in a train,ex_364_img_0,ex_364_im_0_c_0
+1457,no,some are parking in a train,ex_364_img_1,ex_364_im_1_c_0
+1458,no,some are training in a park,ex_364_img_0,ex_364_im_0_c_1
+1459,yes,some are training in a park,ex_364_img_1,ex_364_im_1_c_1
+1460,yes,an athlete running on water,ex_365_img_0,ex_365_im_0_c_0
+1461,no,an athlete running on water,ex_365_img_1,ex_365_im_1_c_0
+1462,no,water running on an athlete,ex_365_img_0,ex_365_im_0_c_1
+1463,yes,water running on an athlete,ex_365_img_1,ex_365_im_1_c_1
+1464,yes,a horse getting wet,ex_366_img_0,ex_366_im_0_c_0
+1465,no,a horse getting wet,ex_366_img_1,ex_366_im_1_c_0
+1466,no,getting a horse wet,ex_366_img_0,ex_366_im_0_c_1
+1467,yes,getting a horse wet,ex_366_img_1,ex_366_im_1_c_1
+1468,yes,the glasses full of water are above the person's head and leg,ex_367_img_0,ex_367_im_0_c_0
+1469,no,the glasses full of water are above the person's head and leg,ex_367_img_1,ex_367_im_1_c_0
+1470,no,the person's head and leg are above the glasses full of water,ex_367_img_0,ex_367_im_0_c_1
+1471,yes,the person's head and leg are above the glasses full of water,ex_367_img_1,ex_367_im_1_c_1
+1472,yes,a person is touching the head of a squirrel,ex_368_img_0,ex_368_im_0_c_0
+1473,no,a person is touching the head of a squirrel,ex_368_img_1,ex_368_im_1_c_0
+1474,no,a squirrel is touching the head of a person,ex_368_img_0,ex_368_im_0_c_1
+1475,yes,a squirrel is touching the head of a person,ex_368_img_1,ex_368_im_1_c_1
+1476,yes,a deer's nose is resting on a child's hand,ex_369_img_0,ex_369_im_0_c_0
+1477,no,a deer's nose is resting on a child's hand,ex_369_img_1,ex_369_im_1_c_0
+1478,no,a child's hand is resting on a deer's nose,ex_369_img_0,ex_369_im_0_c_1
+1479,yes,a child's hand is resting on a deer's nose,ex_369_img_1,ex_369_im_1_c_1
+1480,yes,two sparklers for one hand,ex_370_img_0,ex_370_im_0_c_0
+1481,no,two sparklers for one hand,ex_370_img_1,ex_370_im_1_c_0
+1482,no,one sparkler for two hands,ex_370_img_0,ex_370_im_0_c_1
+1483,yes,one sparkler for two hands,ex_370_img_1,ex_370_im_1_c_1
+1484,yes,an animal giving a person food,ex_371_img_0,ex_371_im_0_c_0
+1485,no,an animal giving a person food,ex_371_img_1,ex_371_im_1_c_0
+1486,no,a person giving an animal food,ex_371_img_0,ex_371_im_0_c_1
+1487,yes,a person giving an animal food,ex_371_img_1,ex_371_im_1_c_1
+1488,yes,a spider towering over a dog,ex_372_img_0,ex_372_im_0_c_0
+1489,no,a spider towering over a dog,ex_372_img_1,ex_372_im_1_c_0
+1490,no,a dog towering over a spider,ex_372_img_0,ex_372_im_0_c_1
+1491,yes,a dog towering over a spider,ex_372_img_1,ex_372_im_1_c_1
+1492,yes,a car going into a hollow tube,ex_373_img_0,ex_373_im_0_c_0
+1493,no,a car going into a hollow tube,ex_373_img_1,ex_373_im_1_c_0
+1494,no,a hollow tube going into a car,ex_373_img_0,ex_373_im_0_c_1
+1495,yes,a hollow tube going into a car,ex_373_img_1,ex_373_im_1_c_1
+1496,yes,two people wearing clothes of the same colors are on different side of the tennis net,ex_374_img_0,ex_374_im_0_c_0
+1497,no,two people wearing clothes of the same colors are on different side of the tennis net,ex_374_img_1,ex_374_im_1_c_0
+1498,no,two people wearing clothes of different colors are on the same side of the tennis net,ex_374_img_0,ex_374_im_0_c_1
+1499,yes,two people wearing clothes of different colors are on the same side of the tennis net,ex_374_img_1,ex_374_im_1_c_1
+1500,yes,living things drinking,ex_375_img_0,ex_375_im_0_c_0
+1501,no,living things drinking,ex_375_img_1,ex_375_im_1_c_0
+1502,no,drinking living things,ex_375_img_0,ex_375_im_0_c_1
+1503,yes,drinking living things,ex_375_img_1,ex_375_im_1_c_1
+1504,yes,a person near water using a lasso,ex_376_img_0,ex_376_im_0_c_0
+1505,no,a person near water using a lasso,ex_376_img_1,ex_376_im_1_c_0
+1506,no,near a person using a water lasso,ex_376_img_0,ex_376_im_0_c_1
+1507,yes,near a person using a water lasso,ex_376_img_1,ex_376_im_1_c_1
+1508,yes,a person spraying water on someone else and a person on a bike,ex_377_img_0,ex_377_im_0_c_0
+1509,no,a person spraying water on someone else and a person on a bike,ex_377_img_1,ex_377_im_1_c_0
+1510,no,a person spraying water on a person on a bike and someone else,ex_377_img_0,ex_377_im_0_c_1
+1511,yes,a person spraying water on a person on a bike and someone else,ex_377_img_1,ex_377_im_1_c_1
+1512,yes,a person stretching behind a brown dog,ex_378_img_0,ex_378_im_0_c_0
+1513,no,a person stretching behind a brown dog,ex_378_img_1,ex_378_im_1_c_0
+1514,no,a brown dog stretching behind a person,ex_378_img_0,ex_378_im_0_c_1
+1515,yes,a brown dog stretching behind a person,ex_378_img_1,ex_378_im_1_c_1
+1516,yes,a person carrying more than one flotation device,ex_379_img_0,ex_379_im_0_c_0
+1517,no,a person carrying more than one flotation device,ex_379_img_1,ex_379_im_1_c_0
+1518,no,more than one flotation device carrying a person,ex_379_img_0,ex_379_im_0_c_1
+1519,yes,more than one flotation device carrying a person,ex_379_img_1,ex_379_im_1_c_1
+1520,yes,two kids on a pool floatie and one kid swimming,ex_380_img_0,ex_380_im_0_c_0
+1521,no,two kids on a pool floatie and one kid swimming,ex_380_img_1,ex_380_im_1_c_0
+1522,no,one kid on a pool floatie and two kids swimming,ex_380_img_0,ex_380_im_0_c_1
+1523,yes,one kid on a pool floatie and two kids swimming,ex_380_img_1,ex_380_im_1_c_1
+1524,yes,gears for moving something,ex_381_img_0,ex_381_im_0_c_0
+1525,no,gears for moving something,ex_381_img_1,ex_381_im_1_c_0
+1526,no,moving gears for something,ex_381_img_0,ex_381_im_0_c_1
+1527,yes,moving gears for something,ex_381_img_1,ex_381_im_1_c_1
+1528,yes,looking from above at a collection of similar objects below,ex_382_img_0,ex_382_im_0_c_0
+1529,no,looking from above at a collection of similar objects below,ex_382_img_1,ex_382_im_1_c_0
+1530,no,looking from below at a collection of similar objects above,ex_382_img_0,ex_382_im_0_c_1
+1531,yes,looking from below at a collection of similar objects above,ex_382_img_1,ex_382_im_1_c_1
+1532,yes,a toy herbivore stands on top of at least one toy carnivore,ex_383_img_0,ex_383_im_0_c_0
+1533,no,a toy herbivore stands on top of at least one toy carnivore,ex_383_img_1,ex_383_im_1_c_0
+1534,no,at least one toy herbivore stands on top of a toy carnivore,ex_383_img_0,ex_383_im_0_c_1
+1535,yes,at least one toy herbivore stands on top of a toy carnivore,ex_383_img_1,ex_383_im_1_c_1
+1536,yes,a person supports a small chair,ex_384_img_0,ex_384_im_0_c_0
+1537,no,a person supports a small chair,ex_384_img_1,ex_384_im_1_c_0
+1538,no,a chair supports a small person,ex_384_img_0,ex_384_im_0_c_1
+1539,yes,a chair supports a small person,ex_384_img_1,ex_384_im_1_c_1
+1540,yes,a person smiles at another person wearing a checked shirt who is hitting a ping pong ball,ex_385_img_0,ex_385_im_0_c_0
+1541,no,a person smiles at another person wearing a checked shirt who is hitting a ping pong ball,ex_385_img_1,ex_385_im_1_c_0
+1542,no,a person wearing a checked shirt smiles at another person who is hitting a ping pong ball,ex_385_img_0,ex_385_im_0_c_1
+1543,yes,a person wearing a checked shirt smiles at another person who is hitting a ping pong ball,ex_385_img_1,ex_385_im_1_c_1
+1544,yes,two versions of one person,ex_386_img_0,ex_386_im_0_c_0
+1545,no,two versions of one person,ex_386_img_1,ex_386_im_1_c_0
+1546,no,one version of two persons,ex_386_img_0,ex_386_im_0_c_1
+1547,yes,one version of two persons,ex_386_img_1,ex_386_im_1_c_1
+1548,yes,There are not pink flowers below the bird with yellow head feathers,ex_387_img_0,ex_387_im_0_c_0
+1549,no,There are not pink flowers below the bird with yellow head feathers,ex_387_img_1,ex_387_im_1_c_0
+1550,no,There are pink flowers not below the bird with yellow head feathers,ex_387_img_0,ex_387_im_0_c_1
+1551,yes,There are pink flowers not below the bird with yellow head feathers,ex_387_img_1,ex_387_im_1_c_1
+1552,yes,"In a shopping cart, there are two animals that are the same species but are looking in different directions",ex_388_img_0,ex_388_im_0_c_0
+1553,no,"In a shopping cart, there are two animals that are the same species but are looking in different directions",ex_388_img_1,ex_388_im_1_c_0
+1554,no,"In a shopping cart, there are two animals that are the different species but are looking in same directions",ex_388_img_0,ex_388_im_0_c_1
+1555,yes,"In a shopping cart, there are two animals that are the different species but are looking in same directions",ex_388_img_1,ex_388_im_1_c_1
+1556,yes,water is on and under a vessel,ex_389_img_0,ex_389_im_0_c_0
+1557,no,water is on and under a vessel,ex_389_img_1,ex_389_im_1_c_0
+1558,no,a vessel is on and under water,ex_389_img_0,ex_389_im_0_c_1
+1559,yes,a vessel is on and under water,ex_389_img_1,ex_389_im_1_c_1
+1560,yes,two bodies share with one head,ex_390_img_0,ex_390_im_0_c_0
+1561,no,two bodies share with one head,ex_390_img_1,ex_390_im_1_c_0
+1562,no,one bodies share with two head,ex_390_img_0,ex_390_im_0_c_1
+1563,yes,one bodies share with two head,ex_390_img_1,ex_390_im_1_c_1
+1564,yes,The worker wears something striped over a white undershirt with a collar,ex_391_img_0,ex_391_im_0_c_0
+1565,no,The worker wears something striped over a white undershirt with a collar,ex_391_img_1,ex_391_im_1_c_0
+1566,no,The worker wears something white over a striped undershirt with a collar,ex_391_img_0,ex_391_im_0_c_1
+1567,yes,The worker wears something white over a striped undershirt with a collar,ex_391_img_1,ex_391_im_1_c_1
+1568,yes,A person seen from above has a grid below them,ex_392_img_0,ex_392_im_0_c_0
+1569,no,A person seen from above has a grid below them,ex_392_img_1,ex_392_im_1_c_0
+1570,no,A person seen from below has a grid above them,ex_392_img_0,ex_392_im_0_c_1
+1571,yes,A person seen from below has a grid above them,ex_392_img_1,ex_392_im_1_c_1
+1572,yes,head in the clouds,ex_393_img_0,ex_393_im_0_c_0
+1573,no,head in the clouds,ex_393_img_1,ex_393_im_1_c_0
+1574,no,clouds in the head,ex_393_img_0,ex_393_im_0_c_1
+1575,yes,clouds in the head,ex_393_img_1,ex_393_im_1_c_1
+1576,yes,standing on feet,ex_394_img_0,ex_394_im_0_c_0
+1577,no,standing on feet,ex_394_img_1,ex_394_im_1_c_0
+1578,no,on feet standing,ex_394_img_0,ex_394_im_0_c_1
+1579,yes,on feet standing,ex_394_img_1,ex_394_im_1_c_1
+1580,yes,They have sunglasses over their hair,ex_395_img_0,ex_395_im_0_c_0
+1581,no,They have sunglasses over their hair,ex_395_img_1,ex_395_im_1_c_0
+1582,no,They have hair over their sunglasses,ex_395_img_0,ex_395_im_0_c_1
+1583,yes,They have hair over their sunglasses,ex_395_img_1,ex_395_im_1_c_1
+1584,yes,an odd number of sweet things on a plate with an even number of sides,ex_396_img_0,ex_396_im_0_c_0
+1585,no,an odd number of sweet things on a plate with an even number of sides,ex_396_img_1,ex_396_im_1_c_0
+1586,no,an even number of sweet things on a plate with an odd number of sides,ex_396_img_0,ex_396_im_0_c_1
+1587,yes,an even number of sweet things on a plate with an odd number of sides,ex_396_img_1,ex_396_im_1_c_1
+1588,yes,a large living thing in front of a large non-living thing,ex_397_img_0,ex_397_im_0_c_0
+1589,no,a large living thing in front of a large non-living thing,ex_397_img_1,ex_397_im_1_c_0
+1590,no,a large non-living thing in front of a large living thing,ex_397_img_0,ex_397_im_0_c_1
+1591,yes,a large non-living thing in front of a large living thing,ex_397_img_1,ex_397_im_1_c_1
+1592,yes,racing over it,ex_398_img_0,ex_398_im_0_c_0
+1593,no,racing over it,ex_398_img_1,ex_398_im_1_c_0
+1594,no,racing it over,ex_398_img_0,ex_398_im_0_c_1
+1595,yes,racing it over,ex_398_img_1,ex_398_im_1_c_1
+1596,yes,someone is overdoing it,ex_399_img_0,ex_399_im_0_c_0
+1597,no,someone is overdoing it,ex_399_img_1,ex_399_im_1_c_0
+1598,no,someone is doing it over,ex_399_img_0,ex_399_im_0_c_1
+1599,yes,someone is doing it over,ex_399_img_1,ex_399_im_1_c_1

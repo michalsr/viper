@@ -387,7 +387,7 @@ class OwlViTModel(BaseModel):
         # Target image sizes (height, width) to rescale box predictions [batch_size, 2]
         target_sizes = torch.tensor([image.shape[1:]]).to(self.dev)
         # Convert outputs (bounding boxes and class logits) to COCO API
-        results = self.processor.post_process(outputs=outputs, target_sizes=target_sizes)
+        results = self.processor.post_process_object_detection(outputs=outputs, target_sizes=target_sizes)
 
         boxes, scores, labels = results[0]["boxes"], results[0]["scores"], results[0]["labels"]
 

@@ -33,7 +33,7 @@ class MyDataset(Dataset):
 
         # Load questions, answers, and image ids
         #with open(self.data_path / self.split / 'queries.csv', 'r') as f:
-        with open('/shared/rsaas/michal5/viper/data/winoground.csv','r') as f:
+        with open('/shared/rsaas/michal5/viper/data/winoground_plain.csv','r') as f:
             # The csv has the rows [query, answer, image_name or video_name]
             self.df = pd.read_csv(f, index_col=None, keep_default_na=False)
 

@@ -460,7 +460,13 @@ def llm_query(query, context=None, long_answer=True, queues=None):
         return forward(model_name='gpt3_general', prompt=query, queues=queues)
     else:
         return forward(model_name='gpt3_qa', prompt=[query, context], queues=queues)
-
+def sum_tensor(values:list):
+    new_values = []
+    for v in values:
+        if type(v) != float:
+            v = v.item()
+        new_values.append(v)
+    return sum(new_values)
 def avg(values: list):
     new_values = []
     for v in values:
