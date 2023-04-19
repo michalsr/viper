@@ -10,7 +10,7 @@ from torchvision import transforms
 from torchvision.ops import box_iou
 from typing import Union, List
 from word2number import w2n
-
+import numpy as np
 from utils import show_single_image, load_json
 from vision_processes import forward, config
 
@@ -137,18 +137,20 @@ class ImagePatch:
             a list of ImagePatch objects matching object_name contained in the crop
         """
         #console.print('Running GLIP')
+        #print(object_name,'object nane')
         results = []
-        if object_name in ["object", "objects"]:
-            all_object_coordinates = self.forward('maskrcnn', self.cropped_image)[0]
-        else:
+        # if object_name in ["object", "objects"]:
+        #     all_object_coordinates = self.forward('maskrcnn', self.cropped_image)[0]
+        # else:
 
-            if object_name == 'person':
-                object_name = 'people'  # GLIP does better at people than person
+        #     if object_name == 'person':
+        #         object_name = 'people'  # GLIP does better at people than person
             
-            all_object_coordinates, scores = self.forward('owlvit', self.cropped_image, object_name)
-            #console.print('GLIP finished running')
-        if len(all_object_coordinates) == 0:
-            return []
+        all_object_coordinates, scores = self.forward('owlvit', self.cropped_image, object_name)
+        #print('second scores',scores)
+        #     #console.print('GLIP finished running')
+        # if len(all_object_coordinates) == 0:
+        #     return []
        
         #scores = torch.unsqueeze(scores,1)
         #print(scores[:5],scores.size())
@@ -175,7 +177,7 @@ class ImagePatch:
         #     #     mask = all_areas == all_areas.max()  # At least return one element
         #     all_object_coordinates = all_object_coordinates[mask]
 
-        return results
+        return results,np.mean(scores.tolist())
 
     def exists(self, object_name) -> bool:
         """Returns True if the object specified by object_name is found in the image, and False otherwise.
@@ -198,7 +200,7 @@ class ImagePatch:
             if "yes" in patch.simple_query(f"Is this a {object_name}?"):
                 filtered_patches.append(patch)
                 patch_confidence.append(patch.confidence.item())
-        return avg(patch_confidence)
+        return np.mean(patch_confidence)
 
     def _score(self, category: str, negative_categories=None, model='clip') -> float:
         """
