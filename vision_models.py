@@ -362,15 +362,17 @@ class OwlViTModel(BaseModel):
         super().__init__(gpu_number)
 
         from transformers import OwlViTProcessor, OwlViTForObjectDetection
+       
 
         with HiddenPrints("OwlViT"):
-            processor = OwlViTProcessor.from_pretrained("google/owlvit-base-patch32")
-            model = OwlViTForObjectDetection.from_pretrained("google/owlvit-base-patch32")
+            processor = OwlViTProcessor.from_pretrained("google/owlvit-base-patch16")
+            model = OwlViTForObjectDetection.from_pretrained("google/owlvit-base-patch16")
             model.eval()
             model.requires_grad_(False)
-        self.model = model.to(self.dev)
+        self.model = model.to('cuda')
         self.processor = processor
         self.threshold = threshold
+        #print('hello owl vit')
 
     @torch.no_grad()
     def forward(self, image: torch.Tensor, text: List[str], return_labels: bool = False):
@@ -378,17 +380,20 @@ class OwlViTModel(BaseModel):
             raise TypeError("image has to be a torch tensor, not a list")
         if isinstance(text, str):
             text = [text]
+        print(image.size(),'image size')
         text_original = text
         text = ['a photo of a ' + t for t in text]
         inputs = self.processor(text=text, images=image, return_tensors="pt") # padding="longest",
         inputs = {k: v.to(self.dev) for k, v in inputs.items()}
+        #print(inputs,'inputs')
         outputs = self.model(**inputs)
+        print(outputs,'outputs')
 
         # Target image sizes (height, width) to rescale box predictions [batch_size, 2]
         target_sizes = torch.tensor([image.shape[1:]]).to(self.dev)
         # Convert outputs (bounding boxes and class logits) to COCO API
-        results = self.processor.post_process_object_detection(outputs=outputs, target_sizes=target_sizes)
-
+        results = self.processor.post_process(outputs=outputs, target_sizes=target_sizes)
+        #print(results,'results')
         boxes, scores, labels = results[0]["boxes"], results[0]["scores"], results[0]["labels"]
 
         # indices_good = scores > self.threshold
@@ -404,7 +409,8 @@ class OwlViTModel(BaseModel):
             labels = labels[indices_good]
             labels = [text_original[lab].re('a photo of a ') for lab in labels]
             return boxes, labels
-
+        #print(boxes,'boxes')
+        #print(scores,'scores')
         return boxes.cpu(), scores.cpu() # [x_min, y_min, x_max, y_max]
 
 
