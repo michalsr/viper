@@ -380,14 +380,14 @@ class OwlViTModel(BaseModel):
             raise TypeError("image has to be a torch tensor, not a list")
         if isinstance(text, str):
             text = [text]
-        print(image.size(),'image size')
+       
         text_original = text
         text = ['a photo of a ' + t for t in text]
         inputs = self.processor(text=text, images=image, return_tensors="pt") # padding="longest",
         inputs = {k: v.to(self.dev) for k, v in inputs.items()}
         #print(inputs,'inputs')
         outputs = self.model(**inputs)
-        print(outputs,'outputs')
+        
 
         # Target image sizes (height, width) to rescale box predictions [batch_size, 2]
         target_sizes = torch.tensor([image.shape[1:]]).to(self.dev)
