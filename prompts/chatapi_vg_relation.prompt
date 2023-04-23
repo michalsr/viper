@@ -1,0 +1,206 @@
+class ImagePatch:
+    """A Python class containing a crop of an image centered around a particular object, as well as relevant information.
+    Attributes
+    ----------
+    cropped_image : array_like
+        An array-like of the cropped image taken from the original image.
+    left, lower, right, upper : int
+        An int describing the position of the (left/lower/right/upper) border of the crop's bounding box in the original image.
+    confidence: float 
+        A float between 0 and 1 describing how likely the specific object is in the image 
+    Methods
+    -------
+    find(object_name: str)->ImagePatch
+        Returns new ImagePatch objects containing crop of the image centered around objects found in the
+        image.
+    verify_property(property: str)->float
+        Returns probability property is met 
+
+    crop(left: int, lower: int, right: int, upper: int,confidence: float)->ImagePatch
+        Returns a new ImagePatch object containing a crop of the image at the given coordinates and probability of object existing in crop
+    """
+
+    def __init__(self, image, left: int = None, lower: int = None, right: int = None, upper: int = None, confidence: float = None):
+        """Initializes an ImagePatch object by cropping the image at the given coordinates and stores the coordinates as
+        attributes. If no coordinates are provided, the image is left unmodified, and the coordinates are set to the
+        dimensions of the image.
+        Parameters
+        -------
+        image : array_like
+            An array-like of the original image.
+        left, lower, right, upper : int
+            An int describing the position of the (left/lower/right/upper) border of the crop's bounding box in the original image.
+       confidence: float   
+            Probability object is contained in bounding box 
+        """
+        if left is None and right is None and upper is None and lower is None:
+            self.cropped_image = image
+            self.left = 0
+            self.lower = 0
+            self.right = image.shape[2]  # width
+            self.upper = image.shape[1]  # height
+            self.confidence = 1.0
+        else:
+            self.cropped_image = image[:, lower:upper, left:right]
+            self.left = left
+            self.upper = upper
+            self.right = right
+            self.lower = lower
+            self.confidence = confidence 
+
+        self.width = self.cropped_image.shape[2]
+        self.height = self.cropped_image.shape[1]
+
+        self.horizontal_center = (self.left + self.right) / 2
+        self.vertical_center = (self.lower + self.upper) / 2
+
+    def find(self, object_name: str) -> List[ImagePatch]:
+        """Returns a ImagePatch with matching object_name contained in the crop if any are found."""
+
+        Parameters
+        ----------
+        object_name : str
+            the name of the object to be found
+
+        Returns
+        -------
+        ImagePatch
+            ImagePatch containing object in the crop
+
+        Examples
+        --------
+        >>> # return the foo
+        >>> def execute_command(image) -> List[ImagePatch]:
+        >>>     confidences = []
+        >>>     image_patch = ImagePatch(image)
+        >>>     foo_patches = image_patch.find("foo")
+        >>>     return foo_patches
+        """
+    def verify_property(self, object_name: str, visual_property: str) -> float:
+        """Returns float contains property. 
+        Differs from 'exists' in that it presupposes the existence of the object specified by object_name, instead checking whether the object possesses the property.
+        Parameters
+        -------
+        object_name : str
+            A string describing the name of the object to be found in the image.
+        visual_property : str
+            A string describing the simple visual property (e.g., color, shape, material) to be checked.
+
+        Returns 
+        ------
+        float 
+            how likely the object contains property
+        Examples
+        -------
+        >>> # Do the letters have blue color?
+        >>> def execute_command(image) -> str:
+        >>>     image_patch = ImagePatch(image)
+        >>>     confidences = []
+        >>>     letters_patches = image_patch.find("letters")
+        >>>     properties = letters_patches[0].verify_property("letters", "blue")
+        >>>     return properties
+        """
+
+    def crop(self, left: int, lower: int, right: int, upper: int, confidence: float) -> ImagePatch:
+        """Returns a new ImagePatch cropped from the current ImagePatch.
+        Parameters
+        -------
+        left, lower, right, upper : int
+            The (left/lower/right/upper)most pixel of the cropped image.
+        confidence: float
+            Scores from model
+        -------
+        """
+        return ImagePatch(self.cropped_image, left, lower, right, upper, confidence)
+
+    def overlaps_with(self, left, lower, right, upper):
+        """Returns True if a crop with the given coordinates overlaps with this one,
+        else False.
+        Parameters
+        ----------
+        left, lower, right, upper : int
+            the (left/lower/right/upper) border of the crop to be checked
+
+        Returns
+        -------
+        float
+            Probability a crop with the given coordinates overlaps with this one
+
+        Examples
+        --------
+       def overlaps_with(self, left, lower, right, upper):
+        """Returns True if a crop with the given coordinates overlaps with this one,
+        else False.
+        Parameters
+        ----------
+        left, lower, right, upper : int
+            the (left/lower/right/upper) border of the crop to be checked
+
+        Returns
+        -------
+        bool
+            True if a crop with the given coordinates overlaps with this one, else False
+
+        Examples
+        --------
+        >>> # black foo on top of the qux
+        >>> def execute_command(image) -> ImagePatch:
+        >>>     image_patch = ImagePatch(image)
+        >>>     qux_patches = image_patch.find("qux")
+        >>>     foo_patches = image_patch.find("black foo")
+        >>>     return foo_patches.vertical_center > qux_patches.vertical_center
+Examples:
+Query: Which caption is correct: "the horse is eating the grass" or "the grass is eating the horse"?
+    >>> def execute_command(image):
+    >>>     image_patch = ImagePath(image)
+    >>>     horse = image_patch.find('horse')
+    >>>     grass = image_patch.find('grass')
+    >>>     horse_eating = horse.verify_property('horse','eating')
+    >>>     grass_eating = grass.verify_property('grass','eating')
+    >>>     horse_eating_grass = horse.verify_property('horse','eating grass')
+    >>>     grass_eating_horse = grass.verify_property('grass','eating horse')
+    >>>     if horse_eating + horse_eating_grass>grass_eating+horse_eating_grass:
+    >>>         return "horse is eating the grass"
+    >>>     else:
+    >>>         return "the grass is eating the horse"
+Query: Which caption is correct: "the computer is on the books" or "the books are on the computer"?
+    >>> def execute_command(image):
+    >>>     image_patch = ImagePatch(image)
+    >>>     computer = image_patch.find('computer')
+    >>>     books = image_patch.find('books')
+    >>>     if computer.vertical_center > books.vertical_center:
+    >>>         return "the computer is on the books"
+    >>>    else:
+    >>>         return "the books are on the computer"
+Query: Which caption is correct: "the ball is in the water" or "the water is in the ball"?
+>>>     def execute_command(image):
+>>>           ball = image_patch.find('ball')
+>>>           water = image_patch.find('water')
+>>>           if ball.overlaps_with(water):
+>>>             return "the ball is in the water"
+>>>           else:
+>>>             return "the water is in the ball"
+Query: Which caption is correct: "the table is to the left of the window" or "the window is to the left of the table"?
+>>>     def execute_command(image):
+>>>           image_patch = ImagePatch(image)
+>>>           table = image_patch.find('table')
+>>>           window = image_patch.find('window')
+>>>           if table.horizontal_center < window.horizontal_center:
+>>>             return "the table is to the left of the window"
+>>>           if window.horizontal_center < table.horizontal_center:
+>>>              return "the window is to the left of the table"
+Query: Which caption is correct: "the man is to the right of the woman" or "the woman is to the right of the man"?
+>>>     def execute_command(image):
+>>>           image_patch = ImagePatch(image)
+>>>           man = image_patch.find('man')
+>>>           woman = image_patch.find('woman')
+>>>           if man.horizontal_center < woman.horizontal_center:
+>>>             return "the woman is to the right of the man"
+>>>           if woman.horizontal_center < man.horizontal_center:
+>>>              return "the man is to the right of the woman"
+Write a function using Python and the ImagePatch class (above) that could be executed to provide an answer to the query. 
+
+Consider the following guidelines:
+- Use base Python (comparison, sorting) for basic logical operations, left/right/up/down, math, etc.
+Query: INSERT_QUERY_HERE
+    

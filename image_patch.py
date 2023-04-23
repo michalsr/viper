@@ -158,15 +158,16 @@ class ImagePatch:
         #print(scores[:5],scores.size())
         
         #ßßprint(scores,'scores')
-        _,top_idx= torch.topk(scores,2)
+        _,top_idx= torch.topk(scores,1)
 
         #print(top_idx)
-        all_object_coordinates = all_object_coordinates[top_idx.long()]
+        coords = all_object_coordinates[top_idx.long()][0]
         scores = scores[top_idx.long()]
         #print(len(scores),'scores')
-        boxes_on_image = self.draw_boxes(all_object_coordinates)
-        new_image_patch = ImagePatch(boxes_on_image)
-        results = [new_image_patch]
+        #boxes_on_image = self.draw_boxes(all_object_coordinates)
+        new_image_patch = self.crop(left=coords[0],lower=coords[1],right=coords[2],upper=coords[3],confidence=1)
+        #new_image_patch = ImagePatch(boxes_on_image)
+        #results = [new_image_patch]
         #torchvision.utils.save_image(new_image_patch.cropped_image,'/home/michal5/viper/person.jpg')
 
         #all_object_coordinates, scores = all_object_coordinates[top_idx.long()], scores[top_idx.long()]
@@ -183,8 +184,8 @@ class ImagePatch:
         #     # if not mask.any():
         #     #     mask = all_areas == all_areas.max()  # At least return one element
         #     all_object_coordinates = all_object_coordinates[mask]
-
-        return results,np.mean(scores.tolist())
+        return new_image_patch
+        #return results,np.mean(scores.tolist())
     
     def draw_boxes(self,coords):
         pil_transform = transforms.ToPILImage()
@@ -356,7 +357,7 @@ class ImagePatch:
         return ImagePatch(self.cropped_image, left, lower, right, upper, self.left, self.lower, queues=self.queues,
                           parent_img_patch=self,confidence=confidence)
 
-    def overlaps_with(self, left, lower, right, upper):
+    def overlaps_with(self, image_2):
         """Returns True if a crop with the given coordinates overlaps with this one,
         else False.
         Parameters
@@ -375,6 +376,10 @@ class ImagePatch:
         bool
             True if a crop with the given coordinates overlaps with this one, else False
         """
+        right = image_2.right
+        left = image_2.left
+        upper = image_2.upper
+        lower = image_2.lower
         return self.left <= right and self.right >= left and self.lower <= upper and self.upper >= lower
 
     def llm_query(self, question: str, long_answer: bool = True) -> str:
