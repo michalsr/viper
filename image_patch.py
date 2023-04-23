@@ -6,9 +6,11 @@ import torch
 from dateutil import parser as dateparser
 from PIL import Image
 from rich.console import Console
+import torchvision
 from torchvision import transforms
 from torchvision.ops import box_iou
 from typing import Union, List
+from PIL import ImageDraw 
 from word2number import w2n
 import numpy as np
 from utils import show_single_image, load_json
@@ -152,22 +154,27 @@ class ImagePatch:
         # if len(all_object_coordinates) == 0:
         #     return []
        
-        #scores = torch.unsqueeze(scores,1)
+        #scores torch.unsqueeze(scores,1)
         #print(scores[:5],scores.size())
         
+        #ßßprint(scores,'scores')
+        _,top_idx= torch.topk(scores,2)
 
-        _,top_idx= torch.topk(scores,5)
         #print(top_idx)
         all_object_coordinates = all_object_coordinates[top_idx.long()]
         scores = scores[top_idx.long()]
         #print(len(scores),'scores')
-  
+        boxes_on_image = self.draw_boxes(all_object_coordinates)
+        new_image_patch = ImagePatch(boxes_on_image)
+        results = [new_image_patch]
+        #torchvision.utils.save_image(new_image_patch.cropped_image,'/home/michal5/viper/person.jpg')
+
         #all_object_coordinates, scores = all_object_coordinates[top_idx.long()], scores[top_idx.long()]
         #print(len(all_object_coordinates),'all object coordinates')
         #print(len(scores),'scores')
-        for coords, score in zip(all_object_coordinates,scores):
-            results.append(self.crop(left=coords[0],lower=coords[1],right=coords[2],upper=coords[3],confidence=score))
-        # threshold = config.ratio_box_area_to_image_area
+        # for coords, score in zip(all_object_coordinates,scores):
+        #     results.append(self.crop(left=coords[0],lower=coords[1],right=coords[2],upper=coords[3],confidence=score))
+        # # threshold = config.ratio_box_area_to_image_area
         # if threshold > 0:
         #     area_im = self.width * self.height
         #     all_areas = torch.tensor([(coord[2]-coord[0]) * (coord[3]-coord[1]) / area_im
@@ -178,7 +185,18 @@ class ImagePatch:
         #     all_object_coordinates = all_object_coordinates[mask]
 
         return results,np.mean(scores.tolist())
+    
+    def draw_boxes(self,coords):
+        pil_transform = transforms.ToPILImage()
+        img_to_draw = pil_transform(self.cropped_image)
+        draw = ImageDraw.Draw(img_to_draw)
+        for c in coords:
+            x_1,y_1,x_2,y_2 = c
+            new_c = [int((x_1.item()+x_2.item())/2),int((y_1.item()+y_2.item())/2),x_2.item(),y_2.item()]
 
+            # c = c.tolist()
+            draw.ellipse(new_c,outline='red',width=2)
+        return img_to_draw
     def exists(self, object_name) -> bool:
         """Returns True if the object specified by object_name is found in the image, and False otherwise.
         Parameters

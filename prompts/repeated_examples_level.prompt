@@ -1,0 +1,139 @@
+ImagePatch is a Python class with the following methods:
+    - find returns a tuple of cropped image patches and scores 
+    - exists returns a score of how likely that object exists
+    - verify property returns a score how likely an object contains an attribute
+ImagePatch has the following attributes:
+    - left, lower, right, upper, width, height, horizontal_center, vertical_center 
+
+# both foos and garply bears in this photo
+def execute_command(image)->str:
+    image_patch = ImagePatch(image)
+    is_foo,is_foo_score = image_patch.exists("foo")
+    is_garply_bar,is_garply_bar_score = image_patch.exists("garply bar")
+    return is_foo_score+is_garply_bar_score
+
+# the letters have blue color 
+def execute_command(image) -> str:
+    image_patch = ImagePatch(image)
+    letter_patches,letter_patches_score = image_patch.find("letters")
+    letter_property_score = 0
+    for l in letter_patches:
+        letter_property_score+=l.verify_property("letters","blue")
+    return letter_patches_score+letter_property_score
+
+# black foo on top of the qux?
+def execute_command(image) -> str:
+    image_patch = ImagePatch(image)
+    qux_patches,qux_patches_score = image_patch.find("qux")
+    foo_patches, foo_patches_score = image_patch.find("foo")
+    black_foo_score = 0
+    for f in foo_patches:
+        black_foo_score+=f.verify_property("foo","black")
+    top_score = 0
+    for f in foo_patches:
+        for q in qux_patches:
+            top_score+=f.vertical_center-q.vertical_center
+    return qux_patches_score+foo_patches_score+black_foo_score+top_score
+
+# qux on top of the black foo?
+def execute_command(image) -> str:
+    image_patch = ImagePatch(image)
+    qux_patches,qux_patches_score = image_patch.find("qux")
+    foo_patches, foo_patches_score = image_patch.find("foo")
+    black_foo_score = 0
+    for f in foo_patches:
+        black_foo_score+=f.verify_property("foo","black")
+    top_score = 0
+    for q in qux_patches:
+        for f in foo_patches:
+            top_score+=q.vertical_center-f.vertical_center
+    return qux_patches_score+foo_patches_score+black_foo_score+top_score
+
+# the person on the left is wearing red 
+def execute_command(image) -> str:
+    image_patch = ImagePatch(image)
+    person_patches, person_patch_scores = image_patch.find("person")
+    person_patches.sort(key=lambda x:x.horizontal_center)
+    person_color_score = 0
+    person_color_score += person_patches[0].verify_property("person","red")
+    return person_patch_scores+person_color_score 
+
+# the person on the right is wearing red 
+def execute_command(image) -> str:
+    image_patch = ImagePatch(image)
+    person_patches, person_patch_scores = image_patch.find("person")
+    person_patches.sort(key=lambda x:x.horizontal_center)
+    person_color_score = 0
+    person_color_score += person_patches[-1].verify_property("person","red")
+    return person_patch_scores+person_color_score
+
+# the animal is running behind the trees 
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    animal_patches, animal_scores = image_patch.find('animal')
+    running_animal_score = 0
+    for a in animal_patches:
+        running_animal_score += a.verify_property("animal","running")
+    tree_patches, tree_scores = image_patch.find('tree') 
+    animal_behind_tree_score = 0
+    for a in animal_patches:
+        for t in tree_patches:
+            animal_behind_tree_score += a.vertical_center - t.vertical_center
+    return animal_scores+running_animal_score + tree_scores+animal_behind_tree_score
+
+# the animal is running in front of the trees 
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    animal_patches, animal_scores = image_patch.find('animal')
+    running_animal_score = 0
+    for a in animal_patches:
+        running_animal_score += a.verify_property("animal","running")
+    tree_patches, tree_scores = image_patch.find('tree') 
+    animal_front_tree_score = 0
+    for t in tree_patches:
+        for a in animal_patches:
+            animal_font_tree_score += t.vertical_center - a.vertical_center
+    return animal_scores+running_animal_score + tree_scores+animal_front_tree_score
+
+# the soft couch is closer to the window than the table 
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    couch_patches, couch_scores = image_patch.find('couch')
+    table_patches, table_scores = image_patch.find('table')
+    window_patches, window_scores = image_patch.find('window')
+    window_closer_couch_table = 0
+    for w in window_patches:
+        avg_window_table_score = []
+        for t in table_patches:
+            avg_window_table_score.append(w.vertical_center-t.vertical_center)
+        avg_window_couch_score = []
+        for c in couch_patches:
+            avg_window_couch_score.append(w.vertical_center-c.vertical_center)
+        window_closer_couch_table+= (np.mean(avg_window_couch_score) - np.mean(avg_window_table_score))
+    return couch_scores + table_scores+window_scores+window_closer_couch_table 
+
+# the table is closer to the window than the soft couch 
+def execute_command(image):
+    image_patch = ImagePatch(image)
+    couch_patches, couch_scores = image_patch.find('couch')
+    table_patches, table_scores = image_patch.find('table')
+    window_patches, window_scores = image_patch.find('window')
+    window_closer_table_couch = 0
+    for w in window_patches:
+        avg_window_table_score = []
+        for t in table_patches:
+            avg_window_table_score.append(w.vertical_center-t.vertical_center)
+        avg_window_couch_score = []
+        for c in couch_patches:
+            avg_window_couch_score.append(w.vertical_center-c.vertical_center)
+        window_closer_table_couch+= (np.mean(avg_window_table_score) - np.mean(avg_window_couch_score))
+    return couch_scores + table_scores+window_scores+window_closer_table_couch 
+
+Write a function likes the ones above using Python.
+ Consider the following guidelines:
+- Use base Python (comparison, sorting) for basic logical operations, left/right/up/down, math, etc.
+- Only use find, exist, verify_property and other attributes that are part of image patch 
+- Always return a score 
+# INSERT_QUERY_HERE
+
+   
