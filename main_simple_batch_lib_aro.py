@@ -84,11 +84,14 @@ def write_code(code,example_id,image_path,incorrect):
 def main():
      batch_size = config.dataset.batch_size
      #console.print('hello i am here')
+     subset = list(range(config.dataset.start_sample,config.dataset.start_sample+config.dataset.max_samples))
      dataset = VG_Relation(image_preprocess=None)
+     dataset = torch.utils.data.Subset(dataset,subset)
      with open(config.prompt) as f:
         base_prompt = f.read().strip()
      dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=0, pin_memory=True,
                             collate_fn=my_collate)
+
 
 
      all_results = []
@@ -135,7 +138,7 @@ def main():
                     write_code(c,example_id,image_path,incorrect=False)
                     continue 
 
-     with open('/home/michal5/viper/aro.json','w+') as f:
+     with open('/home/michal5/viper/aro_0_1000.json','w+') as f:
          json.dump(results_dict,f)
          
      finish_all_consumers()
