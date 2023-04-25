@@ -49,7 +49,7 @@ def run_program(parameters, queues_in_, input_type_, retrying=False):
 
 
 
-    console.print(example_id,'example id')
+    #console.print(example_id,'example id')
 
     code_header = f"from image_patch import ImagePatch\nfrom image_patch import distance\nfrom image_patch import avg\nfrom PIL import Image\nimage = Image.open('{image_path}').convert('RGB')\n"
     code_end = f"answer = execute_command(image)"
@@ -89,6 +89,7 @@ def main():
      dataset = torch.utils.data.Subset(dataset,subset)
      with open(config.prompt) as f:
         base_prompt = f.read().strip()
+     #print(base_prompt)
      dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=0, pin_memory=True,
                             collate_fn=my_collate)
 
@@ -107,11 +108,20 @@ def main():
     
      n_batches = len(dataloader)
      num_questions = 0
+     correct = 0
+     total =0 
+     errors = 0
+     answered = 0
      #console.print('n batches')
      for i, batch in tqdm(enumerate(dataloader), total=n_batches):
-            if i%10 == 0 and i!=0:
-                correct = sum(list(results_dict.values()))
-                print(correct,i)
+            if  i!=0:
+                #correct = sum(list(results_dict.values()))
+                #total = len(list(results_dict.values()))
+                print(f'Correct:{correct}')
+                print(f'Total:{total}')
+                print(f'Answered:{answered}')
+                print(f'Errors:{errors}')
+                #print(correct,total,errors,i)
 
             codes = forward('codex', prompt=batch['query'],base_prompt=base_prompt, input_type="image")
             if type(codes) != list:
@@ -119,23 +129,42 @@ def main():
             results = []
             for c, index, image_path,image, query,example_id,answer in zip(codes,batch['index'],batch["sample_path"],batch['image'],batch['query'],batch["id"],batch['answer']):
                 
-                code_dict[index] = c
-                #console.print(image_path,'image path')
-              
+                # code_dict[index] = c
+                
+                # #console.print(image_path,'image path')
+                # print(c,'c')
+                # result = run_program([c,image_path,example_id,query,answer],'',None)
+                
+                # print('result',result)
+                # print('answer',answer)
+                # if result == answer:
+                #     results_dict[example_id] = 1
+                # else:
+                #     results_dict[example_id] = 0
+                #     print('Wrong')
+                total +=1
+                print(c,'c')
                 try:
                     result = run_program([c,image_path,example_id,query,answer],'',None)
+                    answered +=1
+                    print('result',result)
+                    print('answer',answer)
                     if result == answer:
                         results_dict[example_id] = 1
+                        correct += 1
                     else:
                         results_dict[example_id] = 0
-                        write_code(c,example_id,image_path,incorrect=True)
-
-                    results.append(result)
+                        print('Wrong')
+                        #write_code(c,example_id,image_path,incorrect=True)
+                
+                    # results.append(result)
                     #results_dict[example_id] = result
                 except:
                     #sprint(run_program([c,image_path,example_id,query],'',input_type))
                     results_dict[example_id] = 0
-                    write_code(c,example_id,image_path,incorrect=False)
+                    errors+=1
+                    print('Error',query)
+                    #write_code(c,example_id,image_path,incorrect=False)
                     continue 
 
      with open('/home/michal5/viper/aro_0_1000.json','w+') as f:

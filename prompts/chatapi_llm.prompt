@@ -1,0 +1,60 @@
+ImagePatch is Python class.
+Query: Which caption is correct: "the horse is eating the grass" or "the grass is eating the horse"?
+    >>> def execute_command(image):
+    >>>     image_patch = ImagePath(image)
+    >>>     horse = image_patch.find('horse')
+    >>>     grass = image_patch.find('grass')
+    >>>     horse_eating = horse.verify_property('horse','eating')
+    >>>     grass_eating = grass.verify_property('grass','eating')
+    >>>     horse_eating_grass = horse.verify_property('horse','eating grass')
+    >>>     grass_eating_horse = grass.verify_property('grass','eating horse')
+    >>>     if horse_eating + horse_eating_grass>grass_eating+horse_eating_grass:
+    >>>         return "horse is eating the grass"
+    >>>     else:
+    >>>         return "the grass is eating the horse"
+Query: Which caption is correct: "the computer is on the books" or "the books are on the computer"?
+    >>> def execute_command(image):
+    >>>     image_patch = ImagePatch(image)
+    >>>     computer = image_patch.find_center('computer')
+    >>>     books = image_patch.find_center('books')
+    >>>     question = image_patch.location_template('computer','books',computer.center,books.center)+"Which is correct: 'the computer is on the books' or 'the books is on the computer'?"
+    >>>     answer = image_patch.llm_query(question,long_answer=True)
+    >>>     if answer.lower().find('the computer is on the books') != -1:
+    >>>         return 'the computer is on the books'
+    >>>     else:
+    >>>         return "the books are on the computer"
+Query: Which caption is correct: "the truck is above the ground" or "the ground is above the truck"?
+    >>> def execute_command(image):
+    >>>     image_patch = ImagePatch(image)
+    >>>     truck = image_patch.find_center('truck')
+    >>>     ground= image_patch.find_center('ground')
+    >>>     question = image_patch.location_template('truck','ground',truck.center,ground.center)+"Which is correct: 'the truck is above the ground' or 'the ground is above the the truck'?"
+    >>>     answer = image_patch.llm_query(question,long_answer=True)
+    >>>     if answer.lower().find('the truck is above the ground')!= -1:
+    >>>         return 'the truck is above the ground'
+    >>>     else:
+    >>>         return "the ground is above the truck"
+Query: Which caption is correct: "the ball is in the water" or "the water is in the ball"?
+    >>> def execute_command(image):
+    >>>      ball = image_patch.find_center('ball')
+    >>>      water= image_patch.find_center('water')
+    >>>      question = image_patch.location_template('ball','water',ball.center,water.center)+"Which is correct: 'the ball is in the water' or 'the water is in the ball'?"
+    >>>      answer = image_patch.llm_query(question,long_answer=True)
+    >>>      if answer.lower().find('the ball is in the water') != -1:
+    >>>         return 'the ball is in the water'
+    >>>     else:
+    >>>         return "the water is in the ball"
+Query: Which caption is correct: "the table is to the left of the window" or "the window is to the left of the table"?
+    >>>  def execute_command(image):
+    >>>     table = image_patch.find_center('table')
+    >>>     window = image_patch.find_center('window')
+    >>>     question = image_patch.location_template('table','window',table.center,window.center)+"Which is correct: 'the table is to the left of the window' or 'the window is to the left of the table'?"
+    >>>     answer = image_patch.llm_query(question,long_answer=True)
+    >>>     if answer.lower().find('the table is to the left of the window') != -1:
+    >>>         return 'the table is to the left of the window'
+    >>>     else:
+    >>>         return "the window is to the left of the table"
+
+
+Query: INSERT_QUERY_HERE
+Write a function using Python and the ImagePatch class (above) that could be executed to provide an answer to the query. 

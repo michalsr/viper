@@ -365,8 +365,8 @@ class OwlViTModel(BaseModel):
        
 
         with HiddenPrints("OwlViT"):
-            processor = OwlViTProcessor.from_pretrained("google/owlvit-base-patch16")
-            model = OwlViTForObjectDetection.from_pretrained("google/owlvit-base-patch16")
+            processor = OwlViTProcessor.from_pretrained("google/owlvit-large-patch14")
+            model = OwlViTForObjectDetection.from_pretrained("google/owlvit-large-patch14")
             model.eval()
             model.requires_grad_(False)
         self.model = model.to('cuda')
@@ -385,15 +385,16 @@ class OwlViTModel(BaseModel):
         text = ['a photo of a ' + t for t in text]
         inputs = self.processor(text=text, images=image, return_tensors="pt") # padding="longest",
         inputs = {k: v.to(self.dev) for k, v in inputs.items()}
-        #print(inputs,'inputs')
-        outputs = self.model(**inputs)
         
+        outputs = self.model(**inputs)
+  
 
         # Target image sizes (height, width) to rescale box predictions [batch_size, 2]
-        target_sizes = torch.tensor([image.shape[1:]]).to(self.dev)
+        c,h,w = image.size()
+        target_sizes = torch.tensor([[h,w]]).to(self.dev)
+
         # Convert outputs (bounding boxes and class logits) to COCO API
-        results = self.processor.post_process(outputs=outputs, target_sizes=target_sizes)
-        #print(results,'results')
+        results = self.processor.post_process_object_detection(outputs=outputs,threshold=0.0, target_sizes=target_sizes)
         boxes, scores, labels = results[0]["boxes"], results[0]["scores"], results[0]["labels"]
 
         # indices_good = scores > self.threshold
@@ -401,9 +402,9 @@ class OwlViTModel(BaseModel):
         # scores = scores[indices_good]
 
         # Change to format where large "upper"/"lower" means more up
-        left, upper, right, lower = boxes[:, 0], boxes[:, 1], boxes[:, 2], boxes[:, 3]
-        height = image.shape[-2]
-        boxes = torch.stack([left, height - lower, right, height - upper], -1)
+        # left, upper, right, lower = boxes[:, 0], boxes[:, 1], boxes[:, 2], boxes[:, 3]
+        # height = image.shape[-2]
+        # boxes = torch.stack([left, height - lower, right, height - upper], -1)
 
         if return_labels:
             labels = labels[indices_good]
@@ -411,6 +412,7 @@ class OwlViTModel(BaseModel):
             return boxes, labels
         #print(boxes,'boxes')
         #print(scores,'scores')
+
         return boxes.cpu(), scores.cpu() # [x_min, y_min, x_max, y_max]
 
 
@@ -846,12 +848,14 @@ class GPT3Model(BaseModel):
     def get_general(self, prompts) -> list[str]:
         if self.model == "chatgpt":
             raise NotImplementedError
+        #print(prompts,'prompts')
         response = self.query_gpt3(prompts, model=self.model, max_tokens=256, top_p=1, frequency_penalty=0,
                                    presence_penalty=0)
         response = [r["text"] for r in response['choices']]
+        #print(response,'response')
         return response
 
-    def query_gpt3(self, prompt, model="text-davinci-003", max_tokens=16, logprobs=None, stream=False,
+    def query_gpt3(self, prompt, model="chatgpt", max_tokens=16, logprobs=None, stream=False,
                    stop=None, top_p=1, frequency_penalty=0, presence_penalty=0):
         if model == "chatgpt":
             messages = [{"role": "user", "content": p} for p in prompt]
@@ -917,6 +921,7 @@ class GPT3Model(BaseModel):
 
         if not self.to_batch:
             results = results[0]
+        print(results,'llm query')
         return results
 
     @classmethod

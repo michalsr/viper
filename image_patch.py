@@ -83,16 +83,17 @@ class ImagePatch:
             image = torch.tensor(image).permute(1, 2, 0)
         elif isinstance(image, torch.Tensor) and image.dtype == torch.uint8:
             image = image / 255
-
+        
         if left is None and right is None and upper is None and lower is None:
             self.cropped_image = image
             self.left = 0
             self.lower = 0
+      
             self.right = image.shape[2]  # width
             self.upper = image.shape[1]  # height
             self.confidence = 1.0
         else:
-            self.cropped_image = image[:, image.shape[1]-upper:image.shape[1]-lower, left:right]
+            self.cropped_image = image
             self.left = left + parent_left
             self.upper = upper + parent_lower
             self.right = right + parent_left
@@ -124,23 +125,14 @@ class ImagePatch:
             return self.cropped_image
         else:
             return self.parent_img_patch.original_image
+    def location_template(self,object_1_name,object_2_name,object_1_coords,object_2_coords):
+        return f"In an image pixels in the vertical direction increase from top to bottom and in the horizontal direction increase from left to right. The center of {object_1_name}'s bounding box is at {object_1_coords} and the center of {object_2_name}'s bounding box is at {object_2_coords}."
 
-    def find(self, object_name: str) -> list[ImagePatch]:
-        """Returns a list of ImagePatch objects matching object_name contained in the crop if any are found.
-        Otherwise, returns an empty list.
-        Parameters
-        ----------
-        object_name : str
-            the name of the object to be found
-
-        Returns
-        -------
-        List[ImagePatch]
-            a list of ImagePatch objects matching object_name contained in the crop
-        """
+    def find_center(self,object_name:str):
         #console.print('Running GLIP')
         #print(object_name,'object nane')
         results = []
+        #print(object_name,'object name')
         # if object_name in ["object", "objects"]:
         #     all_object_coordinates = self.forward('maskrcnn', self.cropped_image)[0]
         # else:
@@ -162,10 +154,64 @@ class ImagePatch:
 
         #print(top_idx)
         coords = all_object_coordinates[top_idx.long()][0]
+       
         scores = scores[top_idx.long()]
         #print(len(scores),'scores')
         #boxes_on_image = self.draw_boxes(all_object_coordinates)
         new_image_patch = self.crop(left=coords[0],lower=coords[1],right=coords[2],upper=coords[3],confidence=1)
+        
+        h_c = int((coords[0]+coords[2])/2)
+        h_b = int((coords[1]+coords[2])/2)
+        new_image_patch.center = (h_c,h_b)
+        #print(coords[0],coords[1],coords[2],coords[3],'coords')
+        return new_image_patch
+
+    def find(self, object_name: str) -> list[ImagePatch]:
+        """Returns a list of ImagePatch objects matching object_name contained in the crop if any are found.
+        Otherwise, returns an empty list.
+        Parameters
+        ----------
+        object_name : str
+            the name of the object to be found
+
+        Returns
+        -------
+        List[ImagePatch]
+            a list of ImagePatch objects matching object_name contained in the crop
+        """
+        #console.print('Running GLIP')
+        #print(object_name,'object nane')
+        results = []
+        #print(object_name,'object name')
+        # if object_name in ["object", "objects"]:
+        #     all_object_coordinates = self.forward('maskrcnn', self.cropped_image)[0]
+        # else:
+
+        #     if object_name == 'person':
+        #         object_name = 'people'  # GLIP does better at people than person
+            
+        all_object_coordinates, scores = self.forward('owlvit', self.cropped_image, object_name)
+        #print('second scores',scores)
+        #     #console.print('GLIP finished running')
+        # if len(all_object_coordinates) == 0:
+        #     return []
+       
+        #scores torch.unsqueeze(scores,1)
+        #print(scores[:5],scores.size())
+        
+        #ßßprint(scores,'scores')
+        _,top_idx= torch.topk(scores,1)
+
+        #print(top_idx)
+        coords = all_object_coordinates[top_idx.long()][0]
+       
+        scores = scores[top_idx.long()]
+        #print(len(scores),'scores')
+        #boxes_on_image = self.draw_boxes(all_object_coordinates)
+        new_image_patch = self.crop(left=coords[0],lower=coords[1],right=coords[2],upper=coords[3],confidence=1)
+        h_c = int((coords[0]+coords[2])/2)
+        h_b = int((coords[1]+coords[2])/2)
+        #print(coords[0],coords[1],coords[2],coords[3],'coords')
         #new_image_patch = ImagePatch(boxes_on_image)
         #results = [new_image_patch]
         #torchvision.utils.save_image(new_image_patch.cropped_image,'/home/michal5/viper/person.jpg')
@@ -184,6 +230,7 @@ class ImagePatch:
         #     # if not mask.any():
         #     #     mask = all_areas == all_areas.max()  # At least return one element
         #     all_object_coordinates = all_object_coordinates[mask]
+        #print(h_c,h_b,'c,b')
         return new_image_patch
         #return results,np.mean(scores.tolist())
     
@@ -348,14 +395,14 @@ class ImagePatch:
         right = int(right)
         upper = int(upper)
 
-        if config.crop_larger_margin:
-            left = max(0, left - 10)
-            lower = max(0, lower - 10)
-            right = min(self.width, right + 10)
-            upper = min(self.height, upper + 10)
+        # if config.crop_larger_margin:
+        #     left = max(0, left - 10)
+        #     lower = max(0, lower - 10)
+        #     right = min(self.width, right + 10)
+        #     upper = min(self.height, upper + 10)
         #.print('Cropping')
         return ImagePatch(self.cropped_image, left, lower, right, upper, self.left, self.lower, queues=self.queues,
-                          parent_img_patch=self,confidence=confidence)
+                          parent_img_patch=None,confidence=confidence)
 
     def overlaps_with(self, image_2):
         """Returns True if a crop with the given coordinates overlaps with this one,
