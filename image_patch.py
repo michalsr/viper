@@ -171,7 +171,7 @@ class ImagePatch:
         new_image_patch.center = (h_c,h_b)
         #print(coords[0],coords[1],coords[2],coords[3],'coords')
         return new_image_patch
-    def find_all(self,object_name,k=-1):
+    def find(self,object_name,k=-1):
         threshold = config.ratio_box_area_to_image_area
         all_object_coordinates, scores = self.forward('owlvit', self.cropped_image, object_name)
         new_objects = []
@@ -200,7 +200,7 @@ class ImagePatch:
 
 
         return new_objects
-    def find(self, object_name: str) -> list[ImagePatch]:
+    def find_one(self, object_name: str) -> list[ImagePatch]:
         """Returns a list of ImagePatch objects matching object_name contained in the crop if any are found.
         Otherwise, returns an empty list.
         Parameters
