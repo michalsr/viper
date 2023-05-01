@@ -32,6 +32,9 @@ from main_simple_lib import *
 from datasets.gqa_dataset import GQA
 from torch.utils.data import DataLoader
 from vision_processes import finish_all_consumers
+import numpy as np 
+import os 
+import pandas as pd 
 def my_collate(batch):
     # Avoid stacking images (different size). Return everything as a list
     to_return = {k: [d[k] for d in batch] for k in batch[0].keys()}
@@ -67,15 +70,23 @@ def run_program(parameters, queues_in_, input_type_, retrying=False):
     exec(all_code,globals(),return_dict)
     return return_dict['answer']
 def main():
+     correct = 0
+     total =0 
+     errors = 0
+     answered = 0
      batch_size = config.dataset.batch_size
      #console.print('hello i am here')
-     dataset = MyDataset(**config.dataset)
+     dataset = GQA(annotation_file='train')
+     random_set = np.random.choice(len(dataset),size=30)
+     random_set =random_set.tolist()
+     with open('/home/michal5/gqa_train_30.json','w+') as f:
+         json.dump(random_set)
      with open(config.prompt) as f:
         base_prompt = f.read().strip()
      dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=0, pin_memory=True,
                             collate_fn=my_collate)
      input_type = dataset.input_type
-
+     
      all_results = []
      all_answers = []
      all_codes = []
@@ -85,28 +96,54 @@ def main():
      all_possible_answers = []
      all_query_types = []
      code_dict = {}
-     results_dict = {}
+     if not os.path.exists('/home/michal5/viper/train_30_viper_gqa.pkl'):
+         
+        results_dict = {'questions':[],'results':[],'actual_answers':[]}
+     else:
+        results = pd.read_pickle('/home/michal5/viper/train_30_viper_gqa.pkl')
+        results_dict  = results.to_dict()
     
      n_batches = len(dataloader)
      #console.print('n batches')
      for i, batch in tqdm(enumerate(dataloader), total=n_batches):
+
+        if  i!=0:
+                #correct = sum(list(results_dict.values()))
+                #total = len(list(results_dict.values()))
+                print(f'Correct:{correct}')
+                print(f'Total:{total}')
+                print(f'Answered:{answered}')
+                print(f'Errors:{errors}')
         codes = forward('codex', prompt=batch['query'],base_prompt=base_prompt, input_type="image")
         if type(codes) != list:
             codes = [codes]
         results = []
-        for c, index, image_path,image, query,example_id in zip(codes,batch['index'],batch["sample_path"],batch['image'],batch['query'],batch["id"]):
+        for c, index, image_path,image, query,example_id,answer in zip(codes,batch['index'],batch["sample_path"],batch['image'],batch['query'],batch["id"],batch['answer']):
             code_dict[index] = c
+            results_dict['questions'].append(query)
+            results_dict['actual_answers'].append(answer)
             #console.print(image_path,'image path')
             try:
                 result = run_program([c,image_path,example_id,query],'',input_type)
-                results.append(result)
-                results_dict[example_id] = result
+                
+                results_dict['result'].append(result)
+                if result in answer:
+                    correct+=1 
+                answered+=1 
+                    
+            
             except:
                 #sprint(run_program([c,image_path,example_id,query],'',input_type))
-                results_dict[example_id] = 'error'
-                continue  
-     with open('/shared/rsaas/michal5/viper/winoground_number_0_10.json','w+') as f:
-         json.dump(results_dict,f)
+                results_dict['result'].append('error')
+                errors+=1 
+                continue 
+        total +=1
+        if i%10 == 0 and i!=0:
+            df = pd.DataFrame.from_dict(results_dict)
+            df.to_pickle('/home/michal5/viper/train_30_viper_gqa.pkl')
+
+     df.to_csv('/home/michal5/viper/train_30_viper_gqa.csv')
+
          
      finish_all_consumers()
 

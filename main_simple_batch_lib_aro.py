@@ -167,7 +167,7 @@ def main():
                     #write_code(c,example_id,image_path,incorrect=False)
                     continue 
 
-     with open('/home/michal5/viper/aro_0_1000.json','w+') as f:
+     with open('/home/michal5/viper/aro_10000_11000.json','w+') as f:
          json.dump(results_dict,f)
          
      finish_all_consumers()
