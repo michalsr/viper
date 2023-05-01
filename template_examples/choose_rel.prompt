@@ -1,0 +1,37 @@
+Given the following python code:
+"""
+def choose_rel(image,obj_1,obj_2,rel_1,rel_2):
+    """
+    Parameters
+    ----------
+    object_1 = first entity in question
+    object_2 = second entity in question 
+    relation_1 = relationship between object_1 and object_2 
+    relation_2 = second relationship between object_1 and object_2. Can be None. 
+    """
+    image_patch = ImagePatch(image)
+    obj_1_patch = image_patch.find_center(obj_1)
+    obj_2_patch = image_patch.find_center(obj_2)
+    statement_1 = f'{obj_1} is {rel_1} {obj_2}'
+    statement_2 = f'{obj_1} is {rel_2} {obj_2}'
+    intro_prompt = image_patch.location_template(obj_1,obj_2,obj_1_patch.center,obj_2_patch.center,image_patch.height,image_patch.width)
+    if rel_2 != None:
+        answer = image_patch.llm_query(f'{intro_prompt}. Which statement is correct: {statement_1} or {statement_2}?',long_answer=True)
+        if statement_1 in answer.lower():
+            return rel_1 
+        else:
+            return rel_2 
+    else:
+         answer = image_patch.llm_query(f'{intro_prompt}. Is this statement correct?: {statement_1}',long_answer=True)
+         if 'yes' in answer.lower() or statement_1 in answer.lower():
+             return 'yes'
+         else:
+            return 'no'
+"""
+
+Given the question, find the arguments (except for image) for the Python function choose_rel above:
+
+Question: Do you see a motorcycle to the right of the man that is walking on the road? Arguments: object_1='motorcycle', relation_1='to the right of', object_2='man' 
+Question: Is the wagon to the left or to the right of the man? Arguments: object_1='wagon', relation_1='to the left of', relation_2='to the right of', object_2='man'
+Question: Is the garbage can to the left of the taxi? Arguments: object_1='garbage can', object_2='taxi', relation_1='to the left of' 
+Question: Is there a bag to the right of the man wearing jeans? Arguments: object_1='bag', object_2='man', relation_1='to the right of'

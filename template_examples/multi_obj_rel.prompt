@@ -1,0 +1,46 @@
+Given the following Python code:
+"""
+def multi_obj_rel(image,obj_list=[],obj_relation_list=[]):
+    """
+    Parameters
+    ----------
+    object_list: list of all entities/objects in image
+    object_relation_list: list of tuples where each tuple is (object,relation,object)
+    """
+    verify_obj_relation_list = []
+    answer = None 
+    image_patch = ImagePatch(image)
+    obj_dict = {}
+    for obj in obj_list:
+        obj_dict[obj] = image_patch.find_all(obj,k=5)
+    for i,entry in enumerate(reversed(obj_relation_list)):
+        object_1, relation, object_2 = entry
+        positive_entries_obj_1 = [] 
+        positive_entries_obj_2 = []
+        for obj_1_patch in obj_dict[object_1]:
+            for obj_2_patch in obj_dict[object_2]:
+                intro_prompt = image_patch.location_template(object_1,object_2,obj_1_patch.center,obj_2_patch.center,image_patch.height,image_patch.width)
+                statement_1 = f'{object_1} is {relation} {object_2}'
+                answer = image_patch.llm_query(f'{intro_prompt}. Is this statement correct?:{statement_1} ',long_answer=True)
+                
+                if 'yes' in answer.lower() or statement_1 in answer.lower():
+                    verify_obj_relation_list.append('yes')
+                    positive_entries_obj_1.append(obj_1_patch)
+                    positive_entries_obj_2.append(obj_2_patch)
+        if len(positive_entries_obj_2) != 0:
+            obj_dict[object_2]= positive_entries_obj_2
+        else:
+            return 'no'
+        if len(positive_entries_obj_1) != 0:
+            obj_dict[object_1] = positive_entries_obj_1
+        else:
+            return 'no'
+        if len(verify_obj_relation_list)<  i+1:
+            verify_obj_relation_list.append('no')
+    if all(x == 'yes' for x in verify_obj_relation_list): 
+        return 'yes'
+    return 'no'
+"""
+Given the question, find the object_list and object_relation_list for multi_obj_rel
+Question: Is there a knife to the right of the bottle that is to the left of the food? Arguments: object_list=['knife','bottle','food'], object_relation_list=[('knife','to the right of','bottle'),('bottle','to the left of','food')]
+Question: Are there any buns to the left of the container on the right side? Arguments: object_list=['buns','container'], object_relation_list=[('buns','to the left of','container')]

@@ -1,9 +1,11 @@
 ImagePatch is a Python class with the following methods:
-    - find returns a tuple of cropped image patches and scores 
+    - find returns a bounding box 
     - verify property returns a score how likely an object contains an attribute
     - overlaps_with returns true if ImagePatch 1 contains ImagePatch 2
+    - llm_query asks a question to GPT3 
 ImagePatch has the following attributes:
     - left, lower, right, upper, horizontal_center, vertical_center 
+ 
 Examples:
 Query: Which caption is correct: "the horse is eating the grass" or "the grass is eating the horse"?
     >>> def execute_command(image):
@@ -23,14 +25,24 @@ Query: Which caption is correct: "the computer is on the books" or "the books ar
     >>>     image_patch = ImagePatch(image)
     >>>     computer = image_patch.find('computer')
     >>>     books = image_patch.find('books')
-    >>>     if computer.vertical_center > books.vertical_center:
+    >>>     
+    >>>     if v_b > v_c:
     >>>         return "the computer is on the books"
-    >>>    else:
+    >>>     else:
     >>>         return "the books are on the computer"
+Query: Which caption is correct: "the truck is above the ground" or "the ground is above the truck"?
+    >>> def execute_command(image):
+    >>>     image_patch = ImagePatch(image)
+    >>>     computer,_,v_t = image_patch.find('truck')
+    >>>     books,_,v_g = image_patch.find('ground')
+    >>>     if v_t > v_g:
+    >>>         return "the ground is above the truck"
+    >>>     else:
+    >>>         return "the truck is above the ground"
 Query: Which caption is correct: "the ball is in the water" or "the water is in the ball"?
 >>>     def execute_command(image):
->>>           ball = image_patch.find('ball')
->>>           water = image_patch.find('water')
+>>>           ball,_,_ = image_patch.find('ball')
+>>>           water,_,_ = image_patch.find('water')
 >>>           if ball.overlaps_with(water):
 >>>             return "the ball is in the water"
 >>>           else:
@@ -38,24 +50,26 @@ Query: Which caption is correct: "the ball is in the water" or "the water is in 
 Query: Which caption is correct: "the table is to the left of the window" or "the window is to the left of the table"?
 >>>     def execute_command(image):
 >>>           image_patch = ImagePatch(image)
->>>           table = image_patch.find('table')
->>>           window = image_patch.find('window')
->>>           if table.horizontal_center < window.horizontal_center:
+>>>           table,h_t,v_t = image_patch.find('table')
+>>>           window,h_w,v_w = image_patch.find('window')
+>>>           if h_t < h_w:
 >>>             return "the table is to the left of the window"
->>>           if window.horizontal_center < table.horizontal_center:
+>>>           else:
 >>>              return "the window is to the left of the table"
 Query: Which caption is correct: "the man is to the right of the woman" or "the woman is to the right of the man"?
 >>>     def execute_command(image):
 >>>           image_patch = ImagePatch(image)
->>>           man = image_patch.find('man')
->>>           woman = image_patch.find('woman')
->>>           if man.horizontal_center < woman.horizontal_center:
+>>>           man,h_m,v_m = image_patch.find('man')
+>>>           woman,h_w,v_w = image_patch.find('woman')
+>>>           if h_m < h_w :
 >>>             return "the woman is to the right of the man"
->>>           if woman.horizontal_center < man.horizontal_center:
+>>>           else:
 >>>              return "the man is to the right of the woman"
 
 Write a function using Python and the ImagePatch class (above) that could be executed to provide an answer to the query. 
 
 Consider the following guidelines:
 - Use base Python (comparison, sorting) for basic logical operations, left/right/up/down, math, etc.
+- Use if/else statements
+- Always return one of the statements given in the query
 Query: INSERT_QUERY_HERE

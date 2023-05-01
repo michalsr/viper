@@ -1,0 +1,41 @@
+For each question, the string followed by 'Template:' has to be one of the following: 
+    - all_same_different
+    - choose_attributes
+    - choose_global
+    - choose_obj_rel
+    - choose_object
+    - choose_rel 
+    - exist
+    - multi_obj_rel
+    - object_loc 
+    - simple_global_query
+    - simple_object_query
+    - two_same_different
+    - verify_attributes 
+    - verify_global 
+
+
+Question: Is the ipod black or white? Template: choose_attributes 
+Question: What is the knife on? Template: simple_object_query
+Question  Do you see a motorcycle to the right of the man that is walking on the road? Template: choose_rel 
+Question: Is there a knife to the right of the bottle that is to the left of the food? Template: multi_obj_rel
+Question: Does the net look white? Template: verify_attributes 
+Question: Is the wagon to the right or to the left of the man? Template: choose_rel 
+Question: Do you see a window there that is not small? Template: all_same_different 
+Question: Are there any buns to the left of the container on the right side? Template: multi_obj_rel
+Question: Do you see any grass there that is green? Template: verify_attributes 
+Question: Which side of the photo is the coconut on? Template: object_loc 
+Question: Do you see any bags? Template: exist 
+Question: Is it an outdoors scene? Template: verify_global
+Question: What is on the post? Template: simple_object_query
+Question: Is there any frisbee in the image that is orange? Template: verify_attributes
+Question: Is the garbage can to the left of the taxi? Template: choose_rel
+Question: Is there a bag to the right of the man wearing jeans? Template: choose_rel 
+Question: What kind of device is black? Template: simple_object_query
+Question: What food is on top of the salad? Template: simple_object_query
+Question: Is there a truck in this picture? Template: exist 
+Question: Is the dessert in the bottom of this picture? Template: object_loc 
+Question: Are there planes in this photo? Template: exist
+Question: Are there both a train and window in the image? Template: exist
+Question: What color is the cart to the left of the boxes? Template: simple_object_query
+Question: Which place is it? Template: simple_global_query

@@ -274,7 +274,7 @@ class CLIPModel(BaseModel):
             return result
 
     @torch.no_grad()
-    def compare(self, images: list[torch.Tensor], prompt, return_scores=False):
+    def compare(self, images: List[torch.Tensor], prompt, return_scores=False):
         images = [self.transform(im).unsqueeze(0).to(self.dev) for im in images]
         images = torch.cat(images, dim=0)
 
@@ -1070,6 +1070,29 @@ class CodexModel(BaseModel):
         #console.print(response,'response')
         return response
 
+class BLIPQAModel(BaseModel):
+    name = 'blipqa'
+    to_batch = True 
+    max_batch_size = 32
+    seconds_collect_data = 0.2
+    def __init__(self, gpu_number=0):
+        super().__init__(gpu_number)
+        from transformers import AutoProcessor, BlipProcessor, BlipForQuestionAnswering,BlipForConditionalGeneration
+        self.processor =  BlipProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large")
+        self.model =BlipForQuestionAnswering.from_pretrained("Salesforce/blip-vqa-capfilt-large").to("cuda")
+        self.model = self.model.to(self.dev)
+    @torch.no_grad()
+    def qa(self,image,prompt):
+        inputs = self.processor(images=image, text=prompt, return_tensors="pt", padding="longest").to(self.dev)
+        outputs = self.model.generate(**inputs)
+        generated_text = self.processor.decode(outputs[0], skip_special_tokens=True)
+        print(f'Genreated text: {generated_text}')
+        return generated_text
+    def forward(self,images,question):
+        response = self.qa(images,question)
+        return response
+
+
 
 class BLIPModel(BaseModel):
     name = 'blip'
@@ -1144,9 +1167,7 @@ class BLIPModel(BaseModel):
         inputs = self.processor(images=image, text=question, return_tensors="pt", padding="longest").to(self.dev)
         if self.half_precision:
             inputs['pixel_values'] = inputs['pixel_values'].half()
-        generated_ids = self.model.generate(**inputs, length_penalty=-1, num_beams=5, max_length=10, min_length=1,
-                                            do_sample=False, top_p=0.9, repetition_penalty=1.0,
-                                            num_return_sequences=1, temperature=1)
+        generated_ids = self.model.generate(**inputs)
         generated_text = self.processor.batch_decode(generated_ids, skip_special_tokens=True)
 
         return generated_text

@@ -1,0 +1,22 @@
+Given the Python code:
+"""
+def query_object(image,object_name,question):
+    """
+    Parameters
+    ----------
+    object_name: subject of question 
+    question: question to answer 
+    """
+    image_patch = ImagePatch(image)
+    object_patch = image_patch.find_center(object_name)
+    answer = object_patch.simple_query(question)
+    return answer 
+"""
+For each question, find the arguments (except for image) for query_object.
+Question: What is the knife on? Arguments: object_name='knife', question='What is the knife on?' 
+Question: What is on the post? Arguments: object_name='post', question='What is on the post?'
+Question: What kind of device is black? Arguments: object_name='device', question='What kind of device is black?'
+Question: What kind of food is on top of the salad? Arguments: object_name='salad', question='What kind of food is this?'
+Question: What kind of furniture is to the right of the table the lamp is on? Arguments: object_name='furniture', question='What kind of furniture is this?'
+
+

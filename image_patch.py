@@ -17,6 +17,8 @@ from utils import show_single_image, load_json
 from vision_processes import forward, config
 
 console = Console(highlight=False)
+ABOVE_WORDS = ['above','higher','on top',]
+BELOW_WORDS = ['below','lower','under','underneath']
 
 
 class ImagePatch:
@@ -102,15 +104,15 @@ class ImagePatch:
 
         self.height = self.cropped_image.shape[1]
         self.width = self.cropped_image.shape[2]
-
+        self.score = 1.0
         self.cache = {}
         self.queues = (None, None) if queues is None else queues
 
         self.parent_img_patch = parent_img_patch
-
+        
         self.horizontal_center = (self.left + self.right) / 2
         self.vertical_center = (self.lower + self.upper) / 2
-
+        self.center = None 
         if self.cropped_image.shape[1] == 0 or self.cropped_image.shape[2] == 0:
             raise Exception("ImagePatch has no area")
 
@@ -125,8 +127,12 @@ class ImagePatch:
             return self.cropped_image
         else:
             return self.parent_img_patch.original_image
-    def location_template(self,object_1_name,object_2_name,object_1_coords,object_2_coords):
-        return f"In an image pixels in the vertical direction increase from top to bottom and in the horizontal direction increase from left to right. The center of {object_1_name}'s bounding box is at {object_1_coords} and the center of {object_2_name}'s bounding box is at {object_2_coords}."
+    def location_short(self,object_1_name,object_2_name,object_1_coords,object_2_coords,image_height,image_width):
+        return f"In an image pixels in the vertical direction increase from top to bottom and in the horizontal direction increase from left to right. The horizontal and vertical center of {object_1_name}'s bounding box is at {object_1_coords} and the horizontal and vertical center of {object_2_name}'s bounding box is at {object_2_coords}."
+    def location_template(self,object_1_name,object_2_name,object_1_coords,object_2_coords,image_height,image_width):
+        return f"In an image of height {image_height} and width {image_width} pixels in the vertical direction increase from top to bottom and in the horizontal direction increase from left to right. The horizontal and vertical center of {object_1_name}'s bounding box is at {object_1_coords} and the horizontal and vertical center of {object_2_name}'s bounding box is at {object_2_coords}."
+    def location_template_relate(self,object_1_name,object_2_name,object_1_coords,object_2_coords,relate,image_height,image_width):
+        return f"In an image of height {image_height} and width {image_width} pixels in the vertical direction increase from top to bottom and in the horizontal direction increase from left to right. The horizontal and vertical center of {object_1_name}'s bounding box is at {object_1_coords} and the horizontal and vertical center of {object_2_name}'s bounding box is at {object_2_coords}. Is {object_1_name} {relate} {object_2_name}?"
 
     def find_center(self,object_name:str):
         #console.print('Running GLIP')
@@ -159,13 +165,41 @@ class ImagePatch:
         #print(len(scores),'scores')
         #boxes_on_image = self.draw_boxes(all_object_coordinates)
         new_image_patch = self.crop(left=coords[0],lower=coords[1],right=coords[2],upper=coords[3],confidence=1)
-        
+        new_image_patch.score = scores
         h_c = int((coords[0]+coords[2])/2)
-        h_b = int((coords[1]+coords[2])/2)
+        h_b = int((coords[1]+coords[3])/2)
         new_image_patch.center = (h_c,h_b)
         #print(coords[0],coords[1],coords[2],coords[3],'coords')
         return new_image_patch
+    def find_all(self,object_name,k=-1):
+        threshold = config.ratio_box_area_to_image_area
+        all_object_coordinates, scores = self.forward('owlvit', self.cropped_image, object_name)
+        new_objects = []
+        if threshold > 0:
+            area_im = self.width * self.height
+            all_areas = torch.tensor([(coord[2]-coord[0]) * (coord[3]-coord[1]) / area_im
+                                      for coord in all_object_coordinates])
+            mask = all_areas > threshold
+            # if not mask.any():
+            #     mask = all_areas == all_areas.max()  # At least return one element
+            all_object_coordinates = all_object_coordinates[mask]
+        if k>-1:
+            if len(scores) > k:
+                _,top_idx= torch.topk(scores,k=k)
+                all_object_coordinates = all_object_coordinates[top_idx.long()]
+            
+        for obj in all_object_coordinates:
+            new_obj = self.crop(left=obj[0],lower=obj[1],right=obj[2],upper=obj[3],confidence=1)
+            h_c = int((obj[0]+obj[2])/2)
+            h_b = int((obj[1]+obj[3])/2)
+            new_obj.center = (h_c,h_b)
+            new_objects.append(new_obj)
+            
 
+
+
+
+        return new_objects
     def find(self, object_name: str) -> list[ImagePatch]:
         """Returns a list of ImagePatch objects matching object_name contained in the crop if any are found.
         Otherwise, returns an empty list.
@@ -210,7 +244,8 @@ class ImagePatch:
         #boxes_on_image = self.draw_boxes(all_object_coordinates)
         new_image_patch = self.crop(left=coords[0],lower=coords[1],right=coords[2],upper=coords[3],confidence=1)
         h_c = int((coords[0]+coords[2])/2)
-        h_b = int((coords[1]+coords[2])/2)
+        h_b = int((coords[1]+coords[3])/2)
+        new_image_patch.score = scores
         #print(coords[0],coords[1],coords[2],coords[3],'coords')
         #new_image_patch = ImagePatch(boxes_on_image)
         #results = [new_image_patch]
@@ -352,8 +387,8 @@ class ImagePatch:
             A string describing the question to be asked.
         """
         #console.print('Running BLIP')
-        return self.forward('blip', self.cropped_image, question, task='qa')
-
+        return self.forward('blip', self.cropped_image, question=question,task='qa')
+    
     def compute_depth(self):
         """Returns the median depth of the image crop
         Parameters
@@ -370,7 +405,7 @@ class ImagePatch:
                               self.left:self.right]
         return depth_map.median()  # Ideally some kind of mode, but median is good enough for now
 
-    def crop(self, left: int, lower: int, right: int, upper: int, confidence: float) -> ImagePatch:
+    def crop(self, left: int, lower: int, right: int, upper: int, confidence=1) -> ImagePatch:
         """Returns a new ImagePatch containing a crop of the original image at the given coordinates.
         Parameters
         ----------
@@ -403,8 +438,7 @@ class ImagePatch:
         #.print('Cropping')
         return ImagePatch(self.cropped_image, left, lower, right, upper, self.left, self.lower, queues=self.queues,
                           parent_img_patch=None,confidence=confidence)
-
-    def overlaps_with(self, image_2):
+    def overlaps_with(self, left, lower, right, upper):
         """Returns True if a crop with the given coordinates overlaps with this one,
         else False.
         Parameters
@@ -417,17 +451,36 @@ class ImagePatch:
             the right border of the crop to be checked
         upper : int
             the upper border of the crop to be checked
-
         Returns
         -------
         bool
             True if a crop with the given coordinates overlaps with this one, else False
         """
-        right = image_2.right
-        left = image_2.left
-        upper = image_2.upper
-        lower = image_2.lower
         return self.left <= right and self.right >= left and self.lower <= upper and self.upper >= lower
+    # def overlaps_with(self, image_2):
+    #     """Returns True if a crop with the given coordinates overlaps with this one,
+    #     else False.
+    #     Parameters
+    #     ----------
+    #     left : int
+    #         the left border of the crop to be checked
+    #     lower : int
+    #         the lower border of the crop to be checked
+    #     right : int
+    #         the right border of the crop to be checked
+    #     upper : int
+    #         the upper border of the crop to be checked
+
+    #     Returns
+    #     -------
+    #     bool
+    #         True if a crop with the given coordinates overlaps with this one, else False
+    #     """
+    #     right = image_2.right
+    #     left = image_2.left
+    #     upper = image_2.upper
+    #     lower = image_2.lower
+    #     return self.left <= right and self.right >= left and self.lower <= upper and self.upper >= lower
 
     def llm_query(self, question: str, long_answer: bool = True) -> str:
         #console.print('Querying')
@@ -475,6 +528,105 @@ def best_image_match(list_patches: list[ImagePatch], content: List[str], return_
     if return_index:
         return scores
     return list_patches[scores]
+
+def compare_relation(obj_1_location,obj_2_location,rel_1,rel_2=None):
+    print(rel_1,'rel 1')
+    print(obj_1_location,'obj 1')
+    print(obj_2_location,'obj2 location')
+    if obj_1_location[0] < obj_2_location[0]:
+        relation_h = 'to the left'
+    else:
+        relation_h = 'to the right'
+    if obj_1_location[1] < obj_2_location[1]:
+        relation_v = 'above'
+    else:
+        relation_v = 'below'
+    
+
+    if rel_2 == None:
+        if 'in front' in rel_1:
+            # assume in front means larger y and/or higher x 
+            if relation_h =='to the left' or relation_v=='below':
+                return 'yes'
+            else:
+                return 'no'
+        if 'behind' in rel_1:
+            if relation_h =='to the right' or relation_v=='above':
+                return 'yes'
+            else:
+                return 'no'
+
+
+
+        if 'left' in rel_1:
+            if relation_h == 'to the left':
+                return 'yes'
+            else:
+                return 'no'
+        if 'right' in rel_1:
+            if relation_h == 'to the right':
+                return 'yes'
+            else:
+                return 'no'
+        if any(x in rel_1 for x in ABOVE_WORDS):
+            if relation_v == 'above':
+                return 'yes'
+            else:
+                return 'no'
+
+        if any(x in rel_1 for x in BELOW_WORDS):
+            if relation_v == 'below':
+                return 'yes'
+            else:
+                return 'no'
+        
+    else:
+
+        if 'left' in rel_1 or 'left' in rel_2 or 'right' in rel_1 or 'right' in rel_2:
+            if relation_h == 'to the left':
+                return 'to the left of'
+            else:
+                return 'to the right of'
+        if any(x in rel_1 for x in ABOVE_WORDS) :
+            # rel_1 is above 
+            # rel_2 is below 
+            if relation_v == 'above':
+                return rel_1
+            else:
+                return rel_2 
+        if any (x in rel_1 for x in BELOW_WORDS):
+            if relation_v == 'below':
+                return rel_1
+            else:
+                return rel_2 
+        if any(x in rel_2 for x in ABOVE_WORDS) :
+            # rel_1 is above 
+            # rel_2 is below 
+            if relation_v == 'above':
+                return rel_2
+            else:
+                return rel_1 
+        if any (x in rel_2 for x in BELOW_WORDS):
+            if relation_v == 'below':
+                return rel_2
+            else:
+                return rel_1 
+        if 'front' in rel_1:
+            # assume rel_2 is opposite 
+            if relation_h =='to the left' or relation_v=='below':
+                return rel_1
+            else:
+                return rel_2
+        if 'behind' in rel_1:
+            if relation_h =='to the right' or relation_v=='above':
+                return rel_1
+            else:
+                return rel_2
+
+
+        
+    
+            
 
 
 def distance(patch_a: Union[ImagePatch, float], patch_b: Union[ImagePatch, float]) -> float:
@@ -593,3 +745,29 @@ def coerce_to_numeric(string, no_string=False):
         # No numeric values. Return input
         return string
     return numeric
+def distance(patch_a: Union[ImagePatch, float], patch_b: Union[ImagePatch, float]) -> float:
+    """
+    Returns the distance between the edges of two ImagePatches, or between two floats.
+    If the patches overlap, it returns a negative distance corresponding to the negative intersection over union.
+    """
+
+    if isinstance(patch_a, ImagePatch) and isinstance(patch_b, ImagePatch):
+        a_min = np.array([patch_a.left, patch_a.lower])
+        a_max = np.array([patch_a.right, patch_a.upper])
+        b_min = np.array([patch_b.left, patch_b.lower])
+        b_max = np.array([patch_b.right, patch_b.upper])
+
+        u = np.maximum(0, a_min - b_max)
+        v = np.maximum(0, b_min - a_max)
+
+        dist = np.sqrt((u ** 2).sum() + (v ** 2).sum())
+
+        if dist == 0:
+            box_a = torch.tensor([patch_a.left, patch_a.lower, patch_a.right, patch_a.upper])[None]
+            box_b = torch.tensor([patch_b.left, patch_b.lower, patch_b.right, patch_b.upper])[None]
+            dist = - box_iou(box_a, box_b).item()
+
+    else:
+        dist = abs(patch_a - patch_b)
+
+    return dist

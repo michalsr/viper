@@ -1,0 +1,22 @@
+Given the following Python code:
+
+"""
+def object_loc(image,subject,question):
+    """
+    Parameters
+    ----------
+    subject: object/entity in sentence 
+    question: question about object 
+    """
+    image_patch = ImagePatch(image)
+    subject_patch = image_patch.find_center(subject)
+    intro = f'In an image of height {image_patch.height} and width {image.width} pixels in the vertical direction increase from top to bottom and in the horizontal direction increase from left to right.'
+    second_setence = f'Object {subject} is located at {subject_patch.center}.'
+    final_question = intro+second_setence+question
+    answer = image_patch.llm_query(final_question,long_answer=True)
+    return answer 
+"""
+For each question, find the arguments (except for image) for the Python function object_loc above:
+Question: Which side of the photo is the coconut on? Arguments: subject='coconut',question='Which side of the photo is the coconut on?'
+Question: Is the dessert in the bottom of this picture? Arguments: subject='dessert', question='Is the dessert in the bottom of this picture?'
+

@@ -55,6 +55,6 @@ Query: Which caption is correct: "the table is to the left of the window" or "th
     >>>     else:
     >>>         return "the window is to the left of the table"
 
+Write a function using Python and the ImagePatch class (above) that could be executed to provide an answer to the query. 
 
 Query: INSERT_QUERY_HERE
-Write a function using Python and the ImagePatch class (above) that could be executed to provide an answer to the query. 

@@ -1,0 +1,8 @@
+Given the question, find the object, attrribute_1 and attribute_2.
+
+object: main subject of question 
+attribute_1: describes object
+attribute_2: describes object 
+
+Question: Is the ipod black or white? Arguments: object=ipod, attribute_1=black, attribute_2=white
+Question: Is the dog happy or sad? Arguments: object=dog, attribute_1=happy, attribute_2=sad
